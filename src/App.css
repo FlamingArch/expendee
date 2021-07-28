@@ -1,0 +1,10 @@
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: #e3e4e5;
+}
+
+.sample_card {
+
+}

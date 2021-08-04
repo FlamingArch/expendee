@@ -18,7 +18,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-console.log('firebase :>> ', firebase);
+// console.log('firebase :>> ', firebase);
 
 ReactDOM.render(
   <React.StrictMode>

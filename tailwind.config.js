@@ -16,6 +16,8 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
 
+      theme1: "#E3E4E5",
+      theme2: "#F3F4F5",
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -248,6 +250,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        "Manrope",
         "ui-sans-serif",
         "system-ui",
         "-apple-system",
@@ -264,6 +267,7 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
       serif: [
+        "Courier Prime",
         "ui-serif",
         "Georgia",
         "Cambria",

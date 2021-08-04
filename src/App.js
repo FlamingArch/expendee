@@ -1,11 +1,12 @@
-import './App.css';
-import Sidebar from './Components/Sidebar';
+import "./App.css";
+import Page from "./Components/Page";
+import Sidebar from "./Components/Sidebar";
 
 function App() {
   return (
     <div className="App bg-theme1">
-      <Sidebar/>
-      <div className="div bg-theme2"></div>
+      <Sidebar />
+      <Page />
     </div>
   );
 }

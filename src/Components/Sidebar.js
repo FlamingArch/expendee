@@ -1,9 +1,12 @@
 import React from 'react'
+import Branding from './Branding'
+import CurrentCard from './CurrentCard'
 
 const Sidebar = () => {
     return (
         <div className="flex flex-col p-6 h-full justify-items-center">
-            <div className="font-serif text-3xl text-center">EXPENDEE</div>
+            <Branding/>
+            <CurrentCard/>
         </div>
     )
 }

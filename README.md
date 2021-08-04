@@ -1,8 +1,3 @@
-# Expendee - The Expense Tracked
-Official Repository of Expendee, a Expense tracker Progressive Web App.
-
-Built using React.js, Electron.js, Tailwind CSS, SCSS and Anime.js
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

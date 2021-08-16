@@ -20,10 +20,6 @@ firebase.initializeApp(firebaseConfig);
 
 // console.log('firebase :>> ', firebase);
 
-let spent = 0;
-let received = 0;
-let expenses = [];
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

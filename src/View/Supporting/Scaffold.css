@@ -1,0 +1,17 @@
+.styling {
+  background-color: #f0f2ff;
+  /* background-color: #ff0000; */
+}
+
+.layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 992px) {
+  .layout {
+    flex-direction: column;
+  }
+}

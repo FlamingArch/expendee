@@ -2,11 +2,21 @@ import AppBar from "./Supporting/AppBar";
 import Scaffold from "./Supporting/Scaffold";
 
 const App = () => {
-  var logo = (
-    <h1 className="text-2xl place-content-center grid font-serif">EXPENDEE</h1>
+  var logo = <h1 className="text-2xl font-serif">EXPENDEE</h1>;
+
+  var appBar_primaryChild = (
+    <div className="rounded-md m-4 p-3 bg-black text-white shadow-xl place-content-center flex">
+      Sup
+    </div>
   );
 
-  var appBar = <AppBar logo={logo}>Sup</AppBar>;
+  var appBar = (
+    <AppBar
+      logo={logo}
+      centerLogo={true}
+      primaryChild={appBar_primaryChild}
+    ></AppBar>
+  );
 
   return (
     <Scaffold appBar={appBar}>

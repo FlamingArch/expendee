@@ -1,11 +1,11 @@
 import React from "react";
 import "./AppBar.css";
 
-const AppBar = ({ logo, primary_child, children }) => {
+const AppBar = ({ logo, primaryChild, children, centerLogo }) => {
   return (
     <div className="base">
-      {logo && <div className="logo">{logo}</div>}
-      {primary_child && <div className="primary-child">{primary_child}</div>}
+      <div className={`logo" ${centerLogo ? "center_logo" : ""}`}>{logo}</div>
+      {primaryChild && <div className="primary-child">{primaryChild}</div>}
       {children}
     </div>
   );

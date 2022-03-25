@@ -2,7 +2,11 @@ import AppBar from "./Supporting/AppBar";
 import Scaffold from "./Supporting/Scaffold";
 
 const App = () => {
-  var appBar = <AppBar>Sup</AppBar>;
+  var logo = (
+    <h1 className="text-2xl place-content-center grid font-serif">EXPENDEE</h1>
+  );
+
+  var appBar = <AppBar logo={logo}>Sup</AppBar>;
 
   return (
     <Scaffold appBar={appBar}>

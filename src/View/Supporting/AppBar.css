@@ -2,6 +2,11 @@
   width: 256px;
   height: 100%;
   display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding: 32px;
 }
 
 @media screen and (max-width: 992px) {

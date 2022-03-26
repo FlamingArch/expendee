@@ -3,7 +3,7 @@ import "./Scaffold.css";
 
 const Scaffold = ({ appBar, children }) => {
   return (
-    <div className="layout styling">
+    <div style={{ fontSize: "14px" }} className="layout styling">
       {appBar} {children}
     </div>
   );

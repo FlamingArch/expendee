@@ -1,37 +1,57 @@
+import { useContext } from "react";
+
+import SummaryCard from "./Elements/SummaryCard";
 import AppBar from "./Supporting/AppBar";
 import Scaffold from "./Supporting/Scaffold";
+import Page from "./Supporting/Page";
+import { TabBar, TabBarContext, Section, Tab } from "./Supporting/TabBar";
+
+import IconAll from "./Icons/all.svg";
+import IconSpent from "./Icons/spent.svg";
+import IconReceived from "./Icons/received.svg";
+import IconSimpleInterest from "./Icons/simple_interest.svg";
+import IconCompoundInterest from "./Icons/compound_interest.svg";
+import IconTips from "./Icons/tips.svg";
 
 const App = () => {
-  var logo = <h1 className="text-2xl font-serif">EXPENDEE</h1>;
+  const { selectedIndex } = useContext(TabBarContext);
+
+  var logo = <h1 className="text-2xl font-serif">EXPENSES</h1>;
 
   var appBar_primaryChild = (
-    <div className="rounded-md m-4 p-3 bg-black text-white shadow-xl place-content-center flex">
-      Sup
-    </div>
+    <SummaryCard
+      totalBudget={`$45,565`}
+      spent={`$17,231`}
+      received={`$107,769`}
+    />
   );
 
   var appBar = (
-    <AppBar
-      logo={logo}
-      centerLogo={true}
-      primaryChild={appBar_primaryChild}
-    ></AppBar>
+    <AppBar logo={logo} centerLogo={true} primaryChild={appBar_primaryChild}>
+      <TabBar>
+        <Section heading="Transactions">
+          <Tab index={0} icon={IconAll} label="All Transactions" />
+          <Tab index={1} icon={IconSpent} label="Spent" />
+          <Tab index={2} icon={IconReceived} label="Received" />
+        </Section>
+        <Section heading="Calculate">
+          <Tab index={4} icon={IconSimpleInterest} label="Simple Interest" />
+          <Tab
+            index={5}
+            icon={IconCompoundInterest}
+            label="Compound Interest"
+          />
+          <Tab index={6} icon={IconTips} label="Tips" />
+        </Section>
+      </TabBar>
+    </AppBar>
   );
 
   return (
     <Scaffold appBar={appBar}>
-      <div
-        style={{
-          background: "white",
-          width: "100%",
-          height: "100%",
-          padding: "16px",
-          borderRadius: "10px 0px 0px 10px",
-          boxShadow: "0px 12px 40px rgba(0,0,0,0.16)",
-        }}
-      >
-        App
-      </div>
+      <Page>
+        <h1>{selectedIndex}</h1>
+      </Page>
     </Scaffold>
   );
 };

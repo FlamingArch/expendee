@@ -1,5 +1,5 @@
 .base {
-  width: 256px;
+  width: 320px;
   height: 100%;
   display: flex;
   overflow: hidden;
@@ -18,7 +18,7 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 600px) {
   .base {
     height: 128px;
     width: 100%;

@@ -1,5 +1,5 @@
 .styling {
-  background-color: #f0f2ff;
+  background-color: #e3e4e5;
   /* background-color: #ff0000; */
 }
 
@@ -10,7 +10,7 @@
   flex-direction: row;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 600px) {
   .layout {
     flex-direction: column;
   }

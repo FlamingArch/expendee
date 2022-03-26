@@ -16,7 +16,7 @@ import IconTips from "./Icons/tips.svg";
 const App = () => {
   const { selectedIndex } = useContext(TabBarContext);
 
-  var logo = <h1 className="text-2xl font-serif">EXPENSES</h1>;
+  var logo = <h1 className="text-2xl font-serif">EXPENDEE</h1>;
 
   var appBar_primaryChild = (
     <SummaryCard
@@ -35,13 +35,13 @@ const App = () => {
           <Tab index={2} icon={IconReceived} label="Received" />
         </Section>
         <Section heading="Calculate">
-          <Tab index={4} icon={IconSimpleInterest} label="Simple Interest" />
+          <Tab index={3} icon={IconSimpleInterest} label="Simple Interest" />
           <Tab
-            index={5}
+            index={4}
             icon={IconCompoundInterest}
             label="Compound Interest"
           />
-          <Tab index={6} icon={IconTips} label="Tips" />
+          <Tab index={5} icon={IconTips} label="Tips" />
         </Section>
       </TabBar>
     </AppBar>

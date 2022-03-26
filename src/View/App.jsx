@@ -1,10 +1,10 @@
 import { useContext } from "react";
 
-import SummaryCard from "./Elements/SummaryCard";
-import AppBar from "./Supporting/AppBar";
-import Scaffold from "./Supporting/Scaffold";
-import Page from "./Supporting/Page";
-import { TabBar, TabBarContext, Section, Tab } from "./Supporting/TabBar";
+import SummaryCard from "./Fragments/SummaryCard";
+
+import AppBar from "./Components/AppBar";
+import Scaffold from "./Components/Scaffold";
+import { TabBar, TabBarContext, Section, Tab } from "./Components/TabBar";
 
 import IconAll from "./Icons/all.svg";
 import IconSpent from "./Icons/spent.svg";
@@ -12,6 +12,13 @@ import IconReceived from "./Icons/received.svg";
 import IconSimpleInterest from "./Icons/simple_interest.svg";
 import IconCompoundInterest from "./Icons/compound_interest.svg";
 import IconTips from "./Icons/tips.svg";
+
+import All from "./Pages/All";
+import Spent from "./Pages/Spent";
+import Received from "./Pages/Received";
+import SimpleInterest from "./Pages/SimpleInterest";
+import CompoundInterest from "./Pages/CompoundInterest";
+import Tips from "./Pages/Tips";
 
 const App = () => {
   const { selectedIndex } = useContext(TabBarContext);
@@ -49,9 +56,19 @@ const App = () => {
 
   return (
     <Scaffold appBar={appBar}>
-      <Page>
-        <h1>{selectedIndex}</h1>
-      </Page>
+      {selectedIndex === 0 ? (
+        <All />
+      ) : selectedIndex === 1 ? (
+        <Spent />
+      ) : selectedIndex === 2 ? (
+        <Received />
+      ) : selectedIndex === 3 ? (
+        <SimpleInterest />
+      ) : selectedIndex === 4 ? (
+        <CompoundInterest />
+      ) : selectedIndex === 5 ? (
+        <Tips />
+      ) : null}
     </Scaffold>
   );
 };

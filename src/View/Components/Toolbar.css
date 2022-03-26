@@ -1,0 +1,13 @@
+.base {
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.title {
+  font-size: 20px;
+  height: 100%;
+  padding: 8px;
+}

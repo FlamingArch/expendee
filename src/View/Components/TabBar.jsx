@@ -49,4 +49,10 @@ export const Tab = ({ icon, label, trailing, index }) => {
   );
 };
 
+export const TabView = ({ children }) => {
+  const { selectedIndex } = useContext(TabBarContext);
+
+  return children[selectedIndex];
+};
+
 export default TabBar;

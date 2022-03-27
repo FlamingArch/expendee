@@ -1,21 +1,21 @@
 import { createContext, useContext, useState } from "react";
 import "./TabBar.css";
 
-export const TabBarContext = createContext();
+export const TabViewContext = createContext();
 
 import React from "react";
 
-export const TabBarProvider = ({ children }) => {
+export const TabViewProvider = ({ children }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
-    <TabBarContext.Provider
+    <TabViewContext.Provider
       value={{
         selectedIndex: selectedIndex,
         setSelectedIndex: setSelectedIndex,
       }}
     >
       {children}
-    </TabBarContext.Provider>
+    </TabViewContext.Provider>
   );
 };
 
@@ -33,7 +33,7 @@ export const Section = ({ children, heading }) => {
 };
 
 export const Tab = ({ icon, label, trailing, index }) => {
-  const { selectedIndex, setSelectedIndex } = useContext(TabBarContext);
+  const { selectedIndex, setSelectedIndex } = useContext(TabViewContext);
 
   return (
     <div
@@ -50,7 +50,7 @@ export const Tab = ({ icon, label, trailing, index }) => {
 };
 
 export const TabView = ({ children }) => {
-  const { selectedIndex } = useContext(TabBarContext);
+  const { selectedIndex } = useContext(TabViewContext);
 
   return children[selectedIndex];
 };

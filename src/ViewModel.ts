@@ -1,7 +1,7 @@
 import Transaction, { TransactionType } from "./Model/Transaction";
 import Wallet from "./Model/Wallet";
 
-class ViewModel {
+export default class ViewModel {
   wallets: Wallet[] = [];
 
   constructor() {}
@@ -38,4 +38,5 @@ class ViewModel {
       (e: Transaction) => e.wallet.id === wallet.id
     );
   }
+  
 }

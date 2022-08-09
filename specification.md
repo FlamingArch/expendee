@@ -7,7 +7,7 @@ Also uses Recoil for State Management. React Router for Routing, Framer Motion f
 
 ## Proposed Features
 
-- Progressive Web App, responsive and adaptive on different screen sizes (Mobile, Desktop or Tablet) and input types (Touch/Pen, Pointer) 
+- Progressive Web App, responsive and adaptive on different screen sizes (Mobile, Desktop or Tablet) and input types (Touch/Pen, Pointer)
 - Add Expenses / Gains.
 - Auto Add Date/Timestamp, but allows modifying/manual timestamping.
 - Add Photos, Description, Category (with Color, Icon and Label), Payment Method, Recipient/ Merchant, Currency and Wallet to Expense.

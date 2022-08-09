@@ -1,20 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { FirebaseProvider } from "./Firebase";
+import "./index.scss";
 
-import App from "./View/App";
-
-import { TabViewProvider } from "./View/Components/TabBar";
-
-
-import SignIn from "./View/Pages/SignIn";
-
-
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <TabViewProvider>
+    <FirebaseProvider>
       <App />
-    </TabViewProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+    </FirebaseProvider>
+  </React.StrictMode>
 );

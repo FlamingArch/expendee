@@ -12,6 +12,9 @@
 body {
   background-color: black;
   color: #fff;
+}
+
+#root {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -29,4 +32,8 @@ body {
   &:hover {
     box-shadow: 0px 24px 100px rgba($color: #06f, $alpha: 0.5);
   }
+}
+
+* {
+  user-select: none;
 }

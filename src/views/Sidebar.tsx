@@ -7,6 +7,7 @@ type ViewProps = {
 
 type HeaderProps = {
   heading: string;
+  actions?: React.ReactNode;
   children?: React.ReactNode;
 };
 
@@ -16,22 +17,25 @@ function View({ children, width }: ViewProps) {
       animate={{ width: width }}
       exit={{ width: "0" }}
       style={{ width: 0 }}
-      className="flex flex-col items-end"
+      className="flex flex-col items-end dark:border-r-[#222] dark:border-r"
     >
       <div style={{ minWidth: width }}>{children}</div>
     </motion.div>
   );
 }
 
-function Header({ heading, children }: HeaderProps) {
+function Section({ heading, actions, children }: HeaderProps) {
   return (
-    <div className="flex justify-between items-center p-6">
-      <p className="font-bold uppercase">{heading}</p>
-      <div className="flex gap-6">{children}</div>
+    <div className="flex flex-col p-6 gap-4">
+      <div className="flex justify-between items-center">
+        <p className="font-bold uppercase">{heading}</p>
+        <div className="flex gap-6">{actions}</div>
+      </div>
+      {children}
     </div>
   );
 }
 
-const Sidebar = { View, Header };
+const Sidebar = { View, Section };
 
 export default Sidebar;

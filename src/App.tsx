@@ -6,7 +6,7 @@ export default function App() {
     <>
       <PageNavigation />
       <PageTransactions />
-      <div className="bg-[#f2f3f6] text-black font-bold flex-grow grid place-content-center">
+      <div className="bg-[#f2f3f6] text-black dark:bg-black dark:text-white font-bold flex-grow grid place-content-center">
         No Transaction Selected
       </div>
     </>

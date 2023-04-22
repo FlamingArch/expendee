@@ -16,13 +16,13 @@ export default function PageTransactions() {
   return (
     <div
       style={{ width: 350 }}
-      className="bg-[#f2f3f6] text-black border-l-[#ddd] border flex flex-col"
+      className="bg-[#f2f3f6] dark:bg-black  dark:text-white dark:fill-white text-black border-r-[#ddd] dark:border-r-[#222] border-r flex flex-col"
     >
       <div className="flex p-3 justify-between items-center">
         <div className="flex">
           {!visible && (
             <Button buttonStyle="toolbar" onClick={toggleVisible}>
-              <IconCollapseSidebar className="stroke-black" />
+              <IconCollapseSidebar className="stroke-black dark:stroke-white" />
             </Button>
           )}
           <Button buttonStyle="toolbar" Icon={IconTick} />

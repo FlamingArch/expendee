@@ -27,28 +27,37 @@ export default function PageNavigation() {
             budgetLeft="12,123.3"
             balanceLeft="6,12,123.3"
           />
-          <Sidebar.Header heading="Transactions">
-            <Button
-              buttonStyle="sidebar"
-              Icon={IconPlus}
-              label="New"
-              onClick={() => {
-                console.log("New Transaction Pressed");
-              }}
-            />
-          </Sidebar.Header>
-          <Sidebar.Header heading="Accounts">
-            <Button
-              buttonStyle="sidebar"
-              Icon={IconPlus}
-              label="New"
-              onClick={() => {
-                console.log("New Account Pressed");
-              }}
-            />
-          </Sidebar.Header>
-          <p className="px-6">No Accounts Found</p>
-          <Sidebar.Header heading="Calculators" />
+          <Sidebar.Section
+            heading="Transactions"
+            actions={
+              <Button
+                buttonStyle="sidebar"
+                Icon={IconPlus}
+                label="New"
+                onClick={() => {
+                  console.log("New Transaction Pressed");
+                }}
+              />
+            }
+          >
+            No Current Transactions
+          </Sidebar.Section>
+          <Sidebar.Section
+            heading="Accounts"
+            actions={
+              <Button
+                buttonStyle="sidebar"
+                Icon={IconPlus}
+                label="New"
+                onClick={() => {
+                  console.log("New Account Pressed");
+                }}
+              />
+            }
+          >
+            No Accounts Found
+          </Sidebar.Section>
+          <Sidebar.Section heading="Calculators" />
         </Sidebar.View>
       ) : null}
     </AnimatePresence>

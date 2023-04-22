@@ -1,4 +1,4 @@
-import { IconProps } from "./Icons";
+import { motion } from "framer-motion";
 
 type ViewProps = {
   children: React.ReactNode;
@@ -10,23 +10,22 @@ type HeaderProps = {
   children?: React.ReactNode;
 };
 
-type HeaderActionProps = {
-  Icon: React.FunctionComponent<IconProps>;
-  label: string;
-  onClick: () => void;
-};
-
 function View({ children, width }: ViewProps) {
   return (
-    <div style={{ width: width }} className="flex flex-col p-6 gap-6">
-      {children}
-    </div>
+    <motion.div
+      animate={{ width: width }}
+      exit={{ width: "0" }}
+      style={{ width: 0 }}
+      className="flex flex-col items-end"
+    >
+      <div style={{ minWidth: width }}>{children}</div>
+    </motion.div>
   );
 }
 
 function Header({ heading, children }: HeaderProps) {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center p-6">
       <p className="font-bold uppercase">{heading}</p>
       <div className="flex gap-6">{children}</div>
     </div>

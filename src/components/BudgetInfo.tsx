@@ -7,7 +7,7 @@ type BudgetInfoProps = {
 export default function BudgetInfo(props: BudgetInfoProps) {
   // TODO: Format according to local currency format
   return (
-    <div className="flex flex-col p-6 gap-6 rounded-2xl bg-accent shadow-primary-card cursor-pointer">
+    <div className="flex flex-col m-6 p-6 gap-6 rounded-2xl bg-accent shadow-primary-card cursor-pointer">
       <p className="flex flex-col text-center ">
         <span className="text-2xl font-bold">
           {props.currencyIndicator} {props.budgetLeft}

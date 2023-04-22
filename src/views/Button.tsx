@@ -14,6 +14,7 @@ type ButtonProps = {
   Icon?: React.FunctionComponent<IconProps>;
   label?: string;
   buttonStyle?: ButtonStyles;
+  children?: React.ReactNode;
 } & Omit<React.ComponentProps<"button">, "children">;
 
 const buttonStyles = {
@@ -24,8 +25,13 @@ const buttonStyles = {
   },
   toolbar: {
     button:
-      "hover:bg-gray-200 rounded-xl p-3 flex items-center font-medium gap-2 transition-colors",
+      "hover:bg-gray-500 hover:bg-opacity-20 rounded-xl p-3 flex items-center font-medium gap-2 transition-colors",
     icon: "w-6 h-6",
+  },
+  primary: {
+    button:
+      "bg-accent rounded-xl p-3 flex items-center justify-center text-white gap-2 font-medium",
+    icon: "w-6 h-6 fill-white",
   },
 };
 
@@ -34,8 +40,10 @@ function getButtonStyles(style?: ButtonStyles) {
     case "sidebar":
       return buttonStyles.sidebar;
     case "toolbar":
-    default:
       return buttonStyles.toolbar;
+    case "primary":
+    default:
+      return buttonStyles.primary;
   }
 }
 
@@ -43,6 +51,7 @@ export default function Button({
   Icon,
   label,
   buttonStyle,
+  children,
   ...rest
 }: ButtonProps) {
   const styles = getButtonStyles(buttonStyle);
@@ -51,6 +60,7 @@ export default function Button({
     <button className={styles.button} {...rest}>
       {Icon && <Icon className={styles.icon} />}
       {label}
+      {children}
     </button>
   );
 }

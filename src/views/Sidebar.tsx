@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 type ViewProps = {
   children: React.ReactNode;
   width?: React.CSSProperties["width"];
+  className?: string;
 };
 
 type HeaderProps = {
@@ -11,15 +12,20 @@ type HeaderProps = {
   children?: React.ReactNode;
 };
 
-function View({ children, width }: ViewProps) {
+function View({ children, width, className }: ViewProps) {
   return (
     <motion.div
       animate={{ width: width }}
       exit={{ width: "0" }}
       style={{ width: 0 }}
-      className="flex flex-col items-end dark:border-r-[#222] dark:border-r"
+      className="items-end dark:border-r-[#222] dark:border-r "
     >
-      <div style={{ minWidth: width }}>{children}</div>
+      <div
+        style={{ minWidth: width }}
+        className={"flex flex-col overflow-scroll h-full " + className}
+      >
+        {children}
+      </div>
     </motion.div>
   );
 }

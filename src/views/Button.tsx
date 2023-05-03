@@ -6,6 +6,8 @@ import { IconProps } from "./Icons";
 type ButtonStyles =
   | "sidebar"
   | "toolbar"
+  | "navigation"
+  | "navigationSelected"
   | "primary"
   | "secondary"
   | "emphasis";
@@ -15,7 +17,8 @@ type ButtonProps = {
   label?: string;
   buttonStyle?: ButtonStyles;
   children?: React.ReactNode;
-} & Omit<React.ComponentProps<"button">, "children">;
+  className?: string;
+} & Omit<Omit<React.ComponentProps<"button">, "children">, "children">;
 
 const buttonStyles = {
   sidebar: {
@@ -33,6 +36,16 @@ const buttonStyles = {
       "bg-accent rounded-xl p-3 flex items-center justify-center text-white gap-2 font-medium",
     icon: "w-6 h-6 fill-white",
   },
+  navigation: {
+    button:
+      "flex items-center fill-white text-white font-medium bg-[#72798D] bg-opacity-20 p-6 gap-4 hover:bg-opacity-30 rounded-2xl",
+    icon: "w-6 h-6",
+  },
+  navigationSelected: {
+    button:
+      "flex items-center fill-black text-black font-medium bg-white p-6 gap-4 rounded-2xl shadow-[#AAA2] shadow-xl",
+    icon: "w-6 h-6",
+  },
 };
 
 function getButtonStyles(style?: ButtonStyles) {
@@ -41,6 +54,10 @@ function getButtonStyles(style?: ButtonStyles) {
       return buttonStyles.sidebar;
     case "toolbar":
       return buttonStyles.toolbar;
+    case "navigation":
+      return buttonStyles.navigation;
+    case "navigationSelected":
+      return buttonStyles.navigationSelected;
     case "primary":
     default:
       return buttonStyles.primary;
@@ -52,12 +69,13 @@ export default function Button({
   label,
   buttonStyle,
   children,
+  className,
   ...rest
 }: ButtonProps) {
   const styles = getButtonStyles(buttonStyle);
 
   return (
-    <button className={styles.button} {...rest}>
+    <button className={`${styles.button} ${className}`} {...rest}>
       {Icon && <Icon className={styles.icon} />}
       {label}
       {children}

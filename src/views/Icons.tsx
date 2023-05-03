@@ -83,3 +83,80 @@ export function IconCollapseSidebar({ className }: IconProps) {
     </svg>
   );
 }
+
+export function IconInOut({ className }: IconProps) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M9.01 14H2V16H9.01V19L13 15L9.01 11V14ZM14.99 13V10H22V8H14.99V5L11 9L14.99 13Z" />
+    </svg>
+  );
+}
+
+export function IconSimpleInterest({ className }: IconProps) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM8.83 7.05C9.81 7.05 10.6 7.84 10.6 8.83C10.6 9.81 9.81 10.6 8.83 10.6C7.84 10.6 7.05 9.81 7.05 8.83C7.05 7.84 7.84 7.05 8.83 7.05ZM15.22 17C14.24 17 13.45 16.2 13.45 15.22C13.45 14.24 14.24 13.45 15.22 13.45C16.2 13.45 17 14.24 17 15.22C17 16.2 16.2 17 15.22 17ZM8.5 17.03L7 15.53L15.53 7L17.03 8.5L8.5 17.03Z" />
+    </svg>
+  );
+}
+
+export function IconCompoundInterest({ className }: IconProps) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_802_210)">
+        <path d="M20.0399 8.70994V3.99994H15.3399L11.9999 0.689941L8.70994 3.99994H3.99994V8.70994L0.689941 11.9999L3.99994 15.3399V20.0399H8.70994L11.9999 23.3499L15.3399 20.0399H20.0399V15.3399L23.3499 11.9999L20.0399 8.70994ZM8.82994 7.04994C9.80994 7.04994 10.5999 7.83994 10.5999 8.82994C10.5999 9.29937 10.4135 9.74958 10.0815 10.0815C9.74958 10.4135 9.29937 10.5999 8.82994 10.5999C7.83994 10.5999 7.04994 9.80994 7.04994 8.82994C7.04994 7.83994 7.83994 7.04994 8.82994 7.04994ZM15.2199 16.9999C14.2399 16.9999 13.4499 16.1999 13.4499 15.2199C13.4499 14.7505 13.6364 14.3003 13.9684 13.9684C14.3003 13.6364 14.7505 13.4499 15.2199 13.4499C16.1999 13.4499 16.9999 14.2399 16.9999 15.2199C16.9999 15.692 16.8124 16.1448 16.4786 16.4786C16.1448 16.8124 15.692 16.9999 15.2199 16.9999ZM8.49994 17.0299L6.99994 15.5299L15.5299 6.99994L17.0299 8.49994L8.49994 17.0299Z" />
+      </g>
+      <defs>
+        <clipPath id="clip0_802_210">
+          <rect width="24" height="24" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+
+export function IconSplit({ className }: IconProps) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M14 4L16.29 6.29L13.41 9.17L14.83 10.59L17.71 7.71L20 10V4M10 4H4V10L6.29 7.71L11 12.41V20H13V11.59L7.71 6.29" />
+    </svg>
+  );
+}
+
+export function IconTips({ className }: IconProps) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M16 12C18.76 12 21 9.76 21 7C21 4.24 18.76 2 16 2C13.24 2 11 4.24 11 7C11 9.76 13.24 12 16 12ZM21.45 17.6C21.06 17.2 20.57 17 20 17H13L10.92 16.27L11.25 15.33L13 16H15.8C16.15 16 16.43 15.86 16.66 15.63C16.89 15.4 17 15.12 17 14.81C17 14.27 16.74 13.9 16.22 13.69L8.95001 11H7.00001V20L14 22L22.03 19C22.04 18.47 21.84 18 21.45 17.6ZM5.00001 11H0.984009V22H5.00001V11Z" />
+    </svg>
+  );
+}

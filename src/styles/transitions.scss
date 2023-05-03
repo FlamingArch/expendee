@@ -1,0 +1,121 @@
+.fadeIn {
+  animation: fadeInAnimationKeyframe 300ms ease-in-out forwards;
+  @keyframes fadeInAnimationKeyframe {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.fadeInTop {
+  animation: fadeInTopAnimationKeyframe 300ms ease-in-out forwards;
+
+  @keyframes fadeInTopAnimationKeyframe {
+    0% {
+      opacity: 0;
+      translate: 0 -100%;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
+
+.fadeInBottom {
+  animation: fadeInBottomAnimationKeyframe 300ms ease-in-out forwards;
+
+  @keyframes fadeInBottomAnimationKeyframe {
+    0% {
+      opacity: 0;
+      translate: 0 100%;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
+.fadeInLeft {
+  animation: fadeInLeftAnimationKeyframe 300ms ease-in-out forwards;
+
+  @keyframes fadeInLeftAnimationKeyframe {
+    0% {
+      opacity: 0;
+      translate: -100% 0;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
+
+.fadeInRight {
+  animation: fadeInRightAnimationKeyframe 300ms ease-in-out forwards;
+
+  @keyframes fadeInRightAnimationKeyframe {
+    0% {
+      opacity: 0;
+      translate: 100% 0;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
+
+.slideInTop {
+  animation: slideInTopAnimationKeyframe 300ms ease-in-out forwards;
+
+  @keyframes slideInTopAnimationKeyframe {
+    0% {
+      translate: 0 -100%;
+    }
+    100% {
+      translate: 0 0;
+    }
+  }
+}
+
+.slideInBottom {
+  animation: slideInBottomAnimationKeyframe 300ms ease-in-out forwards;
+
+  @keyframes slideInBottomAnimationKeyframe {
+    0% {
+      translate: 0 100%;
+    }
+    100% {
+      translate: 0 0;
+    }
+  }
+}
+.slideInLeft {
+  animation: slideInLeftAnimationKeyframe 300ms ease-in-out forwards;
+
+  @keyframes slideInLeftAnimationKeyframe {
+    0% {
+      translate: -100% 0;
+    }
+    100% {
+      translate: 0 0;
+    }
+  }
+}
+
+.slideInRight {
+  animation: slideInRightAnimationKeyframe 300ms ease-in-out forwards;
+
+  @keyframes slideInRightAnimationKeyframe {
+    0% {
+      translate: 100% 0;
+    }
+    100% {
+      translate: 0 0;
+    }
+  }
+}

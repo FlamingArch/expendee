@@ -18,7 +18,7 @@ function View({ children, width, className }: ViewProps) {
       animate={{ width: width }}
       exit={{ width: "0" }}
       style={{ width: 0 }}
-      className="items-end dark:border-r-[#222] dark:border-r "
+      className="items-end bg-black dark:border-r-[#222] dark:border-r"
     >
       <div
         style={{ minWidth: width }}

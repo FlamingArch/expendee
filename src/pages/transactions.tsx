@@ -1,5 +1,5 @@
 import useAppStore from "../hooks/useAppStore";
-import { Button } from "../views";
+import { Button, Page } from "../views";
 import {
   IconCollapseSidebar,
   IconPlus,
@@ -15,11 +15,11 @@ export default function PageTransactions() {
   }));
 
   return (
-    <div
-      style={{ width: 350 }}
-      className="bg-[#f2f3f6] dark:bg-black  dark:text-white dark:fill-white text-black border-r-[#ddd] dark:border-r-[#222] border-r flex flex-col"
-    >
-      <div className="flex p-3 items-center">
+    <Page>
+      <div
+        style={{ width: 360 }}
+        className="flex p-3 items-center backdrop-blur-xl bg-[#f2f3f6] bg-opacity-50 sticky top-0"
+      >
         {!visible && (
           <Button
             buttonStyle="toolbar"
@@ -40,6 +40,6 @@ export default function PageTransactions() {
       <div className="p-6 flex flex-col">
         <Button Icon={IconPlus} label="Add Transaction" />
       </div>
-    </div>
+    </Page>
   );
 }

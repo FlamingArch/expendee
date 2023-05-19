@@ -1,9 +1,15 @@
-import _ from "lodash";
-import TransactionCard from "@/components/transactionCard";
 import React from "react";
-import TransactionsAppBar from "./appBar";
+import TransactionsAppBar from "../appBar";
+import TransactionCard from "@/components/transactionCard";
+import _ from "lodash";
 
-export default function TransactionsPage() {
+export default function Page({
+  params,
+}: {
+  params: { transactionId: string };
+}) {
+  const transactionId = params.transactionId;
+
   return (
     <>
       <div
@@ -15,6 +21,7 @@ export default function TransactionsPage() {
           {_.range(0, 20).map((i) => (
             <TransactionCard
               key={i}
+              selected={transactionId === `${i}`}
               time="9:17 PM"
               amount="₹ 69"
               title="Dinner"
@@ -30,7 +37,7 @@ export default function TransactionsPage() {
       </div>
       <div className="bg-[#F2F3F6]  text-black border-r border-gray-200 h-screen overflow-scroll flex-grow">
         <div className="grid place-content-center h-full font-bold">
-          No Transaction Selected
+          Selected Transaction: {transactionId}
         </div>
       </div>
     </>

@@ -5,24 +5,33 @@ import { useAppStore } from "@/store";
 import React from "react";
 
 export default function ButtonToggleSidebar({
-  color = "dark",
+  color,
+  className,
+  hideOnVisible,
+  hideOnHidden,
 }: {
-  color: "dark" | "light";
+  color?: "dark" | "light";
+  className?: string;
+  hideOnHidden?: boolean;
+  hideOnVisible?: boolean;
 }) {
   const { visible, toggle } = useAppStore((state) => ({
     visible: state.sidebarVisible,
     toggle: state.toggleSidebar,
   }));
+
+  if (hideOnVisible && visible) return <></>;
+  if (hideOnHidden && !visible) return <></>;
+
+  const fill = color === "dark" ? "black" : "white";
+  const stroke = color === "dark" ? "white" : "black";
+
   return (
     <button
       onClick={toggle}
-      className={`ml-auto p-4 -m-2 rounded-xl hover:bg-${
-        color == "dark" ? "white" : "black"
-      } hover:bg-opacity-10 transition`}
+      className={`p-4 rounded-xl hover:bg-${fill} hover:bg-opacity-10 transition ${className}`}
     >
-      <IconCollapseSidebar
-        className={`w-5 h-5 stroke-${color == "dark" ? "white" : "black"}`}
-      />
+      <IconCollapseSidebar style={{ stroke: stroke }} className={`w-5 h-5`} />
     </button>
   );
 }

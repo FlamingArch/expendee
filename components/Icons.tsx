@@ -1,14 +1,16 @@
 export type IconProps = {
   className?: string;
+  style?: React.CSSProperties;
 };
 
-export function IconPlus({ className }: IconProps) {
+export function IconPlus({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M18 12.998H13V17.998C13 18.2632 12.8946 18.5176 12.7071 18.7051C12.5196 18.8926 12.2652 18.998 12 18.998C11.7348 18.998 11.4804 18.8926 11.2929 18.7051C11.1054 18.5176 11 18.2632 11 17.998V12.998H6C5.73478 12.998 5.48043 12.8926 5.29289 12.7051C5.10536 12.5176 5 12.2632 5 11.998C5 11.7328 5.10536 11.4784 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H11V5.998C11 5.73278 11.1054 5.47843 11.2929 5.29089C11.4804 5.10336 11.7348 4.998 12 4.998C12.2652 4.998 12.5196 5.10336 12.7071 5.29089C12.8946 5.47843 13 5.73278 13 5.998V10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4784 19 11.7328 19 11.998C19 12.2632 18.8946 12.5176 18.7071 12.7051C18.5196 12.8926 18.2652 12.998 18 12.998Z" />
@@ -16,13 +18,14 @@ export function IconPlus({ className }: IconProps) {
   );
 }
 
-export function IconTick({ className }: IconProps) {
+export function IconTick({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
@@ -30,13 +33,14 @@ export function IconTick({ className }: IconProps) {
   );
 }
 
-export function IconSort({ className }: IconProps) {
+export function IconSort({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M3 18V16H9V18H3ZM3 13V11H15V13H3ZM3 8V6H21V8H3Z" />
@@ -44,13 +48,14 @@ export function IconSort({ className }: IconProps) {
   );
 }
 
-export function IconSearch({ className }: IconProps) {
+export function IconSearch({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="25"
       viewBox="0 0 24 25"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M19.6 21.5L13.3 15.2C12.8 15.6 12.225 15.9167 11.575 16.15C10.925 16.3833 10.2333 16.5 9.5 16.5C7.68333 16.5 6.146 15.8707 4.888 14.612C3.63 13.3533 3.00067 11.816 3 10C3 8.18333 3.62933 6.646 4.888 5.388C6.14667 4.13 7.684 3.50067 9.5 3.5C11.3167 3.5 12.854 4.12933 14.112 5.388C15.37 6.64667 15.9993 8.184 16 10C16 10.7333 15.8833 11.425 15.65 12.075C15.4167 12.725 15.1 13.3 14.7 13.8L21 20.1L19.6 21.5ZM9.5 14.5C10.75 14.5 11.8127 14.0623 12.688 13.187C13.5633 12.3117 14.0007 11.2493 14 10C14 8.75 13.5623 7.68733 12.687 6.812C11.8117 5.93667 10.7493 5.49933 9.5 5.5C8.25 5.5 7.18733 5.93767 6.312 6.813C5.43667 7.68833 4.99933 8.75067 5 10C5 11.25 5.43767 12.3127 6.313 13.188C7.18833 14.0633 8.25067 14.5007 9.5 14.5Z" />
@@ -58,7 +63,7 @@ export function IconSearch({ className }: IconProps) {
   );
 }
 
-export function IconCollapseSidebar({ className }: IconProps) {
+export function IconCollapseSidebar({ className, style }: IconProps) {
   return (
     <svg
       width="24"
@@ -66,6 +71,7 @@ export function IconCollapseSidebar({ className }: IconProps) {
       viewBox="0 0 24 24"
       fill="none"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -84,13 +90,14 @@ export function IconCollapseSidebar({ className }: IconProps) {
   );
 }
 
-export function IconInOut({ className }: IconProps) {
+export function IconInOut({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M9.01 14H2V16H9.01V19L13 15L9.01 11V14ZM14.99 13V10H22V8H14.99V5L11 9L14.99 13Z" />
@@ -98,13 +105,14 @@ export function IconInOut({ className }: IconProps) {
   );
 }
 
-export function IconSimpleInterest({ className }: IconProps) {
+export function IconSimpleInterest({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM8.83 7.05C9.81 7.05 10.6 7.84 10.6 8.83C10.6 9.81 9.81 10.6 8.83 10.6C7.84 10.6 7.05 9.81 7.05 8.83C7.05 7.84 7.84 7.05 8.83 7.05ZM15.22 17C14.24 17 13.45 16.2 13.45 15.22C13.45 14.24 14.24 13.45 15.22 13.45C16.2 13.45 17 14.24 17 15.22C17 16.2 16.2 17 15.22 17ZM8.5 17.03L7 15.53L15.53 7L17.03 8.5L8.5 17.03Z" />
@@ -112,13 +120,14 @@ export function IconSimpleInterest({ className }: IconProps) {
   );
 }
 
-export function IconCompoundInterest({ className }: IconProps) {
+export function IconCompoundInterest({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_802_210)">
@@ -133,13 +142,14 @@ export function IconCompoundInterest({ className }: IconProps) {
   );
 }
 
-export function IconSplit({ className }: IconProps) {
+export function IconSplit({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M14 4L16.29 6.29L13.41 9.17L14.83 10.59L17.71 7.71L20 10V4M10 4H4V10L6.29 7.71L11 12.41V20H13V11.59L7.71 6.29" />
@@ -147,13 +157,14 @@ export function IconSplit({ className }: IconProps) {
   );
 }
 
-export function IconTips({ className }: IconProps) {
+export function IconTips({ className, style }: IconProps) {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M16 12C18.76 12 21 9.76 21 7C21 4.24 18.76 2 16 2C13.24 2 11 4.24 11 7C11 9.76 13.24 12 16 12ZM21.45 17.6C21.06 17.2 20.57 17 20 17H13L10.92 16.27L11.25 15.33L13 16H15.8C16.15 16 16.43 15.86 16.66 15.63C16.89 15.4 17 15.12 17 14.81C17 14.27 16.74 13.9 16.22 13.69L8.95001 11H7.00001V20L14 22L22.03 19C22.04 18.47 21.84 18 21.45 17.6ZM5.00001 11H0.984009V22H5.00001V11Z" />

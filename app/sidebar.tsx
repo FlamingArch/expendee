@@ -36,7 +36,7 @@ export default function Sidebar({ leading }: { leading: React.ReactNode }) {
       className="relative flex flex-col p-4 gap-4 h-screen w-full overflow-scroll bg-black backdrop-blur-xl bg-opacity-60"
       style={{ width: 330 }}
     >
-      <div className="p-1 flex sticky top-0">{leading}</div>
+      <div className="p-1 flex sticky z-10 -top-4 -m-4">{leading}</div>
 
       <div
         className={`text-center p-10 text-3xl uppercase ${brandingFont.className}`}

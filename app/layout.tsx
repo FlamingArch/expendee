@@ -1,5 +1,8 @@
+import Collapser from "@/components/collapser";
 import "./globals.scss";
 import { Manrope } from "next/font/google";
+import Sidebar from "./sidebar";
+import ButtonToggleSidebar from "./toggleSidebar";
 
 const font = Manrope({ subsets: ["latin"] });
 
@@ -15,7 +18,20 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <Collapser width={330}>
+          <Sidebar
+            leading={
+              <ButtonToggleSidebar
+                hideOnHidden
+                color="dark"
+                className="ml-auto"
+              />
+            }
+          />
+        </Collapser>
+        {children}
+      </body>
     </html>
   );
 }

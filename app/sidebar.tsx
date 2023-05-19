@@ -8,6 +8,7 @@ import {
   IconTips,
 } from "@/components/Icons";
 import { Playfair_Display } from "next/font/google";
+import Link from "next/link";
 
 const brandingFont = Playfair_Display({ subsets: ["latin"], weight: "800" });
 
@@ -33,7 +34,7 @@ function Heading({ children }: { children: React.ReactNode }) {
 export default function Sidebar({ leading }: { leading: React.ReactNode }) {
   return (
     <div
-      className="relative flex flex-col p-4 gap-4 h-screen w-full overflow-scroll bg-black backdrop-blur-xl bg-opacity-60"
+      className="relative flex flex-col p-4 gap-4 h-screen w-full overflow-scroll bg-black backdrop-blur-xl bg-opacity-60 border-r border-gray-200 dark:border-gray-800"
       style={{ width: 330 }}
     >
       <div className="p-1 flex sticky z-10 -top-4 -m-4">{leading}</div>
@@ -45,17 +46,24 @@ export default function Sidebar({ leading }: { leading: React.ReactNode }) {
       </div>
 
       <Heading>Transactions</Heading>
-      <Button label="All" Icon={IconInOut} />
-
+      <Link href="/transactions" className="flex flex-col">
+        <Button label="All" Icon={IconInOut} />
+      </Link>
       <div className="grid grid-cols-2 gap-4">
-        <Button className="flex-grow" label="Spent" Icon={IconInOut} />
-        <Button className="flex-grow" label="Received" Icon={IconInOut} />
+        <Link href="/transactions" className="flex flex-col">
+          <Button className="flex-grow" label="Spent" Icon={IconInOut} />
+        </Link>
+        <Link href="/transactions" className="flex flex-col">
+          <Button className="flex-grow" label="Received" Icon={IconInOut} />
+        </Link>
       </div>
 
       <Heading>Wallets</Heading>
       <div className="flex flex-col rounded-2xl flex-shrink-0 overflow-hidden backdrop-blur-lg backdrop-saturate-[1.125]">
         {wallets.map((e) => (
-          <Button {...e} className="rounded-none backdrop-filter-none" />
+          <Link href="/transactions" className="flex flex-col">
+            <Button {...e} className="rounded-none backdrop-filter-none" />
+          </Link>
         ))}
       </div>
 

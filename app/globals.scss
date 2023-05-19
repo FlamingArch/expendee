@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-hsl: 0, 0%, 100%;
+  --background-hsl: 0, 0%, 0%;
+}
+
+body {
+  background: hsl(var(--background-hsl));
+  color: hsl(var(--foreground-hsl));
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}

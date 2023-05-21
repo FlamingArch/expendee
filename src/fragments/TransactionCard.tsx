@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IconSimpleInterest } from "./Icons";
+import { IconSimpleInterest } from "../components/Icons";
 
 type TransactionCardProps = {
   time?: string;

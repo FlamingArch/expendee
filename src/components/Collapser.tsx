@@ -2,7 +2,7 @@
 
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useAppStore } from "@/store";
+import { useAppStore } from "@/src/store";
 
 type CollapserProps = {
   width: number;

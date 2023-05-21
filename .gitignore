@@ -18,6 +18,8 @@
 # misc
 .DS_Store
 *.pem
+vite.config.js
+vite.config.ts
 
 # debug
 npm-debug.log*

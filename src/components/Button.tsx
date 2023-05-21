@@ -1,4 +1,4 @@
-import { IconProps } from "@/types/Icon";
+import { IconProps } from "@/src/types/Icon";
 
 type ButtonProps =
   | {
@@ -8,14 +8,23 @@ type ButtonProps =
       children?: React.ReactNode;
       styles?: React.CSSProperties;
       className?: string;
-    } & Omit<React.HTMLProps<HTMLButtonElement>, "className">;
+      buttonStyle?: ButtonStyles;
+    } & Omit<Omit<React.HTMLProps<HTMLButtonElement>, "className">, "type">;
+
+type ButtonStyles = "navLink" | "navLinkSelected";
 
 const buttonStyleClasses = {
   navLink: {
     button:
       "bg-[#72798D] transition bg-opacity-[0.32] hover:bg-opacity-50 p-5 rounded-2xl flex font-medium backdrop-blur-lg backdrop-saturate-[1.125] hover:shadow-xl gap-2 items-center",
     iconContainer: "",
-    icon: "fill-white w-5 h-5",
+    icon: "fill-white w-6 h-6",
+  },
+  navLinkSelected: {
+    button:
+      "bg-white text-black p-5 rounded-2xl flex font-medium shadow-xl gap-2 items-center",
+    iconContainer: "",
+    icon: "fill-black w-6 h-6",
   },
 };
 
@@ -26,13 +35,14 @@ export default function Button({
   children,
   styles,
   className,
+  buttonStyle,
   ...rest
 }: ButtonProps) {
-  const buttonStyle = "navLink";
+  const buttonStyleProp = buttonStyle ?? "navLink";
 
   const elementIcon = Icon && (
-    <section className={buttonStyleClasses[buttonStyle].iconContainer}>
-      <Icon className={buttonStyleClasses[buttonStyle].icon} />
+    <section className={buttonStyleClasses[buttonStyleProp].iconContainer}>
+      <Icon className={buttonStyleClasses[buttonStyleProp].icon} />
     </section>
   );
 
@@ -48,7 +58,7 @@ export default function Button({
 
   return (
     <button
-      className={`${buttonStyleClasses[buttonStyle].button} ${className}`}
+      className={`${buttonStyleClasses[buttonStyleProp].button} ${className}`}
       {...rest}
     >
       {elementIcon}

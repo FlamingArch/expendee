@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React from "react";
-import AppBar from "@/components/AppBar";
-import ButtonToggleSidebar from "./toggleSidebar";
+import { AppBar } from "@/src/components";
+import { ButtonToggleSidebar } from "../fragments";
 
 export default function TransactionsPage() {
   return (

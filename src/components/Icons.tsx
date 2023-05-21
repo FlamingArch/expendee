@@ -1,8 +1,3 @@
-export type IconProps = {
-  className?: string;
-  style?: React.CSSProperties;
-};
-
 export function IconPlus({ className, style }: IconProps) {
   return (
     <svg

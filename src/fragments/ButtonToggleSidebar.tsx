@@ -1,7 +1,7 @@
 "use client";
 
-import { IconCollapseSidebar } from "@/components/Icons";
-import { useAppStore } from "@/store";
+import { IconCollapseSidebar } from "@/src/components/Icons";
+import { useAppStore } from "@/src/store";
 import React from "react";
 
 export default function ButtonToggleSidebar({

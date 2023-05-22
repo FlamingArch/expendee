@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      // "app/*": ["./app/*"],
+      // "components/*": ["./components/*"],
+      // "fragments/*": ["./fragments/*"],
+      // "views/*": ["./views/*"],
+      // "styles/*": ["./styles/*"],
+      // "types/*": ["./types/*"],
+      // "helpers/*": ["./types/*"],
+      // "functions/*": ["./types/*"],
+      // "@/*": ["./src/*"]
+    }
+  },
+  "include": ["vite.config.ts"]
+}

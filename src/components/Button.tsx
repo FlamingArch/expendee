@@ -21,7 +21,7 @@ const buttonStyleClasses = {
   },
   primary: {
     button:
-      "bg-accent text-white p-3 rounded-xl flex font-medium gap-2 items-center justify-center",
+      "transition bg-accent hover:bg-accent-dark text-white p-3 rounded-xl flex font-medium gap-2 items-center justify-center",
     iconContainer: "",
     labelContainer: "",
     label: "",

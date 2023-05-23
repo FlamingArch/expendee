@@ -18,6 +18,7 @@ module.exports = {
       colors: {
         page: "#f2f3f6",
         accent: "#0066ff",
+        "accent-dark": "#0055ee",
       },
     },
   },

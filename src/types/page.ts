@@ -22,4 +22,5 @@ export type PageProps = {
   className?: string;
   style?: React.CSSProperties;
   alwaysScroll?: boolean;
+  adjustPaddingForAppBar?: boolean;
 };

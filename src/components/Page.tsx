@@ -14,14 +14,18 @@ export default function Page({
   className,
   style,
   alwaysScroll,
+  adjustPaddingForAppBar,
 }: PageProps) {
   if (title) document.title = title;
 
+  const adjustPaddingForAppBarProps = adjustPaddingForAppBar ?? true;
+
   const backdropStyles = {
     clear: "",
-    solid: "bg-page",
+    solid: "bg-page dark:bg-page-dark text-text dark:text-text-dark",
     solidDark: "bg-black text-white",
-    material: "backdrop-blur-xl backdrop-saturate-150 bg-white bg-opacity-70",
+    material:
+      "backdrop-blur-xl backdrop-saturate-150 bg-white bg-opacity-70 dark:bg-page-dark text-text dark:text-text-dark",
     materialDark:
       "backdrop-blur-xl backdrop-saturate-150 bg-black bg-opacity-70 text-white",
   };
@@ -56,12 +60,20 @@ export default function Page({
         style={{
           padding:
             typeof padding == "number"
-              ? `${(padding ?? 5) / 4}rem`
-              : `${(padding?.top ?? (appBar ? 0 : 5)) / 4}rem ${
-                  (padding?.right ?? 5) / 4
-                }rem ${(padding?.bottom ?? (bottomAppBar ? 0 : 5)) / 4}rem ${
-                  (padding?.left ?? 5) / 4
-                }rem`,
+              ? `${(padding ?? 6) / 4}rem`
+              : `${
+                  (padding?.top ?? adjustPaddingForAppBarProps
+                    ? appBar
+                      ? 0
+                      : 6
+                    : 6) / 4
+                }rem ${(padding?.right ?? 6) / 4}rem ${
+                  (padding?.bottom ?? adjustPaddingForAppBarProps
+                    ? bottomAppBar
+                      ? 0
+                      : 6
+                    : 6) / 4
+                }rem ${(padding?.left ?? 6) / 4}rem`,
           gap: `${(gap ?? 0) / 4}rem`,
         }}
         className="flex flex-col"

@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/globals.scss";
-import { RouterProvider } from "@tanstack/router";
-import router from "./routes/routes";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/routes-legacy";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

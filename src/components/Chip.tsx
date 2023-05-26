@@ -16,7 +16,7 @@ export default function Chip({
         ...style,
       }}
       className={
-        "flex items-center gap-1 rounded-full p-1 px-3 text-[12px] font-bold " +
+        "flex items-center gap-1 rounded-full p-1 px-3 text-[12px] font-bold text-black " +
         className
       }
     >

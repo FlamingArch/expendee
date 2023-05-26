@@ -28,6 +28,15 @@ const buttonStyleClasses = {
     icon: "fill-white w-6 h-6",
     trailingContainer: "",
   },
+  action: {
+    button:
+      "hover:bg-slate-200 p-3 rounded-xl flex font-medium gap-2 items-center",
+    iconContainer: "",
+    labelContainer: "",
+    label: "",
+    icon: "w-6 h-6 fill-text dark:fill-text-dark",
+    trailingContainer: "",
+  },
 };
 
 export default function Button({

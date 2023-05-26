@@ -3,6 +3,7 @@ export type PageProps = {
   bottomAppBar?: React.ReactNode;
   children?: React.ReactNode;
   title?: string;
+  width?: number | string;
   cornerRadius?:
     | number
     | {

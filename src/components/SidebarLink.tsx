@@ -6,11 +6,10 @@ export default function SidebarLink({
   href,
   label,
   Icon,
+  selected,
   className,
   style,
 }: SidebarLinkProps) {
-  const selected = false;
-
   return (
     <Link href={href}>
       <Button

@@ -11,4 +11,4 @@ export type ButtonProps =
       buttonStyle?: ButtonStyles;
     } & Omit<Omit<React.HTMLProps<HTMLButtonElement>, "className">, "type">;
 
-export type ButtonStyles = "navLink" | "navLinkSelected";
+export type ButtonStyles = "navLink" | "navLinkSelected" | "primary" | "action";

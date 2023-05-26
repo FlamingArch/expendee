@@ -1,5 +1,5 @@
 import { LinkProps } from "../types/link";
-import { Link } from "@tanstack/router";
+import { Link } from "react-router-dom";
 import React from "react";
 
 export default function CustomLink({

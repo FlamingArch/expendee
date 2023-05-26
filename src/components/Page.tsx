@@ -5,6 +5,7 @@ export default function Page({
   appBar,
   bottomAppBar,
   children,
+  width,
   title,
   cornerRadius,
   padding,
@@ -22,17 +23,19 @@ export default function Page({
 
   const backdropStyles = {
     clear: "",
-    solid: "bg-page dark:bg-page-dark text-text dark:text-text-dark",
-    solidDark: "bg-black text-white",
+    solid:
+      "bg-page dark:bg-page-dark text-text dark:text-text-dark border-r border-slate-200 dark:border-slate-800",
+    solidDark: "bg-black text-white border-r border-slate-800",
     material:
-      "backdrop-blur-xl backdrop-saturate-150 bg-white bg-opacity-70 dark:bg-page-dark text-text dark:text-text-dark",
+      "backdrop-blur-xl backdrop-saturate-150 bg-white bg-opacity-70 dark:bg-page-dark text-text dark:text-text-dark border-r border-slate-200 dark:border-slate-800",
     materialDark:
-      "backdrop-blur-xl backdrop-saturate-150 bg-black bg-opacity-70 text-white",
+      "backdrop-blur-xl backdrop-saturate-150 bg-black bg-opacity-70 text-white border-r border-slate-200 dark:border-slate-800",
   };
 
   return (
     <main
       style={{
+        width: width,
         borderRadius:
           typeof cornerRadius == "number"
             ? `${cornerRadius / 4}rem`
@@ -49,7 +52,7 @@ export default function Page({
               }rem ${(margin?.left ?? 0) / 4}rem`,
         ...style,
       }}
-      className={`h-screen flex-grow ${
+      className={`h-screen ${width ? "" : "flex-grow"} ${
         alwaysScroll ? "overflow-auto" : "overflow-hidden hover:overflow-auto"
       } flex flex-col
         ${backdropStyles[backdrop ?? "solid"]} ${className}`}

@@ -5,13 +5,21 @@ import {
   SignUp,
   SimpleInterest,
   Split,
+  Transaction,
 } from "../views";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Tips from "../views/tips";
+import BaseLayout from "./BaseLayout";
+
+const transactionRoute = {
+  path: "/transaction/:id",
+  element: <Transaction />,
+};
 
 const homeRoute = {
   path: "/",
   element: <Home />,
+  children: [transactionRoute],
 };
 
 const signInRoute = {
@@ -25,12 +33,12 @@ const signUpRoute = {
 };
 
 const simpleInterestRoute = {
-  path: "/simpleInterest",
+  path: "/si",
   element: <SimpleInterest />,
 };
 
 const compoundInterestRoute = {
-  path: "/compoundInterest",
+  path: "/ci",
   element: <CompoundInterest />,
 };
 
@@ -44,12 +52,15 @@ const tipsRoute = {
   element: <Tips />,
 };
 
-export default createBrowserRouter([
-  homeRoute,
-  signInRoute,
-  signUpRoute,
-  simpleInterestRoute,
-  compoundInterestRoute,
-  splitRoute,
-  tipsRoute,
-]);
+const appLayout = {
+  element: <BaseLayout />,
+  children: [
+    homeRoute,
+    simpleInterestRoute,
+    compoundInterestRoute,
+    tipsRoute,
+    splitRoute,
+  ],
+};
+
+export default createBrowserRouter([appLayout, signInRoute, signUpRoute]);

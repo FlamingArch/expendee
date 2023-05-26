@@ -35,12 +35,15 @@ export default function TransactionCard({
 
   return (
     <div
-      onClick={() => navigate("/transaction/" + id)}
+      onClick={() => {
+        navigate("/transaction/" + id);
+      }}
       style={{
-        backgroundColor: selected ? color : "white",
+        backgroundColor: selected ? color : "",
+        color: selected ? "black" : "",
       }}
       className={
-        "transition bg-white rounded-xl shadow-[#2221] shadow-xl hover:shadow-2xl p-4 flex flex-col hover:brightness-110 cursor-pointer gap-3 "
+        "transition bg-white dark:bg-[#2B2E36] rounded-xl shadow-[#2221] shadow-xl hover:shadow-2xl p-4 flex flex-col hover:brightness-110 cursor-pointer gap-3 "
       }
     >
       <p className="text-[12px] font-bold">{time}</p>

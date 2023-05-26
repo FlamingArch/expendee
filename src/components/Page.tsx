@@ -63,20 +63,20 @@ export default function Page({
         style={{
           padding:
             typeof padding == "number"
-              ? `${(padding ?? 6) / 4}rem`
+              ? `${(padding ?? 4) / 4}rem`
               : `${
                   (padding?.top ?? adjustPaddingForAppBarProps
                     ? appBar
                       ? 0
                       : 6
-                    : 6) / 4
-                }rem ${(padding?.right ?? 6) / 4}rem ${
+                    : 4) / 4
+                }rem ${(padding?.right ?? 4) / 4}rem ${
                   (padding?.bottom ?? adjustPaddingForAppBarProps
                     ? bottomAppBar
                       ? 0
                       : 6
-                    : 6) / 4
-                }rem ${(padding?.left ?? 6) / 4}rem`,
+                    : 4) / 4
+                }rem ${(padding?.left ?? 4) / 4}rem`,
           gap: `${(gap ?? 0) / 4}rem`,
         }}
         className="flex flex-col"

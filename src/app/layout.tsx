@@ -1,4 +1,4 @@
-import { Sidebar } from "@/fragments";
+import { Sidebar } from "../fragments";
 import "../styles/globals.scss";
 
 export const metadata = {

@@ -10,8 +10,8 @@ const appBarStylesClasses = {
   center: "flex-grow flex items-center justify-center",
   actions: "flex",
   primaryBar: "flex items-center",
-  heading: "flex text-xl flex-grow",
-  primary: "",
+  heading: "flex text-xl flex-grow font-medium",
+  primary: "p-3",
   backdrop: {
     clear: "",
     gradient: "bg-gradient-to-b from-page dark:from-page-dark to-transparent",
@@ -57,10 +57,10 @@ export default function AppBar({
           }rem`,
     padding:
       typeof padding == "number"
-        ? `${(padding ?? 2) / 4}rem`
-        : `${(padding?.top ?? 2) / 4}rem ${(padding?.right ?? 2) / 4}rem ${
-            (padding?.bottom ?? 2) / 4
-          }rem ${(padding?.left ?? 2) / 4}rem`,
+        ? `${(padding ?? 1) / 4}rem`
+        : `${(padding?.top ?? 1) / 4}rem ${(padding?.right ?? 1) / 4}rem ${
+            (padding?.bottom ?? 1) / 4
+          }rem ${(padding?.left ?? 1) / 4}rem`,
     margin:
       typeof margin == "number"
         ? `${(margin ?? 0) / 4}rem`
@@ -121,7 +121,7 @@ export default function AppBar({
         style={{
           gap: gap ?? `0.5rem`,
           ...styles?.heading,
-          padding: gap ?? `0.5rem`,
+          padding: `0.75rem`,
         }}
         className={`${appBarStylesClasses.heading} ${classNames?.heading}`}
       >

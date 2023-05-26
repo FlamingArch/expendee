@@ -616,7 +616,7 @@ export function IconShareAlt({ className }: IconProps) {
 export function IconClose({ className }: IconProps) {
   return (
     <svg
-      className={className}
+      className={`${className}`}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       viewBox="0 96 960 960"
@@ -633,7 +633,7 @@ export function IconLocationArrow({ className }: IconProps) {
       width="48"
       height="48"
       viewBox="0 0 24 24"
-      className={className}
+      className={`${className}`}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M12.9299 4.26007L19.0799 19.2501C19.4199 20.0801 18.5699 20.9101 17.7499 20.5401L12.4099 18.1801C12.1499 18.0701 11.8599 18.0701 11.5999 18.1801L6.2599 20.5401C5.4399 20.9001 4.5899 20.0801 4.9299 19.2501L11.0799 4.26007C11.4099 3.43007 12.5899 3.43007 12.9299 4.26007Z" />
@@ -647,10 +647,24 @@ export function IconDelete({ className }: IconProps) {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      className={className}
+      className={`${className}`}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM8 9H16V19H8V9ZM15.5 4L14.5 3H9.5L8.5 4H5V6H19V4H15.5Z" />
+    </svg>
+  );
+}
+
+export function IconCardTick({ className }: IconProps) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      className={`${className}`}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M4 8H20V6H4V8ZM2 6C2 5.45 2.196 4.979 2.588 4.587C2.98 4.195 3.45067 3.99934 4 4H20C20.55 4 21.021 4.196 21.413 4.588C21.805 4.98 22.0007 5.45067 22 6V12H4V18H8.1V20H4C3.45 20 2.979 19.804 2.587 19.412C2.195 19.02 1.99934 18.5493 2 18V6ZM14.95 22L10.7 17.75L12.1 16.35L14.95 19.15L20.6 13.5L22 14.95L14.95 22ZM4 6V18V13.5V16.325V6Z" />
     </svg>
   );
 }

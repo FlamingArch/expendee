@@ -12,7 +12,7 @@ const buttonStyleClasses = {
   },
   navLinkSelected: {
     button:
-      "bg-white text-black p-5 rounded-2xl flex font-medium shadow-xl gap-2 items-center",
+      "bg-white text-black p-5 rounded-2xl flex font-medium shadow-xl gap-2 items-center cursor-default",
     iconContainer: "",
     labelContainer: "",
     label: "",
@@ -26,6 +26,15 @@ const buttonStyleClasses = {
     labelContainer: "",
     label: "",
     icon: "fill-white w-6 h-6",
+    trailingContainer: "",
+  },
+  secondary: {
+    button:
+      "transition bg-element hover:brightness-[0.95] text-text dark:text-text-dark p-3 gap-2 flex font-medium items-center rounded-xl justify-center",
+    iconContainer: "",
+    labelContainer: "",
+    label: "",
+    icon: "w-6 h-6 fill-text dark:fill-text-dark",
     trailingContainer: "",
   },
   action: {
@@ -49,7 +58,7 @@ export default function Button({
   buttonStyle,
   ...rest
 }: ButtonProps) {
-  const buttonStyleProp = buttonStyle ?? "primary";
+  const buttonStyleProp = buttonStyle ?? "secondary";
 
   const elementIcon = Icon && (
     <section className={buttonStyleClasses[buttonStyleProp].iconContainer}>

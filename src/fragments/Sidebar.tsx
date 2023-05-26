@@ -12,13 +12,18 @@ export default function Sidebar() {
   const path = pathname.split("/")[1];
 
   return (
-    <Page backdrop="solidDark" style={{ width: 350 }} className="flex-grow-0">
+    <Page width={350} backdrop="solidDark" className="flex-grow-0">
       <p className="font-branding uppercase text-center text-3xl font-black py-16">
         Expendee
       </p>
 
       <Section heading="Transactions" padding={0} gap={4}>
-        <SidebarLink selected={!path} href="/" label="All" Icon={IconInOut} />
+        <SidebarLink
+          selected={!path || path == "transaction"}
+          href="/"
+          label="All"
+          Icon={IconInOut}
+        />
         <div className="grid grid-cols-2 gap-4">
           <SidebarLink
             selected={path == "spent"}

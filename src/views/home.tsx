@@ -9,38 +9,56 @@ import {
   IconTips,
 } from "../components/Icons";
 import { Page } from "../components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import { TransactionCard } from "../fragments";
 import { useLocation, useOutlet } from "react-router-dom";
+import { Transaction } from "../types/transaction";
+import fetchTransactions from "../functions/fetchTransactions";
+import useAppStore from "../contexts/appStore";
 
 export default function Home() {
   const outlet = useOutlet();
   const { pathname } = useLocation();
 
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  const { auth, firestore } = useAppStore((state) => ({
+    auth: state.auth,
+    firestore: state.firestore,
+  }));
+
+  useEffect(() => {
+    fetchTransactions(firestore, auth, {
+      type: "all",
+      includeDeleted: true,
+    }).then((transactions) => {
+      setTransactions(transactions);
+    });
+  }, []);
+
   const appBar = (
     <AppBar
       sticky
       cornerRadius={4}
-      leading={
-        <IconTick className="w-12 h-12 p-3 dark:fill-white fill-text rounded-xl hover:bg-slate-200 cursor-pointer" />
-      }
-      actions={
-        <IconSort className="w-12 h-12 p-3 dark:fill-white fill-text rounded-xl hover:bg-slate-200 cursor-pointer" />
-      }
-      heading={<p className="p-2">All Transactions</p>}
-      primary={
-        <IconSearch className="w-16 h-16 p-5 dark:fill-white fill-text rounded-xl hover:bg-slate-200 cursor-pointer" />
-      }
+      leading={<Button buttonStyle="action" className="" Icon={IconTick} />}
+      actions={<Button buttonStyle="action" className="" Icon={IconSort} />}
+      heading="All Transactions"
+      primary={<Button buttonStyle="action" className="" Icon={IconSearch} />}
     >
-      <Button className="mx-4 mb-4" Icon={IconPlus} label="New Transaction" />
+      <Button
+        buttonStyle="primary"
+        className="mx-3 mb-4"
+        Icon={IconPlus}
+        label="New Transaction"
+      />
     </AppBar>
   );
 
   return (
     <>
       <Page gap={6} width={360} appBar={appBar}>
-        {_.range(0, 100).map((i) => (
+        {transactions.map((e, i) => (
           <TransactionCard
             key={i}
             selected={`${i}` == pathname.split("/")[2]}
@@ -57,7 +75,7 @@ export default function Home() {
         ))}
       </Page>
       {outlet ?? (
-        <Page className="justify-center items-center">
+        <Page className="justify-center items-center hidden md:flex">
           <p className="font-bold">No Transaction Selected</p>
         </Page>
       )}

@@ -55,12 +55,12 @@ export default function TransactionCard({
         <Chip
           label={labelCategory}
           Icon={IconCategory}
-          color={selected ? "#fff" : "#ad0"}
+          color={selected ? "#fff" : color}
         />
         <Chip
           label={labelWallet}
           Icon={IconWallet}
-          color={selected ? "#fff" : "#ad0"}
+          color={selected ? "#fff" : color}
         />
       </div>
     </div>

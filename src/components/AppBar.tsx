@@ -67,7 +67,7 @@ export default function AppBar({
         : `${(margin?.top ?? 0) / 4}rem ${(margin?.right ?? 0) / 4}rem ${
             (margin?.bottom ?? 0) / 4
           }rem ${(margin?.left ?? 0) / 4}rem`,
-    gap: gap ?? `0.5rem`,
+    gap: gap ?? `0rem`,
     ...styles?.container,
   };
 
@@ -80,7 +80,7 @@ export default function AppBar({
 
   const toolbar = (
     <section
-      style={{ gap: gap ?? `0.5rem` }}
+      style={{ gap: gap ?? `0rem` }}
       className={`${`${appBarStylesClasses.toolbar} ${classNames?.toolbar}`} ${
         classNames?.toolbar
       }`}
@@ -114,12 +114,12 @@ export default function AppBar({
 
   const primaryBar = (
     <section
-      style={{ gap: gap ?? `0.5rem`, ...styles?.primaryBar }}
+      style={{ gap: gap ?? `0rem`, ...styles?.primaryBar }}
       className={`${appBarStylesClasses.primaryBar} ${classNames?.primaryBar}`}
     >
       <h3
         style={{
-          gap: gap ?? `0.5rem`,
+          gap: gap ?? `0rem`,
           ...styles?.heading,
           padding: `0.75rem`,
         }}
@@ -128,7 +128,7 @@ export default function AppBar({
         {heading}
       </h3>
       <main
-        style={{ gap: gap ?? `0.5rem`, ...styles?.primary }}
+        style={{ gap: gap ?? `0rem`, ...styles?.primary }}
         className={`${appBarStylesClasses.primary} ${classNames?.primary}`}
       >
         {primary}

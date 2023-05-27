@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Page } from "../components";
 import AppBar from "../components/AppBar";
 import {
@@ -6,19 +6,50 @@ import {
   IconCompoundInterest,
   IconDelete,
   IconEdit,
+  IconPreloader,
   IconShareAlt,
   IconSplit,
+  IconTips,
 } from "../components/Icons";
 import { useNavigate, useParams } from "react-router-dom";
 import Chip from "../components/Chip";
+import { collection, doc, getDoc } from "firebase/firestore";
+import { Transaction } from "../types/transaction";
+import useAppStore from "../contexts/appStore";
+import firebase from "../constants/firebase";
 
 export default function transaction() {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const [transaction, setTransaction] = useState<Transaction | null>(null);
+
+  const { firebase } = useAppStore((state) => ({
+    firebase: state.firestore,
+  }));
+
+  useEffect(() => {
+    getDoc(doc(collection(firebase, "transactions"), id)).then((data) => {
+      if (data.exists()) {
+        setTransaction(data.data() as Transaction);
+      } else {
+        navigate("/");
+      }
+    });
+  }, []);
+
+  if (!transaction) {
+    return (
+      <Page className="items-center justify-center">
+        <IconPreloader className="w-6 h-6 stroke-text dark:stroke-text-dark" />
+      </Page>
+    );
+  }
+
   const appBar = (
     <AppBar
-      heading="Transaction"
+      sticky
+      heading={transaction.title}
       title={<Button buttonStyle="action" className="" Icon={IconEdit} />}
       primary={<Button buttonStyle="action" className="" Icon={IconEdit} />}
       actions={
@@ -34,8 +65,10 @@ export default function transaction() {
   return (
     <Page gap={4} appBar={appBar} adjustPaddingForAppBar={false}>
       <div className="flex flex-col items-center gap-4">
-        <div className="text-6xl font-extralight">1769.65</div>
-        <div className="font-bold">Sat Jun 22, 2023</div>
+        <div className="text-6xl font-extralight">{transaction.amount}</div>
+        <div className="font-bold">
+          {new Date(transaction.date.toMillis()).toDateString()}
+        </div>
       </div>
       <div className="flex justify-center items-center gap-4">
         <Button
@@ -45,16 +78,30 @@ export default function transaction() {
         />
         <Button
           buttonStyle="secondary"
+          disabled
+          className={
+            transaction.isRepaid ? "hover:brightness-100 opacity-50" : ""
+          }
           Icon={IconCardTick}
-          label="Mark Credit as Paid"
+          label={transaction.isRepaid ? "Credit Paid" : "Mark Credit as Paid"}
         />
       </div>
-      <div className="flex flex-col items-center gap-4">
-        <div className="font-bold">Recurring Payment</div>
-      </div>
+      {transaction.recurring && (
+        <div className="flex flex-col items-center gap-4">
+          <div className="font-bold">Recurring Payment</div>
+        </div>
+      )}
       <div className="flex items-center justify-center gap-4">
-        <Chip label="Category" Icon={IconCompoundInterest} color="#ad0" />
-        <Chip label="Category" Icon={IconCompoundInterest} color="#ad0" />
+        <Chip
+          label={transaction.categoryLabel}
+          Icon={IconCompoundInterest}
+          color={transaction.categoryColor}
+        />
+        <Chip
+          label={transaction.walletLabel}
+          Icon={IconTips}
+          color={transaction.categoryColor}
+        />
       </div>
     </Page>
   );

@@ -7,7 +7,6 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import useAppStore from "../contexts/appStore";
 
 export default async function fetchTransactions(
   firestore: Firestore,
@@ -20,11 +19,6 @@ export default async function fetchTransactions(
     includeDeleted?: boolean;
   }
 ) {
-  const {} = useAppStore((state) => ({
-    firestore: state.firestore,
-    auth: state.auth,
-  }));
-
   const typeParam = type ?? "all";
 
   // const user = auth.currentUser;
@@ -47,9 +41,8 @@ export default async function fetchTransactions(
 
   const transactions: Transaction[] = [];
 
-  const docs = await getDocs(
-    query(collection(firestore, "transactions"), ...queries)
-  );
+  const collectionRef = collection(firestore, "transactions");
+  const docs = await getDocs(query(collectionRef, ...queries));
 
   docs.forEach((doc) => {
     if (doc.exists()) {

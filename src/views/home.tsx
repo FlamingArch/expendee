@@ -58,21 +58,25 @@ export default function Home() {
   return (
     <>
       <Page gap={6} width={360} appBar={appBar}>
-        {transactions.map((e, i) => (
-          <TransactionCard
-            key={i}
-            selected={`${i}` == pathname.split("/")[2]}
-            id={`${i}`}
-            color="#ad0"
-            time="9:17 PM"
-            amountWithCurrency="₹ 1,69,999"
-            title="iPhone 14 Pro Max"
-            labelCategory="Tech"
-            labelWallet="Shopping"
-            IconCategory={IconSimpleInterest}
-            IconWallet={IconTips}
-          />
-        ))}
+        {transactions.map((e) => {
+          const date = new Date(e.date.toMillis());
+          const time = date.toLocaleTimeString().split(":");
+          return (
+            <TransactionCard
+              key={e.id}
+              selected={`${e.id}` == pathname.split("/")[2]}
+              id={`${e.id}`}
+              color={e.categoryColor}
+              time={`${time[0]}:${time[1]} ${time[2].split(" ")[1]}`}
+              amountWithCurrency={`${e.currency} ${e.amount}`}
+              title={e.title}
+              labelCategory={e.categoryLabel}
+              labelWallet={e.walletLabel}
+              IconCategory={IconSimpleInterest}
+              IconWallet={IconTips}
+            />
+          );
+        })}
       </Page>
       {outlet ?? (
         <Page className="justify-center items-center hidden md:flex">

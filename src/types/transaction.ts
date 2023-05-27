@@ -3,30 +3,36 @@ import { Timestamp } from "firebase/firestore";
 export type Transaction = {
   id: string;
   userId: string;
-  title: number;
+  title: string;
   amount: number;
   currency: number;
   date: Timestamp;
   recurring: boolean;
   recurringDurationDays: number;
   categoryId: string;
+  categoryColor: string;
+  categoryLabel: string;
+  categoryIcon: string;
   categoryBudgetRemainingAfterTxn: number;
   categoryBudgetRemainingAfterTxnPercentage: number;
   walletId: string;
+  walletLabel: string;
+  walletIcon: string;
   walletRemainingAfterTxn: number;
   merchant: string; // Cache in user doc
   merchantWebsite: string; // Cache in user doc
   merchantAddress: string;
-  invoiceLink: [string];
+  invoiceLinks: [string];
   paymentMethods: {
     id: string;
-    amount: string;
-    remainingAfterTxn: string;
+    amount: number;
+    remainingAfterTxn: number;
   }[];
+  isRepaid: boolean;
   repaidWith: {
     id: string;
-    amount: string;
-    remainingAfterTxn: string;
+    amount: number;
+    remainingAfterTxn: number;
   }[];
   splitWith: [string];
   remaining: number;

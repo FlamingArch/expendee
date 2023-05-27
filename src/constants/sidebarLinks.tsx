@@ -43,7 +43,7 @@ export default {
     {
       label: "Tip",
       Icon: IconTips,
-      href: "/ps",
+      href: "/tips",
     },
   ],
 };

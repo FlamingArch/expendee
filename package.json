@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.7",
     "@tanstack/router": "^0.0.1-beta.89",
     "@types/lodash": "^4.14.194",
     "@types/node": "20.2.3",

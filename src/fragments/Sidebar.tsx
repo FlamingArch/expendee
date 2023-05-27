@@ -10,6 +10,7 @@ export default function Sidebar() {
   const { pathname } = useLocation();
 
   const path = pathname.split("/")[1];
+  console.log(path);
 
   return (
     <Page width={350} backdrop="solidDark" className="flex-grow-0">
@@ -51,7 +52,7 @@ export default function Sidebar() {
       </Section>
       <Section heading="Wallets" padding={0} gap={4}>
         {sidebarLinks.calculatorLinks.map((e, i) => (
-          <SidebarLink selected={path == e.href} key={i} {...e} />
+          <SidebarLink selected={`/${path}` == e.href} key={i} {...e} />
         ))}
       </Section>
     </Page>

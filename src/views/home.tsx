@@ -1,13 +1,6 @@
 import { Button } from "../components";
 import AppBar from "../components/AppBar";
-import {
-  IconPlus,
-  IconSearch,
-  IconSimpleInterest,
-  IconSort,
-  IconTick,
-  IconTips,
-} from "../components/Icons";
+import { IconPlus, IconSearch, IconSort, IconTick } from "../components/Icons";
 import { Page } from "../components";
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
@@ -16,6 +9,7 @@ import { useLocation, useOutlet } from "react-router-dom";
 import { Transaction } from "../types/transaction";
 import fetchTransactions from "../functions/fetchTransactions";
 import useAppStore from "../contexts/appStore";
+import { generatePropsFromTransaction } from "../fragments/TransactionCard";
 
 export default function Home() {
   const outlet = useOutlet();
@@ -48,7 +42,7 @@ export default function Home() {
     >
       <Button
         buttonStyle="primary"
-        className="mx-3 mb-4"
+        className="mx-4 mb-4"
         Icon={IconPlus}
         label="New Transaction"
       />
@@ -57,30 +51,26 @@ export default function Home() {
 
   return (
     <>
-      <Page gap={6} width={360} appBar={appBar}>
-        {transactions.map((e) => {
-          const date = new Date(e.date.toMillis());
-          const time = date.toLocaleTimeString().split(":");
-          return (
-            <TransactionCard
-              key={e.id}
-              selected={`${e.id}` == pathname.split("/")[2]}
-              id={`${e.id}`}
-              color={e.categoryColor}
-              time={`${time[0]}:${time[1]} ${time[2].split(" ")[1]}`}
-              amountWithCurrency={`${e.currency} ${e.amount}`}
-              title={e.title}
-              labelCategory={e.categoryLabel}
-              labelWallet={e.walletLabel}
-              IconCategory={IconSimpleInterest}
-              IconWallet={IconTips}
-            />
-          );
-        })}
+      <Page
+        padding={{
+          top: 0,
+        }}
+        gap={6}
+        width={360}
+        appBar={appBar}
+      >
+        {transactions.map((e) => (
+          <TransactionCard
+            key={e.id}
+            {...generatePropsFromTransaction(e, pathname)}
+          />
+        ))}
       </Page>
       {outlet ?? (
-        <Page className="justify-center items-center hidden md:flex">
-          <p className="font-bold">No Transaction Selected</p>
+        <Page className="hidden md:flex">
+          <div className="flex justify-center items-center flex-grow">
+            <p className="font-bold">No Transaction Selected</p>
+          </div>
         </Page>
       )}
     </>

@@ -63,23 +63,23 @@ export default function Page({
         style={{
           padding:
             typeof padding == "number"
-              ? `${(padding ?? 4) / 4}rem`
+              ? `${(padding ?? 5) / 4}rem`
               : `${
                   (padding?.top ?? adjustPaddingForAppBarProps
                     ? appBar
                       ? 0
-                      : 6
-                    : 4) / 4
-                }rem ${(padding?.right ?? 4) / 4}rem ${
+                      : 5
+                    : 5) / 4
+                }rem ${(padding?.right ?? 5) / 4}rem ${
                   (padding?.bottom ?? adjustPaddingForAppBarProps
                     ? bottomAppBar
                       ? 0
-                      : 6
-                    : 4) / 4
-                }rem ${(padding?.left ?? 4) / 4}rem`,
+                      : 5
+                    : 5) / 4
+                }rem ${(padding?.left ?? 5) / 4}rem`,
           gap: `${(gap ?? 0) / 4}rem`,
         }}
-        className="flex flex-col"
+        className="flex flex-col flex-grow"
       >
         {children}
       </article>

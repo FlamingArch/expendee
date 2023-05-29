@@ -30,7 +30,7 @@ const buttonStyleClasses = {
   },
   secondary: {
     button:
-      "transition bg-element hover:brightness-[0.95] text-text dark:text-text-dark p-3 gap-2 flex font-medium items-center rounded-xl justify-center",
+      "transition bg-element dark:bg-element-dark hover:brightness-[0.95] text-text dark:text-text-dark p-3 gap-2 flex font-medium items-center rounded-xl justify-center",
     iconContainer: "",
     labelContainer: "",
     label: "",
@@ -39,11 +39,20 @@ const buttonStyleClasses = {
   },
   action: {
     button:
-      "hover:bg-slate-200 p-3 rounded-xl flex font-medium gap-2 items-center",
+      "hover:bg-slate-200 dark:hover:bg-slate-800 p-3 rounded-xl flex font-medium gap-2 items-center",
     iconContainer: "",
     labelContainer: "",
     label: "",
     icon: "w-6 h-6 fill-text dark:fill-text-dark",
+    trailingContainer: "",
+  },
+  actionSidebar: {
+    button:
+      "flex gap-2 font-medium items-center rounded-full bg-accent bg-opacity-20 justify-center p-1 px-3 hover:brightness-125",
+    iconContainer: "",
+    labelContainer: "",
+    label: "text-accent uppercase",
+    icon: "fill-accent w-4 h-4",
     trailingContainer: "",
   },
 };

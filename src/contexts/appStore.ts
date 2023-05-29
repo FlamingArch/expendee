@@ -11,10 +11,10 @@ import { create } from "zustand";
 import { AppStoreProps } from "../types/appStore";
 import firebaseConstants from "../constants/firebase";
 
-export const app = initializeApp(firebaseConstants.firebaseConfig);
-export const auth = getAuth(app);
-export const firestore = getFirestore(app);
-export const functions = getFunctions(app);
+const app = initializeApp(firebaseConstants.firebaseConfig);
+const auth = getAuth(app);
+const firestore = getFirestore(app);
+const functions = getFunctions(app);
 
 const useAppStore = create<AppStoreProps>((set) => ({
   app,

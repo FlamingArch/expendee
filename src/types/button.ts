@@ -14,6 +14,7 @@ export type ButtonProps =
 export type ButtonStyles =
   | "navLink"
   | "navLinkSelected"
+  | "actionSidebar"
   | "primary"
   | "secondary"
   | "action";

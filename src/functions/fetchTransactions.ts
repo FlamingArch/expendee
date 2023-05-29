@@ -40,7 +40,6 @@ export default async function fetchTransactions(
   }
 
   const transactions: Transaction[] = [];
-
   const collectionRef = collection(firestore, "transactions");
   const docs = await getDocs(query(collectionRef, ...queries));
 

@@ -3,8 +3,9 @@
 import React from "react";
 import Chip from "../components/Chip";
 import { IconProps } from "../types/icon";
-import { redirect } from "next/dist/server/api-utils";
 import { useNavigate } from "react-router-dom";
+import { Transaction } from "../types/transaction";
+import { IconSimpleInterest, IconTips } from "../components/Icons";
 
 export default function TransactionCard({
   amountWithCurrency,
@@ -65,4 +66,24 @@ export default function TransactionCard({
       </div>
     </div>
   );
+}
+
+export function generatePropsFromTransaction(
+  transaction: Transaction,
+  pathname: string
+) {
+  const date = new Date(transaction.date.toMillis());
+  const time = date.toLocaleTimeString().split(":");
+  return {
+    selected: `${transaction.id}` == pathname.split("/")[2],
+    id: `${transaction.id}`,
+    color: transaction.categoryColor,
+    time: `${time[0]}:${time[1]} ${time[2].split(" ")[1]}`,
+    amountWithCurrency: `${transaction.currency} ${transaction.amount}`,
+    title: transaction.title,
+    labelCategory: transaction.categoryLabel,
+    labelWallet: transaction.walletLabel,
+    IconCategory: IconSimpleInterest,
+    IconWallet: IconTips,
+  };
 }

@@ -27,6 +27,7 @@ export type Transaction = {
     link: string;
     label: string;
   }[];
+  paidInitiallyViaCredit: boolean;
   paymentMethods: {
     id: string;
     amount: number;

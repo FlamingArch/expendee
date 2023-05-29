@@ -46,8 +46,11 @@ export default function MerchantCard({
 
   const linkToOrderPage =
     transaction.invoiceLinks &&
-    transaction.invoiceLinks.map((link) => (
-      <div className="flex gap-2 items-center hover:text-accent hover:underline cursor-pointer text-text dark:text-text-dark">
+    transaction.invoiceLinks.map((link, index) => (
+      <div
+        key={index}
+        className="flex gap-2 items-center hover:text-accent hover:underline cursor-pointer text-text dark:text-text-dark"
+      >
         <IconOutwardLink className="w-5 h-5 fill-text dark:fill-text-dark" />
         {link}
       </div>
@@ -62,8 +65,9 @@ export default function MerchantCard({
 
   const linkedDocuments =
     transaction.documentLinks &&
-    transaction.documentLinks.map((document) => (
+    transaction.documentLinks.map((document, index) => (
       <a
+        key={index}
         href={document.link}
         className="flex gap-2 items-center cursor-pointer text-accent p-3 rounded-xl bg-accent bg-opacity-10 hover:bg-opacity-20"
       >
@@ -82,12 +86,12 @@ export default function MerchantCard({
           className="bg-black"
           Icon={IconUpload}
           label={
-            <p>
+            <>
               Store in{" "}
               <span className="font-branding font-black uppercase">
                 Expendee
               </span>
-            </p>
+            </>
           }
           onClick={() => alert("Coming Soon!")}
         />

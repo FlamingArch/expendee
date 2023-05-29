@@ -17,6 +17,7 @@ import fetchBudget from "../functions/fetchBudget";
 import { BudgetCard } from "../fragments";
 import TransactionDetails from "../fragments/transactionDetails";
 import MerchantCard from "../fragments/MerchantCard";
+import TransactionPaymentMethodCard from "../fragments/TransactionPaymentMethodCard";
 
 export default function transaction() {
   const navigate = useNavigate();
@@ -60,6 +61,7 @@ export default function transaction() {
   const appBar = (
     <AppBar
       sticky
+      className="z-50"
       heading={transaction.title}
       title={<Button buttonStyle="action" className="" Icon={IconEdit} />}
       primary={<Button buttonStyle="action" className="" Icon={IconEdit} />}
@@ -78,6 +80,10 @@ export default function transaction() {
       <TransactionDetails transaction={transaction} />
       <BudgetCard budget={budget ?? undefined} transaction={transaction} />
       <MerchantCard transaction={transaction} />
+      <TransactionPaymentMethodCard
+        transaction={transaction}
+        firestore={firestore}
+      />
     </Page>
   );
 }

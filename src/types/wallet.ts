@@ -2,7 +2,6 @@ export type Account = {
   id: string;
   icon: string;
   title: string;
-  color: string;
   balance: number;
   description: string;
   linkedAccountName: string;

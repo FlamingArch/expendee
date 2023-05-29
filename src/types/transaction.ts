@@ -5,7 +5,7 @@ export type Transaction = {
   userId: string;
   title: string;
   amount: number;
-  currency: number;
+  currency: string;
   date: Timestamp;
   recurring: boolean;
   recurringDurationDays: number;
@@ -22,7 +22,7 @@ export type Transaction = {
   merchant: string; // Cache in user doc
   merchantWebsite: string; // Cache in user doc
   merchantAddress: string;
-  invoiceLinks: [string];
+  invoiceLinks: string[];
   documentLinks: {
     link: string;
     label: string;
@@ -39,7 +39,7 @@ export type Transaction = {
     amount: number;
     remainingAfterTxn: number;
   }[];
-  splitWith: [string];
+  splitWith: string[];
   remaining: number;
   notes: string;
   deleted: boolean;

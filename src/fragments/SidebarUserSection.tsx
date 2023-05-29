@@ -46,10 +46,9 @@ export default function SidebarUserSection({
         />
       }
     >
-      <SidebarLink
+      <Button
         buttonStyle="primary"
         className="p-4"
-        href="/account"
         label={
           <>
             Signed In as{" "}

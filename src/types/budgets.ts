@@ -3,6 +3,7 @@ export type Budget = {
   budgetAmount: number;
   categoryLabel: string;
   categoryIcon: string;
+  color: string;
   currency: string;
   spentAmount: number;
   transactions: string[];

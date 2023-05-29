@@ -6,4 +6,5 @@ export type PaymentMethod = {
   identifier: string;
   userId: string;
   validity: string;
+  isCredit: boolean;
 };

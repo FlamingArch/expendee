@@ -16,6 +16,7 @@ import { Budget } from "../types/budgets";
 import fetchBudget from "../functions/fetchBudget";
 import { BudgetCard } from "../fragments";
 import TransactionDetails from "../fragments/transactionDetails";
+import MerchantCard from "../fragments/MerchantCard";
 
 export default function transaction() {
   const navigate = useNavigate();
@@ -76,6 +77,7 @@ export default function transaction() {
     <Page padding={6} gap={6} appBar={appBar} adjustPaddingForAppBar={false}>
       <TransactionDetails transaction={transaction} />
       <BudgetCard budget={budget ?? undefined} transaction={transaction} />
+      <MerchantCard transaction={transaction} />
     </Page>
   );
 }

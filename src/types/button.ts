@@ -9,7 +9,10 @@ export type ButtonProps =
       styles?: React.CSSProperties;
       className?: string;
       buttonStyle?: ButtonStyles;
-    } & Omit<Omit<React.HTMLProps<HTMLButtonElement>, "className">, "type">;
+    } & Omit<
+      Omit<Omit<React.HTMLProps<HTMLButtonElement>, "className">, "type">,
+      "label"
+    >;
 
 export type ButtonStyles =
   | "navLink"

@@ -23,6 +23,10 @@ export type Transaction = {
   merchantWebsite: string; // Cache in user doc
   merchantAddress: string;
   invoiceLinks: [string];
+  documentLinks: {
+    link: string;
+    label: string;
+  }[];
   paymentMethods: {
     id: string;
     amount: number;

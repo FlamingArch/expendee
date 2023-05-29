@@ -1,4 +1,4 @@
-export type WalletProps = {
+export type Account = {
   id: string;
   icon: string;
   title: string;
@@ -6,7 +6,7 @@ export type WalletProps = {
   balance: number;
   description: string;
   linkedAccountName: string;
-  linkedDebitCards: string[];
+  linkedPaymentMethods: string[];
   startingBalance: number;
   transactions: string[];
   minimumBalance: number;
@@ -14,4 +14,5 @@ export type WalletProps = {
   isCredit: boolean;
   creditLimit: number;
   creditLimitHistory: string[];
+  userId: string;
 };

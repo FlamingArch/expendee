@@ -1,55 +1,30 @@
 import { Section, Page, Button } from "../components";
-
-import React from "react";
-import { IconInOut, IconPlus } from "../components/Icons";
+import { IconPlus } from "../components/Icons";
 import sidebarLinks from "../constants/sidebarLinks";
 import SidebarLink from "../components/SidebarLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAppStore from "../contexts/appStore";
 import signOut from "../functions/signOut";
+import SidebarUserSection from "./SidebarUserSection";
+import SidebarBudgetsSection from "./SidebarBudgetsSection";
+import SidebarTransactionsSection from "./SidebarTransactionsSection";
+import { useAuthState } from "react-firebase-hooks/auth";
+import SidebarWalletsSection from "./SidebarWalletsSection";
 
 export default function Sidebar() {
-  const { auth } = useAppStore((state) => ({
+  const { auth, firestore } = useAppStore((state) => ({
     auth: state.auth,
+    firestore: state.firestore,
   }));
+
+  const [user, signingIn, signInError] = useAuthState(auth);
+
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const path = pathname.split("/")[1];
 
-  const transactionsSection = auth.currentUser && (
-    <Section
-      heading="Transactions"
-      padding={0}
-      gap={4}
-      actions={
-        <Button buttonStyle="actionSidebar" label="New" Icon={IconPlus} />
-      }
-    >
-      <SidebarLink
-        selected={!path || path == "transaction"}
-        href="/"
-        label="All"
-        Icon={IconInOut}
-      />
-      <div className="grid grid-cols-2 gap-4">
-        <SidebarLink
-          selected={path == "spent"}
-          href="/spent"
-          label="Sent"
-          Icon={IconInOut}
-        />
-        <SidebarLink
-          selected={path == "received"}
-          href="/received"
-          label="Received"
-          Icon={IconInOut}
-        />
-      </div>
-    </Section>
-  );
-
-  const walletsSection = auth.currentUser && (
+  const walletsSection = user && (
     <Section
       heading="Wallets"
       padding={0}
@@ -70,7 +45,7 @@ export default function Sidebar() {
     </Section>
   );
 
-  const calculatorsSection = auth.currentUser && (
+  const calculatorsSection = user && (
     <Section heading="Calculators" padding={0} gap={4}>
       {sidebarLinks.calculatorLinks.map((e, i) => (
         <SidebarLink selected={`/${path}` == e.href} key={i} {...e} />
@@ -80,21 +55,45 @@ export default function Sidebar() {
 
   return (
     <Page
-      width={auth.currentUser ? 350 : undefined}
+      width={user ? 350 : undefined}
       backdrop="solidDark"
-      className={auth.currentUser ? "flex-grow-0" : undefined}
+      className={user ? "flex-grow-0" : undefined}
     >
       <p
         onClick={() => signOut(auth).then(() => navigate("/signin"))}
         className={
           "flex justify-center items-center font-branding uppercase text-center text-3xl font-black py-16 align-middle " +
-          (auth.currentUser ? "" : "flex-grow")
+          (user ? "" : "flex-grow")
         }
       >
         Expendee
       </p>
-      {transactionsSection}
-      {walletsSection}
+
+      {user && (
+        <SidebarUserSection
+          userId={user.uid}
+          auth={auth}
+          firestore={firestore}
+        />
+      )}
+
+      {user && <SidebarTransactionsSection path={path} />}
+
+      {user && (
+        <SidebarWalletsSection
+          firestore={firestore}
+          userId={user.uid}
+          path={path}
+        />
+      )}
+
+      {user && (
+        <SidebarBudgetsSection
+          user={user ?? undefined}
+          firestore={firestore}
+          path={path}
+        />
+      )}
       {calculatorsSection}
     </Page>
   );

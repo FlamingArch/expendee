@@ -5,7 +5,12 @@ import Chip from "../components/Chip";
 import { IconProps } from "../types/icon";
 import { useNavigate } from "react-router-dom";
 import { Transaction } from "../types/transaction";
-import { IconSimpleInterest, IconTips } from "../components/Icons";
+import {
+  IconBill,
+  IconSimpleInterest,
+  IconTips,
+  IconWallet,
+} from "../components/Icons";
 
 export default function TransactionCard({
   amountWithCurrency,
@@ -83,7 +88,7 @@ export function generatePropsFromTransaction(
     title: transaction.title,
     labelCategory: transaction.categoryLabel,
     labelWallet: transaction.walletLabel,
-    IconCategory: IconSimpleInterest,
-    IconWallet: IconTips,
+    IconCategory: IconBill,
+    IconWallet: IconWallet,
   };
 }

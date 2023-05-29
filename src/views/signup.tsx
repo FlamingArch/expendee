@@ -22,14 +22,6 @@ export default function SignUp() {
   const [signedUpNewsletter, setSignedUpNewsletter] = useState(true);
   const [agreeTNC, setAgreeTNC] = useState(false);
 
-  useEffect(
-    () =>
-      console.log(
-        `Agree TNC: ${agreeTNC}, Signed Up Newsletter: ${signedUpNewsletter}`
-      ),
-    [agreeTNC, signedUpNewsletter]
-  );
-
   const handleOnClick = () => {
     signUpEmail(auth, email, password).then((credentials) => {
       createUserDoc(

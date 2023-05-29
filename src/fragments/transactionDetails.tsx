@@ -2,10 +2,12 @@ import React from "react";
 import { Transaction } from "../types/transaction";
 import { Button } from "../components";
 import {
+  IconBill,
   IconCardTick,
   IconCompoundInterest,
   IconSplit,
   IconTips,
+  IconWallet,
 } from "../components/Icons";
 import Chip from "../components/Chip";
 
@@ -48,12 +50,12 @@ export default function TransactionDetails({
       <div className="flex items-center justify-center gap-4">
         <Chip
           label={transaction.categoryLabel}
-          Icon={IconCompoundInterest}
+          Icon={IconBill}
           color={transaction.categoryColor}
         />
         <Chip
           label={transaction.walletLabel}
-          Icon={IconTips}
+          Icon={IconWallet}
           color={transaction.categoryColor}
         />
       </div>

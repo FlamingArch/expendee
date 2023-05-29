@@ -46,7 +46,11 @@ export default function SignIn() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button buttonStyle="primary" onClick={handleOnClick}>
+          <Button
+            buttonStyle="primary"
+            onClick={handleOnClick}
+            disabled={!userName || !password}
+          >
             Sign In
           </Button>
 

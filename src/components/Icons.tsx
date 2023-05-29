@@ -784,3 +784,33 @@ export function IconMicrosoft({ className }: IconProps) {
     </svg>
   );
 }
+
+export function IconWallet({ className, style }: IconProps) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`${className}`}
+      style={style}
+    >
+      <path d="M18 4H6C3.79 4 2 5.79 2 8V16C2 18.21 3.79 20 6 20H18C20.21 20 22 18.21 22 16V8C22 5.79 20.21 4 18 4ZM16.14 13.77C15.9 13.97 15.57 14.05 15.26 13.97L4.15 11.25C4.45 10.52 5.16 10 6 10H18C18.67 10 19.26 10.34 19.63 10.84L16.14 13.77ZM6 6H18C19.1 6 20 6.9 20 8V8.55C19.41 8.21 18.73 8 18 8H6C5.27 8 4.59 8.21 4 8.55V8C4 6.9 4.9 6 6 6Z" />
+    </svg>
+  );
+}
+export function IconBill({ className, style }: IconProps) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      className={`${className}`}
+      style={style}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M13.5 2.33333L12.5 1.33333L11.5 2.33333L10.5 1.33333L9.5 2.33333L8.5 1.33333L7.5 2.33333L6.5 1.33333L5.5 2.33333L4.5 1.33333V10.6667H2.5V12.6667C2.5 13.7733 3.39333 14.6667 4.5 14.6667H12.5C13.6067 14.6667 14.5 13.7733 14.5 12.6667V1.33333L13.5 2.33333ZM13.1667 12.6667C13.1667 13.0333 12.8667 13.3333 12.5 13.3333C12.1333 13.3333 11.8333 13.0333 11.8333 12.6667V10.6667H5.83333V3.33333H13.1667V12.6667Z" />
+      <path d="M6.5 4.66667H10.5V6H6.5V4.66667ZM11.1667 4.66667H12.5V6H11.1667V4.66667ZM6.5 6.66667H10.5V8H6.5V6.66667ZM11.1667 6.66667H12.5V8H11.1667V6.66667Z" />
+    </svg>
+  );
+}

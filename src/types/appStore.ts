@@ -1,5 +1,5 @@
 import { FirebaseApp } from "firebase/app";
-import { Auth, UserCredential } from "firebase/auth";
+import { Auth, User, UserCredential } from "firebase/auth";
 import { Firestore } from "firebase/firestore";
 import { Functions } from "firebase/functions";
 

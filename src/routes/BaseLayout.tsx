@@ -1,6 +1,5 @@
-import { Sidebar } from "../fragments";
 import { Outlet } from "react-router-dom";
-import React from "react";
+import { Sidebar } from "../fragments";
 
 export default function BaseLayout() {
   return (

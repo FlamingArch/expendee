@@ -9,11 +9,12 @@ export default function SidebarLink({
   selected,
   className,
   style,
+  buttonStyle,
 }: SidebarLinkProps) {
   return (
     <Link href={href}>
       <Button
-        buttonStyle={selected ? "navLinkSelected" : "navLink"}
+        buttonStyle={buttonStyle ?? (selected ? "navLinkSelected" : "navLink")}
         label={label}
         Icon={Icon}
         className={`${label ? "w-full" : "w-fit"} ${className}`}

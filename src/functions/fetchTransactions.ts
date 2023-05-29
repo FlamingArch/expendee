@@ -1,4 +1,4 @@
-import { Auth } from "firebase/auth";
+import { Auth, User } from "firebase/auth";
 import { Transaction } from "../types/transaction";
 import {
   Firestore,
@@ -10,29 +10,15 @@ import {
 
 export default async function fetchTransactions(
   firestore: Firestore,
-  auth: Auth,
-  {
-    type,
-    includeDeleted,
-  }: {
-    type?: "all" | "expense" | "income";
-    includeDeleted?: boolean;
-  }
+  userId?: string,
+  type?: "all" | "expense" | "income",
+  includeDeleted?: boolean
 ) {
   const typeParam = type ?? "all";
-
-  const user = auth.currentUser;
-
-  if (!user) {
-    return [];
-  }
-
-  const queries = [where("userId", "==", user?.uid)];
-
+  const queries = [where("userId", "==", userId)];
   if (typeParam !== "all") {
-    queries.push(where("type",  "==", typeParam));
+    queries.push(where("type", "==", typeParam));
   }
-
   if (!includeDeleted) {
     queries.push(where("deleted", "==", false));
   }

@@ -29,7 +29,7 @@ export default function PaymentMethodCard({
     <div
       style={style}
       className={
-        "p-4 bg-element dark:bg-element-dark rounded-xl flex-col flex gap-2 w-fit " +
+        "p-4 bg-element dark:bg-black dark:bg-opacity-50 rounded-xl flex-col flex gap-2 w-fit cursor-pointer " +
         className
       }
     >

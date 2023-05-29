@@ -1,6 +1,12 @@
 import { Button } from "../components";
 import AppBar from "../components/AppBar";
-import { IconPlus, IconSearch, IconSort, IconTick } from "../components/Icons";
+import {
+  IconPlus,
+  IconPreloader,
+  IconSearch,
+  IconSort,
+  IconTick,
+} from "../components/Icons";
 import { Page } from "../components";
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
@@ -10,29 +16,35 @@ import { Transaction } from "../types/transaction";
 import fetchTransactions from "../functions/fetchTransactions";
 import useAppStore from "../contexts/appStore";
 import { generatePropsFromTransaction } from "../fragments/TransactionCard";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Home() {
-  const outlet = useOutlet();
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
-
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-
   const { auth, firestore } = useAppStore((state) => ({
     auth: state.auth,
     firestore: state.firestore,
   }));
-
-  if (auth.currentUser == null) navigate("/signin");
+  const [user, signingIn] = useAuthState(auth);
+  const navigate = useNavigate();
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   useEffect(() => {
-    fetchTransactions(firestore, auth, {
-      type: "all",
-      includeDeleted: true,
-    }).then((transactions) => {
-      setTransactions(transactions);
-    });
-  }, []);
+    if (user)
+      fetchTransactions(firestore, user?.uid, "all").then(setTransactions);
+  }, [user]);
+
+  const outlet = useOutlet();
+  const { pathname } = useLocation();
+
+  if (signingIn)
+    return (
+      <Page>
+        <div className="flex items-center justify-center flex-grow">
+          <IconPreloader className="w-6 h-6 stroke-text dark:stroke-text-dark" />
+        </div>
+      </Page>
+    );
+
+  if (!signingIn && !user) navigate("/signin");
 
   const appBar = (
     <AppBar

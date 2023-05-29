@@ -54,3 +54,7 @@ input {
 input[type="checkbox"] {
   @apply rounded-full;
 }
+
+input.clear {
+  @apply bg-transparent w-fit text-center outline-none shadow-none;
+}

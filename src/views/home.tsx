@@ -60,6 +60,7 @@ export default function Home() {
         className="mx-4 mb-4"
         Icon={IconPlus}
         label="New Transaction"
+        onClick={() => navigate("/transaction/new")}
       />
     </AppBar>
   );

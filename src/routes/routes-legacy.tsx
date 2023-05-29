@@ -10,16 +10,22 @@ import {
 import { createBrowserRouter } from "react-router-dom";
 import Tips from "../views/tips";
 import BaseLayout from "./BaseLayout";
+import PageNewTransaction from "../views/newTransaction";
 
 const transactionRoute = {
   path: "/transaction/:id",
   element: <Transaction />,
 };
 
+const newTransactionRoute = {
+  path: "/transaction/new",
+  element: <PageNewTransaction />,
+};
+
 const homeRoute = {
   path: "/",
   element: <Home />,
-  children: [transactionRoute],
+  children: [transactionRoute, newTransactionRoute],
 };
 
 const signInRoute = {

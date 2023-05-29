@@ -169,10 +169,11 @@ export function IconTips({ className, style }: IconProps) {
   );
 }
 
-export function IconFeedback({ className }: IconProps) {
+export function IconFeedback({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -183,10 +184,11 @@ export function IconFeedback({ className }: IconProps) {
   );
 }
 
-export function IconOrganisation({ className }: IconProps) {
+export function IconOrganisation({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -197,10 +199,11 @@ export function IconOrganisation({ className }: IconProps) {
   );
 }
 
-export function IconBack({ className }: IconProps) {
+export function IconBack({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -211,10 +214,11 @@ export function IconBack({ className }: IconProps) {
   );
 }
 
-export function IconPasskey({ className }: IconProps) {
+export function IconPasskey({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -225,10 +229,11 @@ export function IconPasskey({ className }: IconProps) {
   );
 }
 
-export function IconAnswer({ className }: IconProps) {
+export function IconAnswer({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -239,10 +244,11 @@ export function IconAnswer({ className }: IconProps) {
   );
 }
 
-export function IconClock({ className }: IconProps) {
+export function IconClock({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -253,10 +259,11 @@ export function IconClock({ className }: IconProps) {
   );
 }
 
-export function IconStreaming({ className }: IconProps) {
+export function IconStreaming({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -267,10 +274,11 @@ export function IconStreaming({ className }: IconProps) {
   );
 }
 
-export function IconLocation({ className }: IconProps) {
+export function IconLocation({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -281,7 +289,7 @@ export function IconLocation({ className }: IconProps) {
   );
 }
 
-export function IconEdit({ className }: IconProps) {
+export function IconEdit({ className, style }: IconProps) {
   return (
     <svg
       width="24"
@@ -289,6 +297,7 @@ export function IconEdit({ className }: IconProps) {
       viewBox="0 0 24 24"
       fill="none"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M5 19H6.4L15.025 10.375L13.625 8.975L5 17.6V19ZM19.3 8.925L15.05 4.725L16.45 3.325C16.8333 2.94167 17.3043 2.75 17.863 2.75C18.4217 2.75 18.8923 2.94167 19.275 3.325L20.675 4.725C21.0583 5.10833 21.2583 5.571 21.275 6.113C21.2917 6.655 21.1083 7.11733 20.725 7.5L19.3 8.925ZM17.85 10.4L7.25 21H3V16.75L13.6 6.15L17.85 10.4ZM14.325 9.675L13.625 8.975L15.025 10.375L14.325 9.675Z" />
@@ -296,10 +305,11 @@ export function IconEdit({ className }: IconProps) {
   );
 }
 
-export function IconGlobe({ className }: IconProps) {
+export function IconGlobe({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -310,10 +320,11 @@ export function IconGlobe({ className }: IconProps) {
   );
 }
 
-export function IconMail({ className }: IconProps) {
+export function IconMail({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -324,10 +335,11 @@ export function IconMail({ className }: IconProps) {
   );
 }
 
-export function IconInstagram({ className }: IconProps) {
+export function IconInstagram({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       width="25"
       height="24"
       viewBox="0 0 25 24"
@@ -342,10 +354,11 @@ export function IconInstagram({ className }: IconProps) {
   );
 }
 
-export function IconShare({ className }: IconProps) {
+export function IconShare({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -356,10 +369,11 @@ export function IconShare({ className }: IconProps) {
   );
 }
 
-export function IconArrowRight({ className }: IconProps) {
+export function IconArrowRight({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -370,10 +384,11 @@ export function IconArrowRight({ className }: IconProps) {
   );
 }
 
-export function IconNewEvent({ className }: IconProps) {
+export function IconNewEvent({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -384,10 +399,11 @@ export function IconNewEvent({ className }: IconProps) {
   );
 }
 
-export function IconPhone({ className }: IconProps) {
+export function IconPhone({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -398,10 +414,11 @@ export function IconPhone({ className }: IconProps) {
   );
 }
 
-export function IconUser({ className }: IconProps) {
+export function IconUser({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -412,10 +429,11 @@ export function IconUser({ className }: IconProps) {
   );
 }
 
-export function IconDiversity({ className }: IconProps) {
+export function IconDiversity({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       height="48"
       width="48"
@@ -426,10 +444,11 @@ export function IconDiversity({ className }: IconProps) {
   );
 }
 
-export function IconFavourite({ className }: IconProps) {
+export function IconFavourite({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       viewBox="0 0 48 48"
       xmlns="http://www.w3.org/2000/svg"
       height="48"
@@ -440,10 +459,11 @@ export function IconFavourite({ className }: IconProps) {
   );
 }
 
-export function IconFavouriteFill({ className }: IconProps) {
+export function IconFavouriteFill({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       viewBox="0 0 48 48"
       xmlns="http://www.w3.org/2000/svg"
       height="48"
@@ -454,10 +474,11 @@ export function IconFavouriteFill({ className }: IconProps) {
   );
 }
 
-export function IconTicketFill({ className }: IconProps) {
+export function IconTicketFill({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       height="24"
@@ -467,10 +488,11 @@ export function IconTicketFill({ className }: IconProps) {
     </svg>
   );
 }
-export function IconSupport({ className }: IconProps) {
+export function IconSupport({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       height="24"
@@ -481,10 +503,11 @@ export function IconSupport({ className }: IconProps) {
   );
 }
 
-export function IconDone({ className }: IconProps) {
+export function IconDone({ className, style }: IconProps) {
   return (
     <svg
       className={className}
+      style={style}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       height="24"
@@ -495,7 +518,7 @@ export function IconDone({ className }: IconProps) {
   );
 }
 
-export function IconPreloader({ className }: IconProps) {
+export function IconPreloader({ className, style }: IconProps) {
   return (
     <svg
       className={`${className} animate-spin`}
@@ -515,7 +538,7 @@ export function IconPreloader({ className }: IconProps) {
   );
 }
 
-export function IconCanceled({ className }: IconProps) {
+export function IconCanceled({ className, style }: IconProps) {
   return (
     <svg
       className={`${className}`}
@@ -529,7 +552,7 @@ export function IconCanceled({ className }: IconProps) {
     </svg>
   );
 }
-export function IconLocationEdit({ className }: IconProps) {
+export function IconLocationEdit({ className, style }: IconProps) {
   return (
     <svg
       className={`${className}`}
@@ -543,7 +566,7 @@ export function IconLocationEdit({ className }: IconProps) {
   );
 }
 
-export function IconEventConfirmation({ className }: IconProps) {
+export function IconEventConfirmation({ className, style }: IconProps) {
   return (
     <svg
       className={`${className}`}
@@ -557,7 +580,7 @@ export function IconEventConfirmation({ className }: IconProps) {
   );
 }
 
-export function IconNotificationsFill({ className }: IconProps) {
+export function IconNotificationsFill({ className, style }: IconProps) {
   return (
     <svg
       className={`${className}`}
@@ -571,7 +594,7 @@ export function IconNotificationsFill({ className }: IconProps) {
   );
 }
 
-export function IconHomeFill({ className }: IconProps) {
+export function IconHomeFill({ className, style }: IconProps) {
   return (
     <svg
       className={`${className}`}
@@ -585,7 +608,7 @@ export function IconHomeFill({ className }: IconProps) {
   );
 }
 
-export function IconHome({ className }: IconProps) {
+export function IconHome({ className, style }: IconProps) {
   return (
     <svg
       className={`${className}`}
@@ -599,7 +622,7 @@ export function IconHome({ className }: IconProps) {
   );
 }
 
-export function IconShareAlt({ className }: IconProps) {
+export function IconShareAlt({ className, style }: IconProps) {
   return (
     <svg
       width="24"
@@ -613,7 +636,7 @@ export function IconShareAlt({ className }: IconProps) {
   );
 }
 
-export function IconClose({ className }: IconProps) {
+export function IconClose({ className, style }: IconProps) {
   return (
     <svg
       className={`${className}`}
@@ -627,7 +650,7 @@ export function IconClose({ className }: IconProps) {
   );
 }
 
-export function IconLocationArrow({ className }: IconProps) {
+export function IconLocationArrow({ className, style }: IconProps) {
   return (
     <svg
       width="48"
@@ -641,7 +664,7 @@ export function IconLocationArrow({ className }: IconProps) {
   );
 }
 
-export function IconDelete({ className }: IconProps) {
+export function IconDelete({ className, style }: IconProps) {
   return (
     <svg
       width="24"
@@ -655,7 +678,7 @@ export function IconDelete({ className }: IconProps) {
   );
 }
 
-export function IconCardTick({ className }: IconProps) {
+export function IconCardTick({ className, style }: IconProps) {
   return (
     <svg
       width="24"
@@ -669,7 +692,7 @@ export function IconCardTick({ className }: IconProps) {
   );
 }
 
-export function IconOutwardLink({ className }: IconProps) {
+export function IconOutwardLink({ className, style }: IconProps) {
   return (
     <svg
       width="20"
@@ -683,7 +706,7 @@ export function IconOutwardLink({ className }: IconProps) {
   );
 }
 
-export function IconDownload({ className }: IconProps) {
+export function IconDownload({ className, style }: IconProps) {
   return (
     <svg
       width="16"
@@ -697,7 +720,7 @@ export function IconDownload({ className }: IconProps) {
   );
 }
 
-export function IconUpload({ className }: IconProps) {
+export function IconUpload({ className, style }: IconProps) {
   return (
     <svg
       width="16"
@@ -710,7 +733,7 @@ export function IconUpload({ className }: IconProps) {
     </svg>
   );
 }
-export function IconApple({ className }: IconProps) {
+export function IconApple({ className, style }: IconProps) {
   return (
     <svg
       width="25"
@@ -724,7 +747,7 @@ export function IconApple({ className }: IconProps) {
   );
 }
 
-export function IconGoogle({ className }: IconProps) {
+export function IconGoogle({ className, style }: IconProps) {
   return (
     <svg
       width="25"
@@ -753,7 +776,7 @@ export function IconGoogle({ className }: IconProps) {
   );
 }
 
-export function IconMicrosoft({ className }: IconProps) {
+export function IconMicrosoft({ className, style }: IconProps) {
   return (
     <svg
       width="25"

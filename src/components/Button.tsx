@@ -43,7 +43,7 @@ const buttonStyleClasses = {
     iconContainer: "",
     labelContainer: "",
     label: "",
-    icon: "w-6 h-6 fill-text dark:fill-text-dark",
+    icon: "w-6 h-6 fill-accent dark:fill-accent-dark",
     trailingContainer: "",
   },
   action: {

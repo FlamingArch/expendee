@@ -11,6 +11,5 @@ export type AppStoreProps = {
   firestore: Firestore;
   functions: Functions;
   credentials: UserCredential | null;
-  signIn: (email: string, password: string) => Promise<void>;
-  signOut: () => void;
+  setUserCredentials: (credentials: UserCredential | null) => void;
 };

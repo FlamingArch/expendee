@@ -22,19 +22,7 @@ const useAppStore = create<AppStoreProps>((set) => ({
   firestore,
   functions,
   credentials: null,
-  signIn: async (email: string, password: string) => {
-    set({
-      credentials: await signInWithEmailAndPassword(auth, email, password),
-    });
-  },
-  signOut: () => signOut(auth),
-  signUp: (email: string, password: string) => {
-    try {
-      createUserWithEmailAndPassword(auth, email, password);
-    } catch (e) {
-      console.error(e);
-    }
-  },
+  setUserCredentials: (credentials) => set({ credentials }),
   sidebarVisible: true,
   toggleSidebar: () => {}, // TODO: Implement
 }));

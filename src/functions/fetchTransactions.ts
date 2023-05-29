@@ -21,18 +21,16 @@ export default async function fetchTransactions(
 ) {
   const typeParam = type ?? "all";
 
-  // const user = auth.currentUser;
+  const user = auth.currentUser;
 
-  // if (!user) {
-  //   return [];
-  // }
+  if (!user) {
+    return [];
+  }
 
-  const queries = [
-    // where("userId", "==", user?.uid)
-  ];
+  const queries = [where("userId", "==", user?.uid)];
 
   if (typeParam !== "all") {
-    queries.push(where("type", "==", typeParam));
+    queries.push(where("type",  "==", typeParam));
   }
 
   if (!includeDeleted) {

@@ -5,7 +5,7 @@ import { Page } from "../components";
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import { TransactionCard } from "../fragments";
-import { useLocation, useOutlet } from "react-router-dom";
+import { useLocation, useNavigate, useOutlet } from "react-router-dom";
 import { Transaction } from "../types/transaction";
 import fetchTransactions from "../functions/fetchTransactions";
 import useAppStore from "../contexts/appStore";
@@ -13,6 +13,7 @@ import { generatePropsFromTransaction } from "../fragments/TransactionCard";
 
 export default function Home() {
   const outlet = useOutlet();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -21,6 +22,8 @@ export default function Home() {
     auth: state.auth,
     firestore: state.firestore,
   }));
+
+  if (auth.currentUser == null) navigate("/signin");
 
   useEffect(() => {
     fetchTransactions(firestore, auth, {

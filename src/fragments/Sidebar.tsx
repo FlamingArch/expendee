@@ -4,14 +4,16 @@ import React from "react";
 import { IconInOut, IconPlus } from "../components/Icons";
 import sidebarLinks from "../constants/sidebarLinks";
 import SidebarLink from "../components/SidebarLink";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAppStore from "../contexts/appStore";
+import signOut from "../functions/signOut";
 
 export default function Sidebar() {
   const { auth } = useAppStore((state) => ({
     auth: state.auth,
   }));
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const path = pathname.split("/")[1];
 
@@ -83,6 +85,7 @@ export default function Sidebar() {
       className={auth.currentUser ? "flex-grow-0" : undefined}
     >
       <p
+        onClick={() => signOut(auth).then(() => navigate("/signin"))}
         className={
           "flex justify-center items-center font-branding uppercase text-center text-3xl font-black py-16 align-middle " +
           (auth.currentUser ? "" : "flex-grow")

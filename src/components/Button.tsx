@@ -74,6 +74,7 @@ export default function Button({
   styles,
   className,
   buttonStyle,
+
   ...rest
 }: ButtonProps) {
   const buttonStyleProp = buttonStyle ?? "secondary";
@@ -98,7 +99,7 @@ export default function Button({
 
   return (
     <button
-      className={`${buttonStyleClasses[buttonStyleProp].button} ${className}`}
+      className={`${buttonStyleClasses[buttonStyleProp].button} disabled:opacity-50 ${className}`}
       {...rest}
     >
       {elementIcon}

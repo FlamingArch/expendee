@@ -762,7 +762,7 @@ export function IconMicrosoft({ className }: IconProps) {
       className={`${className}`}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_1066_1908)">
+      <g clipPath="url(#clip0_1066_1908)">
         <path d="M12.0052 11.5052H2.5V2H12.0052V11.5052Z" fill="#F1511B" />
         <path d="M22.5002 11.5052H12.9951V2H22.5002V11.5052Z" fill="#80CC28" />
         <path d="M12.0049 22.0002H2.5V12.495H12.0049V22.0002Z" fill="#00ADEF" />

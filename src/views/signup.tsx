@@ -1,11 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Page } from "../components";
 import { IconApple, IconGoogle, IconMicrosoft } from "../components/Icons";
 import { Sidebar } from "../fragments";
 import { useNavigate } from "react-router-dom";
+import signUpEmail from "../functions/signUpEmail";
+import useAppStore from "../contexts/appStore";
+import createUserDoc from "../functions/createUserDoc";
 
 export default function SignUp() {
   const navigate = useNavigate();
+
+  const { auth, firestore } = useAppStore((state) => ({
+    auth: state.auth,
+    firestore: state.firestore,
+  }));
+
+  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [signedUpNewsletter, setSignedUpNewsletter] = useState(true);
+  const [agreeTNC, setAgreeTNC] = useState(false);
+
+  useEffect(
+    () =>
+      console.log(
+        `Agree TNC: ${agreeTNC}, Signed Up Newsletter: ${signedUpNewsletter}`
+      ),
+    [agreeTNC, signedUpNewsletter]
+  );
+
+  const handleOnClick = () => {
+    signUpEmail(auth, email, password).then((credentials) => {
+      createUserDoc(
+        firestore,
+        credentials,
+        email,
+        userName,
+        signedUpNewsletter
+      ).then(() => navigate("/"));
+    });
+  };
 
   return (
     <>
@@ -15,36 +50,77 @@ export default function SignUp() {
           <h3 className="text-2xl text-center">Sign Up</h3>
 
           <div className="font-bold">Enter your Email</div>
-          <input type="email" placeholder="Email" />
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="Email"
+          />
 
           <div className="font-bold">
             Enter a unique User Name. You can set a display name later.
           </div>
-          <input type="email" placeholder="Username" />
+          <input
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            type="text"
+            placeholder="Username"
+          />
 
           <div className="font-bold">Chose a Strong Password</div>
-          <input type="password" placeholder="Password" />
-          <input type="password" placeholder="Repeat Password" />
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="Password"
+          />
+          <input
+            value={repeatPassword}
+            onChange={(e) => setRepeatPassword(e.target.value)}
+            type="password"
+            placeholder="Repeat Password"
+          />
 
           <div className="font-bold">Legalities</div>
 
-          <Button buttonStyle="primary">Create Expendee ID</Button>
-
           <div className="flex gap-4 items-center">
-            <input type="checkbox" />
-            <p>
+            <input
+              type="checkbox"
+              checked={agreeTNC}
+              onChange={() => setAgreeTNC(!agreeTNC)}
+            />
+            <p className="highlightLink">
               I agree to the <a href="">Terms and Conditions</a> and{" "}
               <a href="">Privacy Policy</a>
             </p>
           </div>
 
           <div className="flex gap-4 items-center">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={signedUpNewsletter}
+              onChange={() => setSignedUpNewsletter(!signedUpNewsletter)}
+            />
             <p>
               Send me Email about new features and announcements.{" "}
               <span className="font-bold">I can unsubscribe any time.</span>
             </p>
           </div>
+
+          <Button
+            buttonStyle="primary"
+            onClick={handleOnClick}
+            disabled={
+              !agreeTNC ||
+              !userName ||
+              !email ||
+              !password ||
+              !repeatPassword ||
+              !(password === repeatPassword)
+            }
+          >
+            Create Expendee ID
+          </Button>
 
           <p className="text-center font-medium">Or Continue With</p>
           <div className="flex justify-center gap-4">

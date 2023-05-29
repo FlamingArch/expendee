@@ -47,7 +47,7 @@ input {
   @apply transition bg-element dark:bg-element-dark p-3 focus-within:shadow-xl rounded-xl;
 }
 
-a {
+.highlightLink a {
   @apply font-bold text-accent hover:underline;
 }
 

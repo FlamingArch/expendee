@@ -37,6 +37,15 @@ const buttonStyleClasses = {
     icon: "w-6 h-6 fill-text dark:fill-text-dark",
     trailingContainer: "",
   },
+  secondaryAccent: {
+    button:
+      "transition bg-accent dark:bg-accent-dark bg-opacity-10 hover:brightness-[0.95] text-accent dark:text-accent-dark p-3 gap-2 flex font-medium items-center rounded-xl justify-center",
+    iconContainer: "",
+    labelContainer: "",
+    label: "",
+    icon: "w-6 h-6 fill-text dark:fill-text-dark",
+    trailingContainer: "",
+  },
   action: {
     button:
       "hover:bg-slate-200 dark:hover:bg-slate-800 p-3 rounded-xl flex font-medium gap-2 items-center",

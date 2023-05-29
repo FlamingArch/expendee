@@ -20,6 +20,7 @@
 
 * {
   font-family: "Manrope", sans-serif;
+  user-select: none;
 }
 
 .font-branding {
@@ -40,4 +41,16 @@ body {
   height: 100vh;
   overflow: hidden;
   width: 100vw;
+}
+
+input {
+  @apply transition bg-element dark:bg-element-dark p-3 focus-within:shadow-xl rounded-xl;
+}
+
+a {
+  @apply font-bold text-accent hover:underline;
+}
+
+input[type="checkbox"] {
+  @apply rounded-full;
 }

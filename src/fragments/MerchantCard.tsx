@@ -78,7 +78,7 @@ export default function MerchantCard({
 
   const recieptDetails = linkedDocuments && (
     <div className="flex-col flex gap-2">
-      <p className="text-[12px] font-bold">Link to Order Page</p>
+      <p className="text-[12px] font-bold">Receipts</p>
       <div className="flex gap-4">
         {linkedDocuments}
         <Button

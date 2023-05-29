@@ -20,4 +20,5 @@ export type ButtonStyles =
   | "actionSidebar"
   | "primary"
   | "secondary"
+  | "secondaryAccent"
   | "action";

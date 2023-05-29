@@ -39,7 +39,7 @@ const buttonStyleClasses = {
   },
   secondaryAccent: {
     button:
-      "transition bg-accent dark:bg-accent-dark bg-opacity-10 hover:brightness-[0.95] text-accent dark:text-accent-dark p-3 gap-2 flex font-medium items-center rounded-xl justify-center",
+      "transition bg-accent dark:bg-accent-dark dark:bg-opacity-20 bg-opacity-10 hover:brightness-[0.95] text-accent dark:text-accent-dark p-3 gap-2 flex font-medium items-center rounded-xl justify-center",
     iconContainer: "",
     labelContainer: "",
     label: "",

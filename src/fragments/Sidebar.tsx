@@ -84,7 +84,7 @@ export default function Sidebar() {
     >
       <p
         className={
-          "font-branding uppercase text-center text-3xl font-black py-16 align-middle " +
+          "flex justify-center items-center font-branding uppercase text-center text-3xl font-black py-16 align-middle " +
           (auth.currentUser ? "" : "flex-grow")
         }
       >

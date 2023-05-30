@@ -12,6 +12,7 @@ import Tips from "../views/tips";
 import BaseLayout from "./BaseLayout";
 import PageNewTransaction from "../views/newTransaction";
 import PageNewWallet from "../views/newWallet";
+import PageNewCategory from "../views/newCategory";
 
 const transactionRoute = {
   path: "/transaction/:id",
@@ -32,6 +33,11 @@ const homeRoute = {
 const newWalletRoute = {
   path: "/wallet/new",
   element: <PageNewWallet />,
+};
+
+const newCategoryRoute = {
+  path: "/category/new",
+  element: <PageNewCategory />,
 };
 
 const signInRoute = {
@@ -73,6 +79,7 @@ const appLayout = {
     tipsRoute,
     splitRoute,
     newWalletRoute,
+    newCategoryRoute,
   ],
 };
 

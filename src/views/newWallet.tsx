@@ -5,7 +5,7 @@ import { Button, Page } from "../components";
 import useAppStore from "../contexts/appStore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { IconDone, IconPreloader } from "../components/Icons";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { collection, doc, setDoc, arrayUnion } from "firebase/firestore";
 
 export default function PageNewWallet() {
   const { auth, firestore } = useAppStore((state) => ({
@@ -58,6 +58,14 @@ export default function PageNewWallet() {
       creditLimitHistory: [],
       userId: user.uid,
     }).then(navigateBack);
+
+    setDoc(
+      doc(collection(firestore, "users"), user.uid),
+      {
+        wallets: arrayUnion(documentId),
+      },
+      { merge: true }
+    );
   };
 
   return (

@@ -30,7 +30,12 @@ export default function SidebarBudgetsSection({
       gap={0}
       className="my-4"
       actions={
-        <Button buttonStyle="actionSidebar" label="New" Icon={IconPlus} />
+        <SidebarLink
+          href="/category/new"
+          buttonStyle="actionSidebar"
+          label="New"
+          Icon={IconPlus}
+        />
       }
     >
       {budgets?.map((e, i) => (

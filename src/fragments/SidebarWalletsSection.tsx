@@ -32,12 +32,18 @@ export default function SidebarWalletsSection({
       gap={0}
       className="my-4"
       actions={
-        <Button buttonStyle="actionSidebar" label="New" Icon={IconPlus} />
+        <SidebarLink
+          buttonStyle="actionSidebar"
+          label="New"
+          Icon={IconPlus}
+          href="/wallet/new"
+        />
       }
     >
       {wallets?.map((e, i) => (
         <SidebarLink
-          href={`/${e.id}`}
+          // href={`/${e.id}`}
+          href={``}
           selected={path == `/${e.id}`}
           key={i}
           className="rounded-none"

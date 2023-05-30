@@ -5,6 +5,7 @@ import { IconClose, IconDelete, IconDone, IconEdit } from "../components/Icons";
 import Chip from "../components/Chip";
 import { Budget } from "../types/budgets";
 import { AnimatePresence, motion } from "framer-motion";
+import ModalSheet from "../components/ModalSheet";
 
 export default function PageNewTransaction() {
   const [title, setTitle] = useState("");
@@ -127,44 +128,5 @@ export default function PageNewTransaction() {
         Nigga
       </ModalSheet>
     </Page>
-  );
-}
-
-function ModalSheet({
-  visible,
-  onClose,
-  title,
-  children,
-}: {
-  visible: boolean;
-  onClose: () => void;
-  title: string | React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -200 }}
-          style={{ opacity: 0, y: -200 }}
-          className="grid place-content-center inset-0 p-4 fixed backdrop-blur-sm"
-        >
-          <div className="rounded-xl p-6 backdrop-blur-xl bg-page dark:bg-page-dark bg-opacity-70 dark:bg-opacity-70 shadow-2xl w-[50vmin] h-[50vmin]">
-            <AppBar
-              heading={title}
-              leading={
-                <Button
-                  buttonStyle="action"
-                  onClick={onClose}
-                  Icon={IconClose}
-                />
-              }
-            />
-            <div className="flex flex-col p-4">{children}</div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
   );
 }

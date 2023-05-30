@@ -31,7 +31,7 @@ export default function SidebarUserSection({
 
   return (
     <Section
-      heading="Account"
+      heading="User"
       padding={0}
       gap={4}
       actions={

@@ -36,7 +36,8 @@ export default function SidebarBudgetsSection({
       {budgets?.map((e, i) => (
         <SidebarLink
           selected={path == `/${e.id}`}
-          href={`/${e.id}`}
+          // href={`/${e.id}`}
+          href={``}
           Icon={IconBill}
           label={e.categoryLabel}
           key={i}

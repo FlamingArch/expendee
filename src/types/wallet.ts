@@ -5,6 +5,7 @@ export type Account = {
   balance: number;
   description: string;
   linkedAccountName: string;
+  linkedAccountNumber: string;
   linkedPaymentMethods: string[];
   startingBalance: number;
   transactions: string[];

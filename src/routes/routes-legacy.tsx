@@ -11,6 +11,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Tips from "../views/tips";
 import BaseLayout from "./BaseLayout";
 import PageNewTransaction from "../views/newTransaction";
+import PageNewWallet from "../views/newWallet";
 
 const transactionRoute = {
   path: "/transaction/:id",
@@ -26,6 +27,11 @@ const homeRoute = {
   path: "/",
   element: <Home />,
   children: [transactionRoute, newTransactionRoute],
+};
+
+const newWalletRoute = {
+  path: "/wallet/new",
+  element: <PageNewWallet />,
 };
 
 const signInRoute = {
@@ -66,6 +72,7 @@ const appLayout = {
     compoundInterestRoute,
     tipsRoute,
     splitRoute,
+    newWalletRoute,
   ],
 };
 

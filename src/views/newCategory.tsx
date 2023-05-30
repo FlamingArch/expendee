@@ -40,7 +40,7 @@ export default function PageNewCategory() {
     if (!user) return;
 
     setDoc(documentRef, {
-      id: documentRef,
+      id: documentId,
       budgetAmount: budgetAmount,
       categoryLabel: title,
       categoryIcon: "bill",
@@ -70,7 +70,9 @@ export default function PageNewCategory() {
         actions={
           <Button
             buttonStyle="primary"
-            disabled={title.length === 0 || budgetAmount === 0}
+            disabled={
+              title.length === 0 || budgetAmount === 0 || color.length === 0
+            }
             Icon={IconDone}
             label="Done"
             onClick={handleSubmit}

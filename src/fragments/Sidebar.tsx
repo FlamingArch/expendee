@@ -60,7 +60,6 @@ export default function Sidebar() {
       className={user ? "flex-grow-0" : undefined}
     >
       <p
-        onClick={() => signOut(auth).then(() => navigate("/signin"))}
         className={
           "flex justify-center items-center font-branding uppercase text-center text-3xl font-black py-16 align-middle " +
           (user ? "" : "flex-grow")

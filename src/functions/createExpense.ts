@@ -83,7 +83,7 @@ export default async function createExpense(
     date: Timestamp.now(),
     recurring: recurring ?? false,
     recurringDurationDays: recurringDurationDays ?? 0,
-    categoryId: categoryDoc.id,
+    categoryId: "unset",
     categoryColor: categoryDoc.color ?? "#f00",
     categoryLabel: categoryDoc.categoryLabel,
     categoryIcon: categoryDoc.categoryIcon,

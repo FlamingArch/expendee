@@ -1,7 +1,7 @@
 import React from "react";
 import { Budget } from "../types/budgets";
 import { Transaction } from "../types/transaction";
-import { IconCompoundInterest, IconPreloader } from "../components/Icons";
+import { IconBill, IconPreloader } from "../components/Icons";
 
 export default function BudgetCard({
   transaction,
@@ -23,8 +23,8 @@ export default function BudgetCard({
             className="rounded-xl absolute h-full"
           ></div>
           <div className="flex items-center gap-2 p-2 z-10">
-            <IconCompoundInterest className="w-4 h-4 fill-text dark:fill-text-dark" />
-            Food
+            <IconBill className="w-4 h-4 fill-text dark:fill-text-dark" />
+            {budget.categoryLabel}
           </div>
           <p className="text-[12px] p-2 z-10 align-middle my-auto">
             {budget.currency == "INR" ? "₹" : budget.currency}{" "}

@@ -16,7 +16,12 @@ export default async function addExpense(
   wallet: Account
 ) {
   const docRef = doc(collection(firestore, "transactions"));
-  await setDoc(docRef, { ...expense, id: docRef.id });
+  await setDoc(docRef, {
+    ...expense,
+    categoryId: budget.id,
+    walletId: wallet.id,
+    id: docRef.id,
+  });
 
   setDoc(
     doc(collection(firestore, "users"), expense.userId),
@@ -27,7 +32,7 @@ export default async function addExpense(
   );
 
   setDoc(
-    doc(collection(firestore, "budgets"), expense.categoryId),
+    doc(collection(firestore, "budgets"), budget.id),
     {
       transactions: arrayUnion(docRef.id),
       spentAmount: budget.spentAmount + expense.amount,
@@ -36,7 +41,7 @@ export default async function addExpense(
   );
 
   setDoc(
-    doc(collection(firestore, "wallet"), expense.walletId),
+    doc(collection(firestore, "wallet"), wallet.id),
     {
       transactions: arrayUnion(docRef.id),
       balance: wallet.balance - expense.amount,

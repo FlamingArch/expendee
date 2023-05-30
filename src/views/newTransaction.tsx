@@ -102,7 +102,9 @@ export default function PageNewTransaction() {
         notes: "",
       })
         .then((doc) =>
-          addExpense(firestore, doc, selectedCategory, selectedWallet)
+          addExpense(firestore, doc, selectedCategory, selectedWallet).then(
+            () => navigate("/")
+          )
         )
         .catch((e) => console.error(e));
     }

@@ -25,14 +25,14 @@ export default function SidebarTransactionsSection({
       />
       <div className="grid grid-cols-2 gap-4">
         <SidebarLink
-          selected={path == "spent"}
-          href="/spent"
+          selected={path == "/"}
+          href="/"
           label="Sent"
           Icon={IconInOut}
         />
         <SidebarLink
-          selected={path == "received"}
-          href="/received"
+          selected={path == "/"}
+          href="/"
           label="Received"
           Icon={IconInOut}
         />

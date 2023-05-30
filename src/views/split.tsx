@@ -28,7 +28,11 @@ export default function Split() {
             actions={<Button buttonStyle="action" Icon={IconDelete} />}
           />
         }
-      ></Page>
+      >
+        <div className="justify-center items-center flex-grow py-[40vh] font-bold grid">
+          Splitting between friends is Coming Soon
+        </div>
+      </Page>
     </>
   );
 }

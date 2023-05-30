@@ -1,4 +1,3 @@
-import { Auth, User } from "firebase/auth";
 import { Transaction } from "../types/transaction";
 import {
   Firestore,
@@ -6,6 +5,7 @@ import {
   getDocs,
   query,
   where,
+  orderBy,
 } from "firebase/firestore";
 
 export default async function fetchTransactions(

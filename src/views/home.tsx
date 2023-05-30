@@ -27,10 +27,10 @@ export default function Home() {
   const navigate = useNavigate();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  useEffect(() => {
-    if (user)
-      fetchTransactions(firestore, user?.uid, "all").then(setTransactions);
-  }, [user]);
+  // useEffect(() => {
+  if (user)
+    fetchTransactions(firestore, user?.uid, "all").then(setTransactions);
+  // }, [user]);
 
   const outlet = useOutlet();
   const { pathname } = useLocation();

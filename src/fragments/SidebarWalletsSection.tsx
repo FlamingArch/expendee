@@ -21,9 +21,7 @@ export default function SidebarWalletsSection({
 }: SidebarWalletsSectionProps) {
   const [wallets, setWallets] = useState<Account[]>();
 
-  useEffect(() => {
-    fetchWallets(firestore, userId).then(setWallets);
-  }, []);
+  fetchWallets(firestore, userId).then(setWallets);
 
   return (
     <Section

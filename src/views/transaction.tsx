@@ -30,15 +30,13 @@ export default function transaction() {
     firestore: state.firestore,
   }));
 
-  useEffect(() => {
-    getDoc(doc(collection(firestore, "transactions"), id)).then((data) => {
-      if (data.exists()) {
-        setTransaction(data.data() as Transaction);
-      } else {
-        navigate("/");
-      }
-    });
-  }, []);
+  getDoc(doc(collection(firestore, "transactions"), id)).then((data) => {
+    if (data.exists()) {
+      setTransaction(data.data() as Transaction);
+    } else {
+      navigate("/");
+    }
+  });
 
   useEffect(() => {
     if (transaction) {

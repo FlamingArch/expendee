@@ -20,7 +20,7 @@ export default function BudgetCard({
               backgroundColor: transaction.categoryColor,
               width: `${(budget.spentAmount / budget.budgetAmount) * 100}%`,
             }}
-            className="rounded-xl absolute h-full"
+            className="rounded-xl absolute h-full transition-all"
           ></div>
           <div className="flex items-center gap-2 p-2 z-10">
             <IconBill className="w-4 h-4 fill-text dark:fill-text-dark" />

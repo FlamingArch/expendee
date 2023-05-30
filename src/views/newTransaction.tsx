@@ -6,7 +6,9 @@ import {
   IconClose,
   IconDelete,
   IconDone,
+  IconDownload,
   IconEdit,
+  IconOutwardLink,
   IconPlus,
   IconPreloader,
   IconWallet,
@@ -22,23 +24,30 @@ import { useNavigate } from "react-router-dom";
 import { Account } from "../types/wallet";
 import fetchBudgets from "../functions/fetchBudgets";
 
+type ReceiptDoc = {
+  link: string;
+  label: string;
+};
+
 export default function PageNewTransaction() {
   const [wallets, setWallets] = useState<Account[]>([]);
   const [selectedWallet, setSelectedWallet] = useState<Account>();
-
   const [categories, setCategories] = useState<Budget[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<Budget>();
-
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState<number | null>(null);
   const [recurring, setRecurring] = useState(false);
   const [recurringDuration, setRecurringDuration] = useState(0);
-
-  const [category, setCategory] = useState<Budget>();
-  const [account, setAccount] = useState<Budget>();
-
   const [categoryVisible, setCategoryVisible] = useState(false);
   const [accountVisible, setAccountVisible] = useState(false);
+  const [merchant, setMerchant] = useState("");
+  const [merchantAddress, setMerchantAddress] = useState("");
+  const [merchantWebsite, setMerchantWebsite] = useState("");
+  const [invoiceLinks, setInvoiceLinks] = useState<string[]>([]);
+  const [invoiceLink, setInvoiceLink] = useState("");
+  const [docLinks, setdocLinks] = useState<ReceiptDoc[]>([]);
+  const [docLabel, setDocLabel] = useState("");
+  const [docLink, setDocLink] = useState("");
 
   const { auth, firestore } = useAppStore((state) => ({
     auth: state.auth,
@@ -65,8 +74,8 @@ export default function PageNewTransaction() {
     amount === null ||
     amount === 0 ||
     (recurring && recurringDuration === 0) ||
-    !category ||
-    !account;
+    !selectedCategory ||
+    !selectedWallet;
 
   useEffect(() => {
     if (user) {
@@ -81,10 +90,12 @@ export default function PageNewTransaction() {
       padding={2}
       leading={
         <Button
-          Icon={IconDelete}
           buttonStyle="secondaryAccent"
+          className="bg-red-500 fill-red-500"
           onClick={navigateBack}
-        />
+        >
+          <IconDelete className="w-6 h-6 fill-red-500" />
+        </Button>
       }
       actions={
         <Button
@@ -120,7 +131,7 @@ export default function PageNewTransaction() {
               setAmount(parseInt(e.target.value));
             }
           }}
-          className="clear p-2 text-6xl font-extralight"
+          className="clear p-2 text-6xl text-center font-extralight"
           placeholder="Amount"
         />
       </div>
@@ -164,6 +175,112 @@ export default function PageNewTransaction() {
           label={selectedWallet?.title ?? "Choose Account"}
           onClick={() => setAccountVisible(true)}
         />
+      </div>
+
+      <div className="rounded-2xl shadow-xl bg-element-light dark:bg-element-dark flex flex-col p-6 gap-6">
+        <div className="text-xl">Merchant Details</div>
+
+        <div className="flex-col flex gap-2">
+          <p className="text-[12px] font-bold">Merchant</p>
+          <input
+            value={merchant}
+            onChange={(e) => setMerchant(e.target.value)}
+            className="clear p-0 font-medium"
+            placeholder="Merchant Name"
+          />
+          <input
+            value={merchantAddress}
+            onChange={(e) => setMerchantAddress(e.target.value)}
+            className="clear p-0 text-[12px] font-bold text-accent hover:underline"
+            placeholder="Address"
+          />
+          <input
+            value={merchantWebsite}
+            onChange={(e) => setMerchantWebsite(e.target.value)}
+            className="clear p-0 text-[12px] font-bold text-accent hover:underline"
+            placeholder="Website"
+          />
+        </div>
+
+        <div className="flex-col flex gap-2">
+          <p className="text-[12px] font-bold">Link to Order Page</p>
+          <div className="flex gap-4">
+            <input
+              value={invoiceLink}
+              onChange={(e) => setInvoiceLink(e.target.value)}
+              placeholder="Add Link"
+              className="flex-grow"
+            />
+            <Button
+              Icon={IconPlus}
+              buttonStyle="secondaryAccent"
+              onClick={() => {
+                setInvoiceLinks([...invoiceLinks, invoiceLink]);
+                setInvoiceLink("");
+              }}
+            />
+          </div>
+          {invoiceLinks.map((link, index) => (
+            <div
+              key={index}
+              onClick={() => {
+                setInvoiceLinks(
+                  invoiceLinks.filter((e, i) => {
+                    return i !== index;
+                  })
+                );
+              }}
+              className="flex gap-2 items-center hover:underline cursor-pointer text-text dark:text-text-dark hover:text-red-500"
+            >
+              <IconDelete className="w-5 h-5 fill-text dark:fill-text-dark" />
+              {link}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex-col flex gap-2">
+          <p className="text-[12px] font-bold">Receipts</p>
+          <div className="flex gap-4">
+            <input
+              value={docLabel}
+              onChange={(e) => setDocLabel(e.target.value)}
+              placeholder="Document Name"
+              className="flex-grow"
+            />
+            <input
+              value={docLink}
+              onChange={(e) => setDocLink(e.target.value)}
+              placeholder="Document Link"
+              className="flex-grow"
+            />
+            <Button
+              Icon={IconPlus}
+              buttonStyle="secondaryAccent"
+              onClick={() => {
+                setdocLinks([
+                  ...docLinks,
+                  {
+                    label: docLabel,
+                    link: docLink,
+                  },
+                ]);
+                setDocLabel("");
+                setDocLink("");
+              }}
+            />
+          </div>
+
+          {docLinks.map((document, index) => (
+            <a
+              key={index}
+              href={document.link}
+              className="flex gap-2 items-center cursor-pointer text-accent p-3 rounded-xl bg-accent bg-opacity-10 hover:bg-opacity-20"
+            >
+              <IconDelete className="w-6 h-6 fill-accent" />
+              {document.label}
+            </a>
+          ))}
+        </div>
       </div>
 
       <ModalSheet

@@ -57,6 +57,7 @@ export default function PageNewWallet() {
       creditLimit: [],
       creditLimitHistory: [],
       userId: user.uid,
+      transactions: [],
     }).then(navigateBack);
 
     setDoc(

@@ -4,6 +4,8 @@ import { PaymentMethod } from "../types/paymentMethod";
 import fetchBudget from "./fetchBudget";
 import fetchWallet from "./fetchWallet";
 import fetchPaymentMethod from "./fetchPaymentMethod";
+import { Budget } from "../types/budgets";
+import { Account } from "../types/wallet";
 
 export default async function createExpense(
   firestore: Firestore,
@@ -14,8 +16,8 @@ export default async function createExpense(
     currency,
     recurring,
     recurringDurationDays,
-    categoryId,
-    walletId,
+    categoryDoc,
+    walletDoc,
     merchant,
     merchantWebsite,
     merchantAddress,
@@ -30,8 +32,8 @@ export default async function createExpense(
     currency?: string;
     recurring?: boolean;
     recurringDurationDays?: number;
-    categoryId: string;
-    walletId: string;
+    categoryDoc: Budget;
+    walletDoc: Account;
     merchant?: string;
     merchantWebsite?: string;
     merchantAddress?: string;
@@ -53,8 +55,6 @@ export default async function createExpense(
     notes: string;
   }
 ) {
-  const budget = await fetchBudget(firestore, categoryId);
-  const wallet = await fetchWallet(firestore, walletId);
   const paymentMethodsList: PaymentMethod[] = [];
 
   paymentMethods?.forEach(async (prev) => {
@@ -74,34 +74,26 @@ export default async function createExpense(
   let totalRepaymentAmount = 0;
   repaidWith?.forEach((method) => (totalRepaymentAmount += method.amount));
 
-  if (!budget || !wallet) {
-    throw new Error("Budget not found");
-  }
-
-  if (!wallet) {
-    throw new Error("Wallet not found");
-  }
-
   const expense: Transaction = {
     id: "unset",
-    userId: "unset",
+    userId: userId,
     title: title,
     amount: amount,
     currency: currency ?? "INR",
     date: Timestamp.now(),
     recurring: recurring ?? false,
     recurringDurationDays: recurringDurationDays ?? 0,
-    categoryId: categoryId,
-    categoryColor: budget.color,
-    categoryLabel: budget.categoryLabel,
-    categoryIcon: budget.categoryIcon,
-    categoryBudgetRemainingAfterTxn: budget.budgetAmount - amount,
+    categoryId: categoryDoc.id,
+    categoryColor: categoryDoc.color ?? "#f00",
+    categoryLabel: categoryDoc.categoryLabel,
+    categoryIcon: categoryDoc.categoryIcon,
+    categoryBudgetRemainingAfterTxn: categoryDoc.budgetAmount - amount,
     categoryBudgetRemainingAfterTxnPercentage:
-      ((budget.budgetAmount - amount) / budget.budgetAmount) * 100,
-    walletId: walletId,
-    walletIcon: wallet.icon,
-    walletLabel: wallet.title,
-    walletRemainingAfterTxn: wallet.balance - amount,
+      ((categoryDoc.budgetAmount - amount) / categoryDoc.budgetAmount) * 100,
+    walletId: walletDoc.id,
+    walletIcon: walletDoc.icon,
+    walletLabel: walletDoc.title,
+    walletRemainingAfterTxn: walletDoc.balance - amount,
     merchant: merchant ?? "",
     merchantWebsite: merchantWebsite ?? "",
     merchantAddress: merchantAddress ?? "",
@@ -116,4 +108,6 @@ export default async function createExpense(
     notes: notes,
     deleted: false,
   };
+
+  return expense;
 }

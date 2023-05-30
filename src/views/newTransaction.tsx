@@ -3,19 +3,15 @@ import { Button, Page } from "../components";
 import AppBar from "../components/AppBar";
 import {
   IconBill,
-  IconClose,
   IconDelete,
   IconDone,
-  IconDownload,
   IconEdit,
-  IconOutwardLink,
   IconPlus,
   IconPreloader,
   IconWallet,
 } from "../components/Icons";
 import Chip from "../components/Chip";
 import { Budget } from "../types/budgets";
-import { AnimatePresence, motion } from "framer-motion";
 import ModalSheet from "../components/ModalSheet";
 import fetchWallets from "../functions/fetchWallets";
 import useAppStore from "../contexts/appStore";
@@ -23,6 +19,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { Account } from "../types/wallet";
 import fetchBudgets from "../functions/fetchBudgets";
+import createExpense from "../functions/createExpense";
+import addExpense from "../functions/addExpense";
 
 type ReceiptDoc = {
   link: string;
@@ -84,6 +82,32 @@ export default function PageNewTransaction() {
     }
   }, [user]);
 
+  const handleSubmit = () => {
+    if (user && amount && selectedCategory && selectedWallet) {
+      createExpense(firestore, user?.uid, {
+        title,
+        amount,
+        currency: "INR",
+        recurring,
+        recurringDurationDays: recurringDuration,
+        categoryDoc: selectedCategory,
+        walletDoc: selectedWallet,
+        merchant,
+        merchantWebsite,
+        merchantAddress,
+        invoiceLinks,
+        documentLinks: docLinks,
+        paymentMethods: [],
+        repaidWith: [],
+        notes: "",
+      })
+        .then((doc) =>
+          addExpense(firestore, doc, selectedCategory, selectedWallet)
+        )
+        .catch((e) => console.error(e));
+    }
+  };
+
   const appBar = (
     <AppBar
       sticky
@@ -103,6 +127,7 @@ export default function PageNewTransaction() {
           Icon={IconDone}
           label="Done"
           buttonStyle="secondaryAccent"
+          onClick={handleSubmit}
         />
       }
       heading={
@@ -298,6 +323,7 @@ export default function PageNewTransaction() {
         />
         {categories.map((e) => (
           <Button
+            key={e.id}
             Icon={IconBill}
             label={e.categoryLabel}
             onClick={() => {
@@ -323,6 +349,7 @@ export default function PageNewTransaction() {
         />
         {wallets.map((e) => (
           <Button
+            key={e.id}
             Icon={IconWallet}
             label={e.title}
             onClick={() => {
@@ -335,3 +362,38 @@ export default function PageNewTransaction() {
     </Page>
   );
 }
+
+// const documentRef = doc(collection(firestore, "transactions"));
+//     const data: Transaction = {
+//       id: documentRef.id,
+// userId: user?.uid,
+// title: title,
+// amount: amount,
+// currency: "INR",
+// date: Timestamp.now(),
+// recurring: recurring,
+// recurringDurationDays: recurringDuration,
+// categoryId: selectedCategory?.id,
+// categoryColor: selectedCategory?.color,
+// categoryLabel: selectedCategory?.categoryLabel,
+// categoryIcon: selectedCategory?.categoryIcon,
+// categoryBudgetRemainingAfterTxn: (selectedCategory?.budgetAmount ?? 0 - ((selectedCategory?.spentAmount ?? 0) +( amount ?? 0))),
+// categoryBudgetRemainingAfterTxnPercentage: (selectedCategory?.budgetAmount ?? 0 - ((selectedCategory?.spentAmount ?? 0) +( amount ?? 0))) / (selectedCategory?.budgetAmount ?? 0) * 100,
+// walletId: selectedWallet?.id,
+// walletLabel:selectedWallet?.title ,
+// walletIcon: selectedWallet?.icon,
+// walletRemainingAfterTxn: (selectedWallet?.balance ?? 0) - (amount ?? 0),
+// merchant: merchant,
+// merchantWebsite: merchantWebsite, ,
+// merchantAddress: merchantAddress,
+// invoiceLinks: invoiceLinks,
+// documentLinks: docLinks,
+// paidInitiallyViaCredit: ,
+// paymentMethods: ,
+// isRepaid: ,
+// repaidWith: ,
+// splitWith: ,
+// remaining: ,
+// notes: ,
+// deleted: ,
+//     }

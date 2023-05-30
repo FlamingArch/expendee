@@ -21,7 +21,7 @@ export default function SidebarBudgetsSection({
   const [budgets, setBudgets] = useState<Budget[]>();
   if (!user) return <></>;
 
-  fetchBudgets(user, firestore).then((budgets) => setBudgets(budgets));
+  fetchBudgets(firestore, user.uid).then((budgets) => setBudgets(budgets));
 
   return (
     <Section

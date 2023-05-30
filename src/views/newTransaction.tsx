@@ -1,13 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Page } from "../components";
 import AppBar from "../components/AppBar";
-import { IconClose, IconDelete, IconDone, IconEdit } from "../components/Icons";
+import {
+  IconBill,
+  IconClose,
+  IconDelete,
+  IconDone,
+  IconEdit,
+  IconPlus,
+  IconPreloader,
+  IconWallet,
+} from "../components/Icons";
 import Chip from "../components/Chip";
 import { Budget } from "../types/budgets";
 import { AnimatePresence, motion } from "framer-motion";
 import ModalSheet from "../components/ModalSheet";
+import fetchWallets from "../functions/fetchWallets";
+import useAppStore from "../contexts/appStore";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { Account } from "../types/wallet";
+import fetchBudgets from "../functions/fetchBudgets";
 
 export default function PageNewTransaction() {
+  const [wallets, setWallets] = useState<Account[]>([]);
+  const [selectedWallet, setSelectedWallet] = useState<Account>();
+
+  const [categories, setCategories] = useState<Budget[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<Budget>();
+
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState<number | null>(null);
   const [recurring, setRecurring] = useState(false);
@@ -19,6 +40,26 @@ export default function PageNewTransaction() {
   const [categoryVisible, setCategoryVisible] = useState(false);
   const [accountVisible, setAccountVisible] = useState(false);
 
+  const { auth, firestore } = useAppStore((state) => ({
+    auth: state.auth,
+    firestore: state.firestore,
+  }));
+
+  const [user, signingIn] = useAuthState(auth);
+  const navigate = useNavigate();
+  const navigateBack = () => navigate(-1);
+
+  if (signingIn)
+    return (
+      <Page>
+        <div className="flex items-center justify-center flex-grow">
+          <IconPreloader className="w-6 h-6 stroke-text dark:stroke-text-dark" />
+        </div>
+      </Page>
+    );
+
+  if (!signingIn && !user) navigate("/signin");
+
   const doneDisabled =
     title.length === 0 ||
     amount === null ||
@@ -27,11 +68,24 @@ export default function PageNewTransaction() {
     !category ||
     !account;
 
+  useEffect(() => {
+    if (user) {
+      fetchWallets(firestore, user?.uid).then(setWallets);
+      fetchBudgets(firestore, user?.uid).then(setCategories);
+    }
+  }, [user]);
+
   const appBar = (
     <AppBar
       sticky
       padding={2}
-      leading={<Button Icon={IconDelete} buttonStyle="secondaryAccent" />}
+      leading={
+        <Button
+          Icon={IconDelete}
+          buttonStyle="secondaryAccent"
+          onClick={navigateBack}
+        />
+      }
       actions={
         <Button
           disabled={doneDisabled}
@@ -100,14 +154,14 @@ export default function PageNewTransaction() {
       <div className="flex justify-center items-center gap-4">
         <Chip
           chipStyle="secondary"
-          Icon={IconEdit}
-          label="Choose Category"
+          Icon={selectedCategory ? IconBill : IconEdit}
+          label={selectedCategory?.categoryLabel ?? "Choose Category"}
           onClick={() => setCategoryVisible(true)}
         />
         <Chip
           chipStyle="secondary"
-          Icon={IconEdit}
-          label="Choose Account"
+          Icon={selectedWallet ? IconWallet : IconEdit}
+          label={selectedWallet?.title ?? "Choose Account"}
           onClick={() => setAccountVisible(true)}
         />
       </div>
@@ -117,7 +171,24 @@ export default function PageNewTransaction() {
         title="Choose Category"
         onClose={() => setCategoryVisible(false)}
       >
-        Nigga
+        <Button
+          buttonStyle="secondaryAccent"
+          Icon={IconPlus}
+          label="New Category"
+          onClick={() => {
+            navigate("/category/new");
+          }}
+        />
+        {categories.map((e) => (
+          <Button
+            Icon={IconBill}
+            label={e.categoryLabel}
+            onClick={() => {
+              setSelectedCategory(e);
+              setCategoryVisible(false);
+            }}
+          />
+        ))}
       </ModalSheet>
 
       <ModalSheet
@@ -125,7 +196,24 @@ export default function PageNewTransaction() {
         title="Choose Account"
         onClose={() => setAccountVisible(false)}
       >
-        Nigga
+        <Button
+          buttonStyle="secondaryAccent"
+          Icon={IconPlus}
+          label="New Account"
+          onClick={() => {
+            navigate("/wallet/new");
+          }}
+        />
+        {wallets.map((e) => (
+          <Button
+            Icon={IconWallet}
+            label={e.title}
+            onClick={() => {
+              setSelectedWallet(e);
+              setAccountVisible(false);
+            }}
+          />
+        ))}
       </ModalSheet>
     </Page>
   );

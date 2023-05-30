@@ -1,6 +1,6 @@
 {
   "name": "expendee",
-  "version": "4.8.5",
+  "version": "4.9.5",
   "private": true,
   "scripts": {
     "devSSR": "next dev",

@@ -8,14 +8,15 @@ import {
 } from "firebase/firestore";
 import { Budget } from "../types/budgets";
 
-export default async function fetchBudgets(user: User, firestore: Firestore) {
-  if (!user) return [] as Budget[];
-
+export default async function fetchBudgets(
+  firestore: Firestore,
+  userId: string
+) {
   const budgets: Budget[] = [];
 
   const collectionRef = collection(firestore, "budgets");
   const queryList = [
-    where("userId", "==", user.uid),
+    where("userId", "==", userId),
     where("deleted", "==", false),
   ];
 

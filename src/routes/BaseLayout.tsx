@@ -5,7 +5,7 @@ export default function BaseLayout() {
   return (
     <>
       <Sidebar />
-      <Outlet />
+      {/* <Outlet /> */}
     </>
   );
 }

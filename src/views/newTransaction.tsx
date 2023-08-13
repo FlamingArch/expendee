@@ -43,7 +43,7 @@ export default function PageNewTransaction() {
   const [merchantWebsite, setMerchantWebsite] = useState("");
   const [invoiceLinks, setInvoiceLinks] = useState<string[]>([]);
   const [invoiceLink, setInvoiceLink] = useState("");
-  const [docLinks, setdocLinks] = useState<ReceiptDoc[]>([]);
+  const [docLinks, setDocLinks] = useState<ReceiptDoc[]>([]);
   const [docLabel, setDocLabel] = useState("");
   const [docLink, setDocLink] = useState("");
 
@@ -117,7 +117,7 @@ export default function PageNewTransaction() {
       leading={
         <Button
           buttonStyle="secondaryAccent"
-          className="bg-red-500 fill-red-500"
+          className="bg-red-500 fill-red-500 dark:bg-red-500"
           onClick={navigateBack}
         >
           <IconDelete className="w-6 h-6 fill-red-500" />
@@ -284,7 +284,7 @@ export default function PageNewTransaction() {
               Icon={IconPlus}
               buttonStyle="secondaryAccent"
               onClick={() => {
-                setdocLinks([
+                setDocLinks([
                   ...docLinks,
                   {
                     label: docLabel,

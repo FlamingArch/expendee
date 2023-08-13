@@ -17,33 +17,11 @@ export default function Sidebar() {
     firestore: state.firestore,
   }));
 
-  const [user, signingIn, signInError] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const { pathname } = useLocation();
-  const navigate = useNavigate();
 
   const path = pathname.split("/")[1];
-
-  const walletsSection = user && (
-    <Section
-      heading="Wallets"
-      padding={0}
-      gap={0}
-      className="my-4"
-      actions={
-        <Button buttonStyle="actionSidebar" label="New" Icon={IconPlus} />
-      }
-    >
-      {sidebarLinks.walletLinks.map((e, i) => (
-        <SidebarLink
-          selected={path == e.href}
-          key={i}
-          className="rounded-none"
-          {...e}
-        />
-      ))}
-    </Section>
-  );
 
   const calculatorsSection = user && (
     <Section heading="Calculators" padding={0} gap={4}>

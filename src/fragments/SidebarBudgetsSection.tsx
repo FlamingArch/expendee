@@ -5,7 +5,7 @@ import { Budget } from "../types/budgets";
 import fetchBudgets from "../functions/fetchBudgets";
 import { Firestore } from "firebase/firestore";
 import { User } from "firebase/auth";
-import { IconPlus, IconBill } from "../components/Icons";
+import { IconPlus, IconBill, IconPreloader } from "../components/Icons";
 
 type SidebarBudgetsSectionProps = {
   user?: User;
@@ -38,6 +38,8 @@ export default function SidebarBudgetsSection({
         />
       }
     >
+      {budgets?.length == undefined ||
+        (budgets.length <= 0 && <IconPreloader className="w-5 h-5" />)}
       {budgets?.map((e, i) => (
         <SidebarLink
           selected={path == `/${e.id}`}

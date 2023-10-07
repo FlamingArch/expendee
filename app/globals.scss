@@ -19,7 +19,8 @@ main {
   background-color: var(--color-scaffold);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: scroll;
   flex-grow: 1;
   padding: 1.5rem;
 }

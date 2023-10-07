@@ -9,8 +9,9 @@ const brandingFont = Playfair_Display({ subsets: ["latin"] });
 export default function SignInPage() {
   return (
     <>
-      <div className="flex-grow hidden md:flex" /> 
-      <main className="justify-center">
+      <div className="flex-grow hidden md:flex" />
+      <main>
+        <div className="flex-grow" />
         <form className="sm:self-center sm:w-96">
           <h1 className={`${brandingFont.className} font-black uppercase`}>
             Expendee
@@ -40,6 +41,7 @@ export default function SignInPage() {
             <button>Sign Up</button>
           </fieldset>
         </form>
+        <div className="flex-grow" />
       </main>
     </>
   );

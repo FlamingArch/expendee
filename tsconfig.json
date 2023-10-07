@@ -3,10 +3,8 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "allowImportingTsExtensions": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -21,20 +19,9 @@
       }
     ],
     "paths": {
-      // "app/*": ["./app/*"],
-      // "components/*": ["./components/*"],
-      // "fragments/*": ["./fragments/*"],
-      // "views/*": ["./views/*"],
-      // "styles/*": ["./styles/*"],
-      // "types/*": ["./types/*"],
-      // "helpers/*": ["./types/*"],
-      // "functions/*": ["./types/*"],
-      // "@/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"],
-  "noUnusedLocals": true,
-  "noUnusedParameters": true,
-  "noFallthroughCasesInSwitch": true
+  "exclude": ["node_modules"]
 }

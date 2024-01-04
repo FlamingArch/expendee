@@ -8,15 +8,15 @@ body {
 }
 
 .button-secondary{
-  @apply bg-accent bg-opacity-15 hover:bg-opacity-20 transition-colors rounded-xl p-4 text-accent font-bold
+  @apply bg-accent bg-opacity-15 hover:bg-opacity-20 transition-colors rounded-xl p-4 text-accent font-bold text-center;
 }
 
 .button-primary {
-  @apply bg-accent hover:bg-accentDark rounded-xl p-4 text-white font-bold;
+  @apply bg-accent hover:bg-accentDark rounded-xl p-4 text-white font-bold text-center;
 }
 
 .button-socials {
-   @apply rounded-xl w-full aspect-square grid place-content-center;
+   @apply rounded-xl w-full aspect-square grid place-content-center text-center;
 }
 
 .input-primary {

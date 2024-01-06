@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   description: 'A beautiful Expense Tracker that stores data in cloud and syncs it across devices.',
 }
 
-type RooyLayoutProps = {
+type RootLayoutProps = {
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: RooyLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return <html lang="en">
-    <body className={globalFont.className}>{children}</body>
+    <body className={globalFont.className + " text-black dark:text-white bg-black flex h-screen w-screen items-stretch font-medium"}>{children}</body>
   </html>
 }

@@ -2,31 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply text-black dark:text-white bg-black flex h-screen w-screen items-stretch;
-  font-weight: 500;
-}
-
-.button-secondary{
-  @apply bg-accent bg-opacity-15 hover:bg-opacity-20 transition-colors rounded-xl p-4 text-accent font-bold text-center;
-}
-
-.button-primary {
-  @apply bg-accent hover:bg-accentDark rounded-xl p-4 text-white font-bold text-center;
-}
-
-.button-socials {
-   @apply rounded-xl w-full aspect-square grid place-content-center text-center;
-}
-
 .input-primary {
   @apply p-4 rounded-xl hover:shadow-2xl focus:shadow-[#0066FF88] focus:shadow-2xl transition-shadow outline-none;
-}
-
-.section-header {
-  @apply font-bold opacity-60;
-}
-
-.scaffold-header {
-  @apply text-2xl;
 }

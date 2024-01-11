@@ -1,21 +1,23 @@
 
+import Button from "@/views/Button"
 import Page from "@/views/Page"
 import Section from "@/views/Section"
 import Sidebar from "@/views/Sidebar"
-import Link from "next/link"
 
-export default function SignInLayout({ children }: { children: React.ReactNode }) {
+export default function LayoutSignIn({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Sidebar title="Expendee" titleBrandingFont />
-      <Page>
-        <Section header="Sign in with your Expendee ID">
-          {children}
-        </Section>
+      <Sidebar className="hidden md:flex" />
+      <Page title="Sign In" className="text-center justify-center md:max-w-[400px]">
+        {children}
         <Section header="Don't Have An Account?">
-          <Link href="/signup" className="button-secondary">Sign Up</Link>
-          <Link href="/guest" className="button-secondary">
-          </Link>
+          <Button
+            href="/signup"
+            label="Sign Up" />
+          <Button
+            href="/guest"
+            label="Try Expendee without Account"
+            icon={<b>NEW!</b>} />
         </Section>
       </Page>
     </>

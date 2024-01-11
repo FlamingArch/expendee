@@ -1,19 +1,24 @@
-import { Playfair_Display as Heading } from "next/font/google"
-
-const headingFont = Heading({ subsets: ['latin'] })
-
 type PageProps = {
-  children: React.ReactNode
+  children?: React.ReactNode
   header?: string // Shown in desktop sizes
-  sidebarHeader?: string  // Shown in mobile sizes
   center?: boolean
   className?: string
+  sidebarHeader?: string  // Shown in mobile sizes
+  title?: string
+  width?: number | string
 }
 
 export default function Page(props: PageProps) {
-  return <main>
-    {props.children}
-  </main >
-}
+  let containerStyles = ""
+    + "flex flex-col "
+    + "bg-page text-black "
+    + "flex-grow "
+    + props.className
 
-// className = { "bg-scaffold overflow-scroll flex flex-col items-stretch flex-grow " + props.className }
+  let pageHeaderStyles = "text-xl p-4"
+
+  return <main style={{ maxWidth: props.width }} className={containerStyles}>
+    <h2 className={pageHeaderStyles}>{props.title}</h2>
+    {props.children}
+  </main>
+}

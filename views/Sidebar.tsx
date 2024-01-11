@@ -1,17 +1,33 @@
-import { Playfair_Display as Heading } from "next/font/google"
-const headingFont = Heading({ subsets: ['latin'] })
+import { Playfair_Display as Branding } from "next/font/google"
 
-type TitleSidebarProps = {
+const brandingFont = Branding({ subsets: ['latin'] })
+
+type SidebarProps = {
   title?: string
   titleBrandingFont?: boolean
   centered?: boolean
+  children?: React.ReactNode
+  width?: number | string
+  className?: string
 }
 
+export default function Sidebar(props: SidebarProps) {
+  let containerStyles = "flex-grow "
+    + "min-h-screen overflow-x-hidden "
+    + "flex flex-col "
+    + "p-6 gap-4 "
+    + props.className
+  let headingStyles = "text-2xl text-center p-6 "
 
-export default function TitleSidebar(props: TitleSidebarProps) {
-  const fontClass = props.titleBrandingFont ? `${headingFont.className} uppercase` : ""
-  const centerClass = props.centered ? "place-content-center" : ""
-  return <section className={"bg-black flex flex-col flex-grow " + centerClass}>
-    {props.title && <h1 className={fontClass + " font-black text-white text-4xl w-min text-center"}>{props.title}</h1>}
-  </section>
+  if (props.titleBrandingFont) {
+    headingStyles += brandingFont.className
+    headingStyles += " font-black uppercase"
+  }
+
+  return (
+    <section style={{ maxWidth: props.width }} className={containerStyles}>
+      <h1 className={headingStyles}>{props.title}</h1>
+      {props.children}
+    </section>
+  )
 }

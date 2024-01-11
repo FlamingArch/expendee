@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-weight: 500;
+}
+
+input {
+  @apply rounded-xl p-4 transition-shadow hover:shadow-2xl focus:shadow-2xl focus:shadow-accentTransparent outline-none;
+}
+
+.button-socials {
+  @apply rounded-xl w-full aspect-square grid place-content-center text-center;
+}

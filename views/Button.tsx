@@ -12,7 +12,7 @@ export default function Button(props: ButtonProps) {
   let buttonStyles = ""
     + "bg-accent rounded-xl "
     + "p-4 "
-    + "text-center "
+    + "text-center cursor-pointer "
 
   if (props.primary) {
     buttonStyles += ""

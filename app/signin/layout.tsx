@@ -7,8 +7,8 @@ import Sidebar from "@/views/Sidebar"
 export default function LayoutSignIn({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Sidebar className="hidden md:flex" />
-      <Page title="Sign In" className="text-center justify-center md:max-w-[400px]">
+      <Sidebar title="Expendee" titleBrandingFont className="justify-end md:justify-center"></Sidebar>
+      <Page title="Sign In" className="text-center md:justify-center md:max-w-[400px]">
         {children}
         <Section header="Don't Have An Account?">
           <Button

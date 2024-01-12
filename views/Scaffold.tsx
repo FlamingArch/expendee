@@ -8,7 +8,8 @@ type ScaffoldProps = {
 }
 
 export default function Scaffold(props: ScaffoldProps) {
-  let bodyStyle = "flex "
+  let bodyStyle = ""
+    + "flex md:flex-row flex-col "
     + "h-screen w-screen "
     + "text-black bg-page "
     + "md:text-white md:bg-black "

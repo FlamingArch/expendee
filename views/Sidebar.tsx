@@ -13,20 +13,24 @@ type SidebarProps = {
 
 export default function Sidebar(props: SidebarProps) {
   let containerStyles = "flex-grow "
-    + "min-h-screen overflow-x-hidden "
+    + "md:min-h-screen overflow-x-hidden "
     + "flex flex-col "
     + "p-6 gap-4 "
     + props.className
-  let headingStyles = "text-2xl text-center p-6 "
+  let headingStyles = "text-4xl text-center p-6 "
 
   if (props.titleBrandingFont) {
     headingStyles += brandingFont.className
     headingStyles += " font-black uppercase"
   }
 
+  const header = props.title
+    ? <h1 className={headingStyles}>{props.title}</h1>
+    : null
+
   return (
     <section style={{ maxWidth: props.width }} className={containerStyles}>
-      <h1 className={headingStyles}>{props.title}</h1>
+      {header}
       {props.children}
     </section>
   )

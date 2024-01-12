@@ -17,8 +17,10 @@ export default function Page(props: PageProps) {
 
   let pageHeaderStyles = "text-xl p-4"
 
-  return <main style={{ maxWidth: props.width }} className={containerStyles}>
-    <h2 className={pageHeaderStyles}>{props.title}</h2>
-    {props.children}
-  </main>
+  return (
+    <main style={{ maxWidth: props.width }} className={containerStyles}>
+      <h2 className={pageHeaderStyles}>{props.title}</h2>
+      {props.children}
+    </main>
+  )
 }

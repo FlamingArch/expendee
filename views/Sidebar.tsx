@@ -13,7 +13,7 @@ type SidebarProps = {
 
 export default function Sidebar(props: SidebarProps) {
   let containerStyles = "flex-grow "
-    + "md:min-h-screen overflow-x-hidden "
+    + "min-h-[7rem] md:min-h-screen overflow-x-hidden "
     + "flex flex-col "
     + "p-6 gap-4 "
     + props.className

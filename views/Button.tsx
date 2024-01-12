@@ -31,7 +31,9 @@ export default function Button(props: ButtonProps) {
     </Link>
   }
 
-  return <button className={buttonStyles} onClick={props.onClick}>
-    {props.icon} {props.label}
-  </button>
+  return (
+    <button className={buttonStyles} onClick={props.onClick}>
+      {props.icon} {props.label}
+    </button>
+  )
 }

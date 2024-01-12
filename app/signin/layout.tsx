@@ -1,4 +1,5 @@
 
+import SocialSignIn from "@/fragments/SocialSignIn"
 import Button from "@/views/Button"
 import Page from "@/views/Page"
 import Section from "@/views/Section"
@@ -10,6 +11,7 @@ export default function LayoutSignIn({ children }: { children: React.ReactNode }
       <Sidebar title="Expendee" titleBrandingFont className="justify-end md:justify-center"></Sidebar>
       <Page title="Sign In" className="text-center md:justify-center md:max-w-[400px]">
         {children}
+        <SocialSignIn />
         <Section header="Don't Have An Account?">
           <Button
             href="/signup"

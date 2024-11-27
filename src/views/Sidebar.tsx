@@ -1,9 +1,9 @@
-type SidebarProps = {
-  children: React.ReactNode;
+type Props = {
+  children?: React.ReactNode;
   width?: number | "full" | null;
 };
 
-export default function Sidebar(props: SidebarProps) {
+export default function Sidebar(props: Props) {
   let alignmentStyles = "flex flex-col justify-center items-center";
 
   let widthStyles =

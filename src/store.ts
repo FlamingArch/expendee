@@ -1,13 +1,15 @@
 import { create } from "zustand";
 
 type AppStoreProps = {
-  appName: string;
   sidebarWidth: "full" | number | null;
+  fullSidebar: (val: boolean) => void;
 };
 
 const useAppStore = create<AppStoreProps>((set) => ({
-  appName: "Expendee",
   sidebarWidth: null,
+  fullSidebar: (val: boolean) => {
+    val ? set({ sidebarWidth: "full" }) : set({ sidebarWidth: null });
+  },
 }));
 
 export default useAppStore;

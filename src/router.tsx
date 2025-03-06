@@ -1,20 +1,10 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './routes/App.tsx'
 
-import PageHome from "./routes/Home";
-
-import "./index.css";
-import PageSignIn from "./routes/SignIn";
-
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<PageHome />}>
-          <Route path="/signin" element={<PageSignIn />}></Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>
-);
+    <App />
+  </StrictMode>,
+)

@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
-:root {
-  color-scheme: light dark;
+@theme {
+  --color-scaffold-light: #fafcff;
+  --color-scaffold-dark: #000000;
+  --color-text-light: #222326;
+  --color-text-dark: #ffffff;
+}
+
+.font-heading {
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
 }
 
 * {
@@ -14,15 +21,4 @@ body {
   align-items: stretch;
   height: 100dvh;
   width: 100dvw;
-}
-
-main {
-  background-color: light-dark(#fafcff, #000000);
-  color: light-dark(#222326, #ffffff);
-  margin: 0;
-  padding: 0;
-}
-
-.font-heading {
-  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
 }

@@ -9,11 +9,12 @@ import {
   IoSearchOutline,
 } from "react-icons/io5";
 import { useState } from "react";
+import Scaffold from "../components/Scaffold";
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <>
-      <Sidebar width={240} collapsed={collapsed}>
+      <Sidebar width={260} collapsed={collapsed}>
         <header className="flex items-center pt-12 text-white p-1">
           <h1 className="font-heading font-bold text-xl flex-grow pl-4">
             Expendee
@@ -24,40 +25,40 @@ export default function App() {
         </header>
         <h3 className="">Transactions</h3>
       </Sidebar>
-      <main className="bg-red-400 w-[280px] flex-grow-0 border-r border-gray-200">
+      <Scaffold className="grow-0 w-[300px]">
         <header className="flex p-1">
           <Button onClick={() => setCollapsed((prev) => !prev)}>
             <FiSidebar className="w-5 h-5" />
           </Button>
-          <Button onClick={() => setCollapsed((prev) => !prev)}>
+          <Button>
             <TbBoxMultiple className="w-5 h-5" />
           </Button>
           <div className="flex-grow" />
-          <Button onClick={() => setCollapsed((prev) => !prev)}>
+          <Button>
             <IoFilterSharp className="w-5 h-5" />
           </Button>
-          <Button onClick={() => setCollapsed((prev) => !prev)}>
+          <Button>
             <IoEllipsisHorizontalCircle className="w-5 h-5" />
           </Button>
         </header>
         <header className="flex items-center p-1">
-          <p className="flex-grow text-xl flex-grow pl-4">All Transactions</p>
-          <Button onClick={() => setCollapsed((prev) => !prev)}>
+          <p className="flex-grow text-xl pl-4">All Transactions</p>
+          <Button>
             <IoSearchOutline className="w-5 h-5" />
           </Button>
         </header>
-      </main>
-      <main className="bg-red-400 flex-grow">
+      </Scaffold>
+      <Scaffold>
         <header className="flex p-1">
-          <Button onClick={() => setCollapsed((prev) => !prev)}>
+          <Button>
             <TbBoxMultiple className="w-5 h-5" />
           </Button>
           <div className="flex-grow" />
-          <Button onClick={() => setCollapsed((prev) => !prev)}>
+          <Button>
             <IoFilterSharp className="w-5 h-5" />
           </Button>
         </header>
-      </main>
+      </Scaffold>
     </>
   );
 }

@@ -6,7 +6,7 @@ export default function Button(props: Props) {
   return (
     <button
       {...props}
-      className="text-2x p-4 rounded-xl hover:bg-black/20 dark:hover:bg-white/20"
+      className="p-4 rounded-xl hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
     >
       {props.children}
     </button>

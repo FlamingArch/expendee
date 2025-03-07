@@ -33,7 +33,7 @@ export default function App() {
         </div>
       </Sidebar>
       <Scaffold className="grow-0 w-[300px]">
-        <Toolbar>
+        <Toolbar position="top">
           <Button
             icon={FiSidebar}
             iconClassName="stroke-[1.5]"

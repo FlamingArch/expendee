@@ -1,17 +1,22 @@
-import Sidebar from "../components/Sidebar";
-import Button from "../components/Button";
+import { useState } from "react";
+
 import { TbBoxMultiple } from "react-icons/tb";
 import { FiSidebar } from "react-icons/fi";
+import { MdOutlineCallSplit } from "react-icons/md";
 import {
   IoEllipsisHorizontalCircle,
   IoFilterSharp,
   IoPersonCircleOutline,
   IoSearchOutline,
+  IoShareOutline,
   IoTrashOutline,
 } from "react-icons/io5";
-import { useState } from "react";
+
+import Sidebar from "../components/Sidebar";
+import Button from "../components/Button";
 import Scaffold from "../components/Scaffold";
 import Toolbar from "../components/Toolbar";
+
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
   return (
@@ -21,15 +26,14 @@ export default function App() {
           <h1 className="font-heading font-bold text-lg flex-grow pl-4">
             Expendee
           </h1>
-          <Button>
-            <IoPersonCircleOutline className="w-6 h-6" />
-          </Button>
-        </header>
-        <h3 className="">Transactions</h3>
+          <Button icon={IoPersonCircleOutline} />
         </Toolbar>
+        <div className="flex-grow">
+          <h3 className="">Transactions</h3>
+        </div>
       </Sidebar>
       <Scaffold className="grow-0 w-[300px]">
-        <header className="flex p-1">
+        <Toolbar>
           <Button
             icon={FiSidebar}
             iconClassName="stroke-[1.5]"
@@ -37,25 +41,24 @@ export default function App() {
           />
           <Button icon={TbBoxMultiple} iconClassName="stroke-[1.5]" />
           <div className="flex-grow" />
-        </header>
-        <header className="flex items-center p-1">
           <Button icon={IoFilterSharp} />
           <Button icon={IoEllipsisHorizontalCircle} />
+        </Toolbar>
+        <Toolbar>
           <p className="flex-grow text-lg pl-3">All Transactions</p>
-          <Button>
-            <IoSearchOutline className="w-5 h-5" />
-          </Button>
+          <Button icon={IoSearchOutline} />
         </Toolbar>
       </Scaffold>
       <Scaffold>
         <Toolbar>
-          <Button className="hover:bg-red-500/10">
-            <IoTrashOutline className="w-5 h-5 stroke-red-500" />
-          </Button>
+          <Button
+            icon={IoTrashOutline}
+            className="hover:bg-red-500/10"
+            iconClassName="stroke-red-500"
+          />
           <div className="flex-grow" />
-          <Button>
-            <IoFilterSharp className="w-5 h-5" />
-          </Button>
+          <Button icon={MdOutlineCallSplit} />
+          <Button icon={IoShareOutline} />
         </Toolbar>
       </Scaffold>
     </>

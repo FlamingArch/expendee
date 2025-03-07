@@ -48,6 +48,17 @@ export default function App() {
           <p className="flex-grow text-lg pl-3">All Transactions</p>
           <Button icon={IoSearchOutline} />
         </Toolbar>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
+        <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
       </Scaffold>
       <Scaffold>
         <Toolbar>

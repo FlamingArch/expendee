@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { TbBoxMultiple } from "react-icons/tb";
-import { FiSidebar } from "react-icons/fi";
+import { FiArrowDownRight, FiArrowUpRight, FiSidebar } from "react-icons/fi";
 import { MdOutlineCallSplit } from "react-icons/md";
 import {
   IoEllipsisHorizontalCircle,
@@ -11,14 +11,17 @@ import {
   IoShareOutline,
   IoTrashOutline,
 } from "react-icons/io5";
-
 import Sidebar from "../components/Sidebar";
 import Button from "../components/Button";
 import Scaffold from "../components/Scaffold";
 import Toolbar from "../components/Toolbar";
+import TabBar from "../components/TabBar";
+import { HiArrowsRightLeft } from "react-icons/hi2";
 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
+  const [selected, setSelected] = useState(0);
+
   return (
     <>
       <Sidebar width={260} collapsed={collapsed}>
@@ -47,6 +50,18 @@ export default function App() {
         <Toolbar>
           <p className="flex-grow text-lg pl-3">All Transactions</p>
           <Button icon={IoSearchOutline} />
+        </Toolbar>
+        <Toolbar>
+          <TabBar
+            className="mx-3"
+            selected={selected}
+            onChange={setSelected}
+            items={[
+              { label: "All", icon: HiArrowsRightLeft },
+              { label: "Spent", icon: FiArrowDownRight },
+              { label: "Received", icon: FiArrowUpRight },
+            ]}
+          />
         </Toolbar>
         <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>
         <div className="h-24 mx-4 my-2 shadow-lg bg-white rounded-xl"></div>

@@ -6,18 +6,17 @@ type Props = {
 } & React.DOMAttributes<HTMLButtonElement>;
 
 export default function Button(props: Props) {
+  const { children, icon, className, iconClassName, ...buttonProps } = props;
   return (
     <button
-      {...props}
+      {...buttonProps}
       className={
         "p-3 rounded-xl hover:bg-black/10 dark:hover:bg-white/10 transition-colors " +
-        props.className
+        className
       }
     >
-      {props.icon && (
-        <props.icon className={"w-5 h-5 " + props.iconClassName} />
-      )}
-      {props.children}
+      {props.icon && <props.icon className={"w-5 h-5 " + iconClassName} />}
+      {children}
     </button>
   );
 }

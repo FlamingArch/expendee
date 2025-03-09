@@ -1,5 +1,3 @@
-import { IoAirplane } from "react-icons/io5";
-
 type TabBarItem = {
   label: string;
   icon?: (props: any) => React.ReactNode;

@@ -6,7 +6,8 @@ type Props = {
 
 function getStickStyles(position?: "top" | "bottom") {
   if (position === undefined || position === null) return "";
-  let stickStyles = "backdrop-blur-lg bg-scaffold-light/60 ";
+  let stickStyles =
+    "backdrop-blur-lg bg-scaffold-light/60 dark:bg-scaffold-dark/60 dark:text-white ";
 
   if (position === "top") {
     stickStyles += "sticky top-0";

@@ -4,17 +4,27 @@ type Props = {
   position?: "top" | "bottom";
 };
 
+function getStickStyles(position?: "top" | "bottom") {
+  if (position === undefined || position === null) return "";
+  let stickStyles = "backdrop-blur-lg bg-scaffold-light/60 ";
+
+  if (position === "top") {
+    stickStyles += "sticky top-0";
+  } else if (position === "bottom") {
+    stickStyles += "sticky bottom-0";
+  }
+  return stickStyles;
+}
+
 export default function Toolbar(props: Props) {
-  let stickStyles =
-    props.position === "top"
-      ? "sticky top-0 backdrop-blur-lg bg-scaffold-light/60"
-      : props.position === "bottom"
-      ? "sticky bottom-0 backdrop-blur-lg bg-scaffold-light/60"
-      : "";
   let layoutStyles = "flex p-2 items-center h-auto";
 
   return (
-    <header className={`${layoutStyles} ${stickStyles} ${props.className}`}>
+    <header
+      className={`${layoutStyles} ${getStickStyles(props.position)} ${
+        props.className
+      }`}
+    >
       {props.children}
     </header>
   );

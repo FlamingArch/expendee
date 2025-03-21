@@ -30,12 +30,8 @@ export default function App() {
 
   return (
     <>
-      <Sidebar
-        width={260}
-        collapsed={collapsed}
-        className="gap-3 bg-black/60 text-text-dark"
-      >
-        <Toolbar className="text-white pt-17">
+      <Sidebar acrylic width={260} collapsed={collapsed} className="gap-3">
+        <Toolbar className="pt-17">
           <h1 className="font-heading font-bold text-lg flex-grow pl-3">
             Expendee
           </h1>

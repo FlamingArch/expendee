@@ -27,22 +27,22 @@ const styles = {
     selected: "bg-accent text-white",
   },
   sidebar: {
-    base: "grid gap-3 w-full rounded-xl text-white",
+    base: "grid gap-3 w-full rounded-xl",
     tab: "grow flex items-center w-auto bg-accent-dimmed/20 rounded-xl text-sm gap-3 cursor-pointer p-3",
     selected: "bg-accent/100 text-white",
   },
   sidebarGrouped: {
-    base: "grid w-full rounded-xl bg-accent-dimmed/20 text-white",
+    base: "grid w-full rounded-xl bg-accent-dimmed/20",
     tab: "grow flex items-center w-auto rounded-xl text-sm gap-3 cursor-pointer p-3",
     selected: "bg-accent/100 text-white",
   },
   sidebarProminent: {
-    base: "grid gap-3 w-full rounded-xl text-white",
+    base: "grid gap-3 w-full rounded-xl",
     tab: "grow flex items-center w-auto bg-accent-dimmed/20 rounded-xl text-sm gap-3 cursor-pointer p-3",
     selected: "bg-white text-black shadow-lg",
   },
   sidebarProminentGrouped: {
-    base: "grid w-full bg-accent-dimmed/20 rounded-xl text-white",
+    base: "grid w-full bg-accent-dimmed/20 rounded-xl",
     tab: "grow flex items-center w-auto rounded-xl text-sm gap-3 cursor-pointer p-3",
     selected: "bg-white text-black shadow-lg",
   },

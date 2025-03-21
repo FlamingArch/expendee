@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <>
-      <Sidebar acrylic width={260} collapsed={collapsed} className="gap-3">
+      <Sidebar width={260} collapsed={collapsed} className="gap-3">
         <Toolbar className="pt-17">
           <h1 className="font-heading font-bold text-lg flex-grow pl-3">
             Expendee
@@ -81,7 +81,7 @@ export default function App() {
           />
         </div>
       </Sidebar>
-      <Scaffold acrylic className="grow-0 w-[300px]">
+      <Scaffold className="grow-0 w-[300px]">
         <Toolbar>
           <Button
             icon={FiSidebar}
@@ -122,11 +122,11 @@ export default function App() {
         <div className="h-24 mx-4 my-2 shadow-lg bg-white dark:bg-[#222326] rounded-xl"></div>
         <div className="h-24 mx-4 my-2 shadow-lg bg-white dark:bg-[#222326] rounded-xl"></div>
       </Scaffold>
-      <Scaffold acrylic>
+      <Scaffold>
         <Toolbar>
           <Button
             icon={IoTrashOutline}
-            className="hover:bg-red-500/10"
+            className="hover:bg-red-500/10 hover:dark:bg-red-500/10"
             iconClassName="stroke-red-500"
           />
           <div className="flex-grow" />

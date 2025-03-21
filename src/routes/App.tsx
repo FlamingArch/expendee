@@ -81,8 +81,8 @@ export default function App() {
           />
         </div>
       </Sidebar>
-      <Scaffold className="grow-0 w-[300px]">
-        <Toolbar position="top">
+      <Scaffold acrylic className="grow-0 w-[300px]">
+        <Toolbar>
           <Button
             icon={FiSidebar}
             iconClassName="stroke-[1.5]"
@@ -122,7 +122,7 @@ export default function App() {
         <div className="h-24 mx-4 my-2 shadow-lg bg-white dark:bg-[#222326] rounded-xl"></div>
         <div className="h-24 mx-4 my-2 shadow-lg bg-white dark:bg-[#222326] rounded-xl"></div>
       </Scaffold>
-      <Scaffold>
+      <Scaffold acrylic>
         <Toolbar>
           <Button
             icon={IoTrashOutline}

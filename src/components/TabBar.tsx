@@ -22,27 +22,27 @@ type Props = {
 
 const styles = {
   segmented: {
-    base: "grid grid-flow-col w-full bg-accent/10 dark:bg-accent/25 rounded-xl cursor-pointer",
+    base: "grid grid-flow-col w-full bg-accent/10 dark:bg-accent/25 rounded-xl",
     tab: "grow flex items-center w-auto text-accent rounded-xl text-sm text-center gap-3 cursor-pointer p-2",
     selected: "bg-accent text-white",
   },
   sidebar: {
-    base: "grid gap-3 w-full rounded-xl text-white cursor-pointer",
+    base: "grid gap-3 w-full rounded-xl text-white",
     tab: "grow flex items-center w-auto bg-accent-dimmed/20 rounded-xl text-sm gap-3 cursor-pointer p-3",
     selected: "bg-accent/100 text-white",
   },
   sidebarGrouped: {
-    base: "grid w-full rounded-xl bg-accent-dimmed/20 text-white cursor-pointer",
+    base: "grid w-full rounded-xl bg-accent-dimmed/20 text-white",
     tab: "grow flex items-center w-auto rounded-xl text-sm gap-3 cursor-pointer p-3",
     selected: "bg-accent/100 text-white",
   },
   sidebarProminent: {
-    base: "grid gap-3 w-full rounded-xl text-white cursor-pointer",
+    base: "grid gap-3 w-full rounded-xl text-white",
     tab: "grow flex items-center w-auto bg-accent-dimmed/20 rounded-xl text-sm gap-3 cursor-pointer p-3",
     selected: "bg-white text-black shadow-lg",
   },
   sidebarProminentGrouped: {
-    base: "grid w-full bg-accent-dimmed/20 rounded-xl text-white cursor-pointer",
+    base: "grid w-full bg-accent-dimmed/20 rounded-xl text-white",
     tab: "grow flex items-center w-auto rounded-xl text-sm gap-3 cursor-pointer p-3",
     selected: "bg-white text-black shadow-lg",
   },

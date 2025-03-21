@@ -30,7 +30,11 @@ export default function App() {
 
   return (
     <>
-      <Sidebar width={260} collapsed={collapsed} className="gap-3">
+      <Sidebar
+        width={260}
+        collapsed={collapsed}
+        className="gap-3 bg-black/60 text-text-dark"
+      >
         <Toolbar className="text-white pt-17">
           <h1 className="font-heading font-bold text-lg flex-grow pl-3">
             Expendee
@@ -38,7 +42,7 @@ export default function App() {
           <Button icon={IoPersonCircleOutline} />
         </Toolbar>
         <div className="px-5 flex flex-col gap-3">
-          <h3 className="text-text-dark font-bold">Transactions</h3>
+          <h3 className="font-bold">Transactions</h3>
           <TabBar
             type="sidebar"
             selected={selectedTab}
@@ -66,7 +70,7 @@ export default function App() {
           />
         </div>
         <div className="px-5 flex flex-col gap-3">
-          <h3 className="text-text-dark font-bold">Wallets</h3>
+          <h3 className="font-bold">Wallets</h3>
           <TabBar
             type="sidebar"
             // className="mx-3"
@@ -94,9 +98,7 @@ export default function App() {
           <Button icon={IoEllipsisHorizontalCircle} />
         </Toolbar>
         <Toolbar>
-          <p className="flex-grow text-lg pl-3 text-text-light dark:text-text-dark">
-            All Transactions
-          </p>
+          <p className="flex-grow text-lg pl-3">All Transactions</p>
           <Button icon={IoSearchOutline} />
         </Toolbar>
         <Toolbar>

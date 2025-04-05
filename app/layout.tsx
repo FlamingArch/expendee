@@ -1,0 +1,33 @@
+import type { Metadata } from "next";
+import { Manrope, Playfair_Display } from "next/font/google";
+import "./globals.css";
+
+const fontBase = Manrope({
+  variable: "--font-base",
+  subsets: ["latin"],
+});
+
+const fontBranding = Playfair_Display({
+  variable: "--font-branding",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Expendee",
+  description: "The Financial Management Platform",
+};
+
+type RootLayoutProps = Readonly<{
+  children: React.ReactNode;
+}>;
+
+export default function RootLayout(props: RootLayoutProps) {
+  const fontStyles = `${fontBase.variable} ${fontBranding.variable} font-[family-name:var(--font-base)] antialiased`;
+  return (
+    <html lang="en">
+      <body className={`flex w-screen h-screen overflow-hidden ${fontStyles}`}>
+        {props.children}
+      </body>
+    </html>
+  );
+}

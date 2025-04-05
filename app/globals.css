@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root { 
+  --scaffold: #fafcff;
+  --text: #222326;
+  --accent: #0066ff;
+  --accent-dimmed: #aaafeb;
+  @media (prefers-color-scheme: dark) {
+    --scaffold: #000000;
+    --text: #ffffff;
+  }
+}
+
+@theme inline {
+  --color-scaffold: var(--scaffold);
+  --color-text: var(--text);
+  --color-accent: var(--accent);
+  --color-accent-dimmed: var(--accent-dimmed);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}

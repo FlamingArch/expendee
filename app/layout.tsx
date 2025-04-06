@@ -45,10 +45,14 @@ const wallets = [
 function ToolbarSidebar() {
   return (
     <Toolbar>
-      <p className="font-family-[family-name:var(--font-branding)] font-black text-xl">
+      <p className="font-family-[family-name:var(--font-branding)] font-black text-xl pl-3 flex-grow">
         Expendee
       </p>
-      <Button icon={IoPersonCircleOutline} />
+      <Button
+        icon={IoPersonCircleOutline}
+        className="hover:bg-white/10"
+        iconClassName="text-white"
+      />
     </Toolbar>
   );
 }
@@ -58,7 +62,10 @@ export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`flex w-screen h-screen overflow-hidden ${fontStyles}`}>
-        <Page toolbar={<ToolbarSidebar />}>
+        <Page
+          className="bg-black text-white w-[250px]"
+          toolbar={<ToolbarSidebar />}
+        >
           <Section heading="Pages">
             {tabs.map((item) => (
               <Tab

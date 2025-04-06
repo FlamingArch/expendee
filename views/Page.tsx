@@ -1,13 +1,23 @@
-type PropsPage = {
+type HomeProps = {
   toolbar?: React.ReactNode;
-  children: React.ReactNode;
-};
+  children?: React.ReactNode;
+  backdrop?: "acrylic";
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export default function Page(props: PropsPage) {
+function getAcrylicBackdrop() {
+  return "backdrop-blur-2xl backdrop-saturate-0";
+}
+
+export default function Page({
+  toolbar,
+  children,
+  backdrop,
+  ...props
+}: HomeProps) {
   return (
-    <main>
-      {props.toolbar}
-      {props.children}
+    <main {...props}>
+      {toolbar}
+      {children}
     </main>
   );
 }

@@ -36,7 +36,9 @@ export default function RootLayout(props: RootLayoutProps) {
   const fontStyles = `${fontBase.variable} ${fontBranding.variable} font-[family-name:var(--font-base)] antialiased`;
   return (
     <html lang="en">
-      <body className={`flex w-screen h-screen overflow-hidden ${fontStyles}`}>
+      <body
+        className={`flex w-screen h-screen overflow-hidden ${fontStyles} font-medium`}
+      >
         <Sidebar />
         {props.children}
       </body>

@@ -12,7 +12,7 @@ export default function Section(props: PropsSection) {
         <p className="text-sm font-bold p-4 pb-0">{props.heading}</p>
       )}
       <div
-        style={{ padding: props.innerPadding ?? 16, gap: props.innerGap ?? 16 }}
+        style={{ padding: props.innerPadding ?? 16, gap: props.innerGap ?? 12 }}
         className="flex flex-col "
       >
         {props.children}

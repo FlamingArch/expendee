@@ -8,8 +8,16 @@ import { IoPersonCircleOutline, IoPieChartOutline } from "react-icons/io5";
 import { MdWallet } from "react-icons/md";
 
 const tabs = [
-  { path: "/overview", label: "Overview", icon: IoPieChartOutline },
-  { path: "/transactions", label: "Transactions", icon: HiArrowsRightLeft },
+  {
+    path: "/overview",
+    label: "Overview",
+    icon: <IoPieChartOutline className="w-5 h-5" />,
+  },
+  {
+    path: "/transactions",
+    label: "Transactions",
+    icon: <HiArrowsRightLeft className="w-5 h-5" />,
+  },
 ];
 
 const wallets = [
@@ -21,7 +29,7 @@ const wallets = [
 function ToolbarSidebar() {
   return (
     <Toolbar>
-      <p className="font-family-[family-name:var(--font-branding)] font-black text-xl pl-3 flex-grow">
+      <p className="font-[family-name:var(--font-branding)] font-black text-xl pl-3 flex-grow">
         Expendee
       </p>
       <Button
@@ -57,7 +65,8 @@ export default function Sidebar() {
             key={item.id}
             path={`wallet/${item.id}`}
             label={item.label}
-            icon={MdWallet}
+            icon={<MdWallet />}
+            trailing={item.balance}
           />
         ))}
       </Section>

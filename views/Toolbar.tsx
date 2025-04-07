@@ -18,7 +18,7 @@ function getStickStyles(position?: "top" | "bottom") {
 }
 
 export default function Toolbar(props: Props) {
-  let layoutStyles = "flex p-2 items-center h-auto";
+  let layoutStyles = "flex p-1 items-center h-auto";
 
   return (
     <header

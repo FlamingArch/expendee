@@ -9,14 +9,14 @@ import { MdWallet } from "react-icons/md";
 
 const tabs = [
   {
-    path: "/overview",
-    label: "Overview",
-    icon: <IoPieChartOutline className="w-5 h-5" />,
-  },
-  {
     path: "/transactions",
     label: "Transactions",
     icon: <HiArrowsRightLeft className="w-5 h-5" />,
+  },
+  {
+    path: "/overview",
+    label: "Overview",
+    icon: <IoPieChartOutline className="w-5 h-5" />,
   },
 ];
 
@@ -29,14 +29,16 @@ const wallets = [
 function ToolbarSidebar() {
   return (
     <Toolbar>
-      <p className="font-[family-name:var(--font-branding)] font-black text-xl pl-3 flex-grow">
-        Expendee
-      </p>
-      <Button
-        icon={IoPersonCircleOutline}
-        className="hover:bg-white/10"
-        iconClassName="text-white"
-      />
+      <div className="flex items-center">
+        <p className="font-[family-name:var(--font-branding)] font-black text-xl pl-3 flex-grow">
+          Expendee
+        </p>
+        <Button
+          icon={IoPersonCircleOutline}
+          className="hover:bg-white/10"
+          iconClassName="text-white"
+        />
+      </div>
     </Toolbar>
   );
 }

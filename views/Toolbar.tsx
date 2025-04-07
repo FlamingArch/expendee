@@ -1,6 +1,8 @@
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
+  leading?: React.ReactNode;
+  trailing?: React.ReactNode;
   position?: "top" | "bottom";
 };
 
@@ -18,7 +20,7 @@ function getStickStyles(position?: "top" | "bottom") {
 }
 
 export default function Toolbar(props: Props) {
-  let layoutStyles = "flex p-1 items-center h-auto";
+  let layoutStyles = "flex p-1 items-stretch h-auto flex-col";
 
   return (
     <header
@@ -26,6 +28,13 @@ export default function Toolbar(props: Props) {
         props.className
       }`}
     >
+      {(props.leading || props.trailing) && (
+        <div className="flex gap-1">
+          {props.leading}
+          <div className="grow"></div>
+          {props.trailing}
+        </div>
+      )}
       {props.children}
     </header>
   );

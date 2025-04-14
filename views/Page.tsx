@@ -1,4 +1,4 @@
-type HomeProps = {
+type PageProps = {
   toolbar?: React.ReactNode;
   children?: React.ReactNode;
   backdrop?: "acrylic";
@@ -12,12 +12,18 @@ export default function Page({
   toolbar,
   children,
   backdrop,
+  className,
   ...props
-}: HomeProps) {
+}: PageProps) {
   return (
-    <main {...props}>
+    <main
+      {...props}
+      className={`bg-slate-400 border-r border-slate-200 ${
+        className ?? ""
+      }`}
+    >
       {toolbar}
-      {children}
+      <div className="">{children}</div>
     </main>
   );
 }

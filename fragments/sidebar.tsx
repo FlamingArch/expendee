@@ -9,14 +9,14 @@ import { MdWallet } from "react-icons/md";
 
 const tabs = [
   {
+    path: "/",
+    label: "Overview",
+    icon: <IoPieChartOutline className="w-5 h-5" />,
+  },
+  {
     path: "/transactions",
     label: "Transactions",
     icon: <HiArrowsRightLeft className="w-5 h-5" />,
-  },
-  {
-    path: "/overview",
-    label: "Overview",
-    icon: <IoPieChartOutline className="w-5 h-5" />,
   },
 ];
 
@@ -65,7 +65,7 @@ export default function Sidebar() {
           <Tab
             style="sidebar"
             key={item.id}
-            path={`wallet/${item.id}`}
+            path={`/wallet/${item.id}`}
             label={item.label}
             icon={<MdWallet />}
             trailing={item.balance}

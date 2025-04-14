@@ -24,9 +24,9 @@ export default function Toolbar(props: Props) {
 
   return (
     <header
-      className={`${layoutStyles} ${getStickStyles(props.position)} ${
-        props.className
-      }`}
+      className={`${layoutStyles} bg-scaffold ${getStickStyles(
+        props.position
+      )} ${props.className}`}
     >
       {(props.leading || props.trailing) && (
         <div className="flex gap-1">

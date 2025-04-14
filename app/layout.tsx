@@ -1,16 +1,6 @@
 import { Manrope, Playfair_Display } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-
-import Page from "@/views/Page";
-import Section from "@/views/Section";
-import Tab from "@/views/Tab";
-
-import { MdWallet } from "react-icons/md";
-import { HiArrowsRightLeft } from "react-icons/hi2";
-import { IoPersonCircleOutline, IoPieChartOutline } from "react-icons/io5";
-import Button from "@/views/Button";
-import Toolbar from "@/views/Toolbar";
 import Sidebar from "@/fragments/sidebar";
 
 const fontBase = Manrope({

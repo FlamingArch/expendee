@@ -7,6 +7,8 @@ import { HiArrowsRightLeft } from "react-icons/hi2";
 import { IoPersonCircleOutline, IoPieChartOutline } from "react-icons/io5";
 import { MdWallet } from "react-icons/md";
 
+const sidebarAlwaysDark = true;
+
 const tabs = [
   {
     path: "/",
@@ -28,15 +30,15 @@ const wallets = [
 
 function ToolbarSidebar() {
   return (
-    <Toolbar>
+    <Toolbar className={sidebarAlwaysDark ? "!bg-black" : ""}>
       <div className="flex items-center">
         <p className="font-[family-name:var(--font-branding)] font-black text-xl pl-3 flex-grow">
           Expendee
         </p>
         <Button
           icon={IoPersonCircleOutline}
-          className="hover:bg-white/10"
-          iconClassName="text-white"
+          className={sidebarAlwaysDark ? "hover:bg-white/10" : ""}
+          iconClassName={sidebarAlwaysDark ? "text-white" : ""}
         />
       </div>
     </Toolbar>
@@ -46,7 +48,9 @@ function ToolbarSidebar() {
 export default function Sidebar() {
   return (
     <Page
-      className="bg-black text-white w-[250px]"
+      className={
+        "w-[250px] " + (sidebarAlwaysDark ? "!bg-black text-white" : "")
+      }
       toolbar={<ToolbarSidebar />}
     >
       <Section heading="Pages">

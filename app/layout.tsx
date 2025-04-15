@@ -27,7 +27,7 @@ export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`flex w-screen h-screen overflow-hidden ${fontStyles} font-medium`}
+        className={`flex w-screen h-screen overflow-hidden bg-scaffold ${fontStyles} font-medium`}
       >
         <Sidebar />
         {props.children}

@@ -53,7 +53,7 @@ export default function Tab(props: {
       {props.icon}
       <p className="flex-grow">{props.label}</p>
       {props.trailing && (
-        <div className="text-text/80 text-sm">{props.trailing}</div>
+        <div className="opacity-70 text-sm">{props.trailing}</div>
       )}
     </Link>
   );

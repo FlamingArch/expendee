@@ -6,5 +6,5 @@ type PropsPageWallet = {
 
 export default async function PageWallet({ params }: PropsPageWallet) {
   const { walletId } = await params;
-  return <Page>Sup Bitches</Page>;
+  return <Page>Wallet Page for Wallet ID: {walletId}</Page>;
 }

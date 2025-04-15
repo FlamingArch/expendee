@@ -18,7 +18,7 @@ export default function Page({
   return (
     <main
       {...props}
-      className={`bg-slate-400 border-r border-slate-200 ${
+      className={`bg-scaffold border-r border-slate-200 dark:border-slate-900 text-text ${
         className ?? ""
       }`}
     >

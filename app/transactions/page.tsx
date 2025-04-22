@@ -1,11 +1,12 @@
 import Button from "@/views/Button";
 import Page from "@/views/Page";
 import Toolbar from "@/views/Toolbar";
-import { FiSidebar } from "react-icons/fi";
 import {
+  IoCheckboxOutline,
   IoEllipsisHorizontalCircleOutline,
   IoFilterSharp,
 } from "react-icons/io5";
+import ToggleSidebarButton from "../toggleSidebarButton";
 
 function ToolbarTransactions() {
   return (
@@ -13,8 +14,8 @@ function ToolbarTransactions() {
       position="top"
       leading={
         <>
-          <Button icon={FiSidebar} iconClassName="stroke-[1.5]" />
-          <Button icon={FiSidebar} iconClassName="stroke-[1.5]" />
+          <ToggleSidebarButton />
+          <Button icon={IoCheckboxOutline} iconClassName="stroke-[1.5]" />
         </>
       }
       trailing={

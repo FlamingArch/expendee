@@ -1,3 +1,4 @@
+import Collapsible from "@/app/collapsible";
 import Button from "@/views/Button";
 import Page from "@/views/Page";
 import Section from "@/views/Section";
@@ -46,36 +47,42 @@ function ToolbarSidebar() {
 }
 
 export default function Sidebar() {
+  let width = 240;
   return (
-    <Page
-      className={
-        "w-[250px] " + (sidebarAlwaysDark ? "!bg-black text-white" : "")
-      }
-      toolbar={<ToolbarSidebar />}
-    >
-      <Section heading="Pages">
-        {tabs.map((item) => (
-          <Tab
-            style="sidebar"
-            key={item.path}
-            path={item.path}
-            label={item.label}
-            icon={item.icon}
-          />
-        ))}
-      </Section>
-      <Section heading="Wallets">
-        {wallets.map((item) => (
-          <Tab
-            style="sidebar"
-            key={item.id}
-            path={`/wallet/${item.id}`}
-            label={item.label}
-            icon={<MdWallet />}
-            trailing={item.balance}
-          />
-        ))}
-      </Section>
-    </Page>
+    <Collapsible width={width}>
+      <Page
+        style={{
+          width: 240,
+        }}
+        className={
+          "shrink-0 " + (sidebarAlwaysDark ? "!bg-black text-white " : "")
+        }
+        toolbar={<ToolbarSidebar />}
+      >
+        <Section heading="Pages">
+          {tabs.map((item) => (
+            <Tab
+              style="sidebar"
+              key={item.path}
+              path={item.path}
+              label={item.label}
+              icon={item.icon}
+            />
+          ))}
+        </Section>
+        <Section heading="Wallets">
+          {wallets.map((item) => (
+            <Tab
+              style="sidebar"
+              key={item.id}
+              path={`/wallet/${item.id}`}
+              label={item.label}
+              icon={<MdWallet />}
+              trailing={item.balance}
+            />
+          ))}
+        </Section>
+      </Page>
+    </Collapsible>
   );
 }

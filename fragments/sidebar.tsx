@@ -1,4 +1,5 @@
 import Collapsible from "@/app/collapsible";
+import ToggleSidebarButton from "@/app/toggleSidebarButton";
 import Button from "@/views/Button";
 import Page from "@/views/Page";
 import Section from "@/views/Section";
@@ -31,17 +32,25 @@ const wallets = [
 
 function ToolbarSidebar() {
   return (
-    <Toolbar className={sidebarAlwaysDark ? "!bg-black" : ""}>
-      <div className="flex items-center">
+    <Toolbar
+      className={sidebarAlwaysDark ? "!bg-black !text-white" : ""}
+      leading={
         <p className="font-[family-name:var(--font-branding)] font-black text-xl pl-3 flex-grow">
           Expendee
         </p>
-        <Button
-          icon={IoPersonCircleOutline}
-          className={sidebarAlwaysDark ? "hover:bg-white/10" : ""}
-          iconClassName={sidebarAlwaysDark ? "text-white" : ""}
-        />
-      </div>
+      }
+      trailing={
+        <>
+          <Button
+            icon={IoPersonCircleOutline}
+            className={sidebarAlwaysDark ? "hover:bg-white/20" : ""}
+            iconClassName={sidebarAlwaysDark ? "text-white" : ""}
+          />
+          <ToggleSidebarButton inSidebar />
+        </>
+      }
+    >
+      <div className="flex items-center"></div>
     </Toolbar>
   );
 }

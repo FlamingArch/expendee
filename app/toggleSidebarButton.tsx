@@ -5,11 +5,26 @@ import { FiSidebar } from "react-icons/fi";
 import useAppStore from "./store";
 import { useShallow } from "zustand/shallow";
 
-export default function ToggleSidebarButton() {
-  const { toggle } = useAppStore(
-    useShallow((state) => ({ toggle: state.sidebarToggle }))
+export default function ToggleSidebarButton({
+  inSidebar = false,
+}: {
+  inSidebar?: boolean;
+}) {
+  const { toggle, visible } = useAppStore(
+    useShallow((state) => ({
+      toggle: state.sidebarToggle,
+      visible: state.sidebarExpanded,
+    }))
   );
-  return (
-    <Button icon={FiSidebar} iconClassName="stroke-[1.5]" onClick={toggle} />
+  let isVisible = inSidebar ? visible : !visible;
+  return !isVisible ? (
+    <></>
+  ) : (
+    <Button
+      icon={FiSidebar}
+      className={inSidebar ? "hover:bg-white/20" : ""}
+      iconClassName={"stroke-[1.5] " + (inSidebar ? "text-white " : "")}
+      onClick={toggle}
+    />
   );
 }

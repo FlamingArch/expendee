@@ -29,7 +29,7 @@ export default function Toolbar(props: Props) {
       )} ${props.className}`}
     >
       {(props.leading || props.trailing) && (
-        <div className="flex gap-1">
+        <div className="flex gap-1 items-center">
           {props.leading}
           <div className="grow"></div>
           {props.trailing}

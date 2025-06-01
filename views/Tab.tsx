@@ -17,11 +17,11 @@ const styles = {
   },
   sidebar: {
     tab: "grow flex items-center w-auto bg-accent-dimmed/20 rounded-xl text-sm gap-3 cursor-pointer p-3",
-    selected: "bg-accent/100 text-white shadow-lg shadow-accent/40 ",
+    selected: "bg-accent/100 text-white shadow-xl shadow-accent/25 ",
   },
   sidebarGrouped: {
     tab: "grow flex items-center w-auto rounded-xl text-sm gap-3 cursor-pointer p-3",
-    selected: "bg-accent/100 text-white shadow-lg shadow-accent/40 ",
+    selected: "bg-accent/100 text-white shadow-xl shadow-accent/25 ",
   },
   sidebarProminent: {
     tab: "grow flex items-center w-auto bg-accent-dimmed/20 rounded-xl text-sm gap-3 cursor-pointer p-3",
